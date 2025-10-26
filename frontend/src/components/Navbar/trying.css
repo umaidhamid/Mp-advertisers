@@ -1,0 +1,78 @@
+.herosection {
+  width: 100%;
+  height: 100vh;
+  font-size: large;
+  color: black;
+  /* margin-top: 11vh; */
+  overflow-x: hidden;
+  display: flex;
+  /* position: relative; */
+  /* background-color: lightgreen; */
+}
+video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -99;
+}
+.main {
+  position: relative;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.364);
+}
+.headings {
+  /* height: 100vh; */
+  /* width: 100%; */
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  flex-direction: column;
+  /* padding: 30rem 2rem; */
+}
+.headings h1 {
+  position: absolute;
+  top: 20%;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  transition: transform 0.3s ease-in-out;
+  /* left: 20%; */
+  /* transform: translate(-50%, -50%); Center horizontally & vertically */
+  font-size: clamp(2rem, 8vw, 70px);
+}
+.headings h1::before {
+  content: "Create. Advertise. Grow.";
+  position: absolute;
+  color: rgb(45, 66, 131);
+  -webkit-text-stroke: 13px;
+  left: -3px;
+  top: -3px;
+  z-index: -1;
+}
+.headings h1:hover {
+  cursor: pointer;
+  transition: all 0.3s ease;
+  transform: scale(1.05);
+}
+.headings h2 {
+  font-size: clamp(1.5rem, 4vw, 33px); /* Responsive font size */
+  font-weight: 700;
+  margin: 10px 0px 40px;
+  /* background: linear-gradient(blue, rgb(28, 28, 120)); */
+  background: linear-gradient(blue, rgb(28, 28, 120));
+  -webkit-background-clip: text;
+  color: transparent;
+  text-align: center; /* Center text on mobile */
+}
+.headings p {
+  font-size: clamp(20px, 2vw, 15px); /* Responsive font size */
+  /* font-weight: 300; */
+  /* width: 60%; */
+  /* line-height: 25px; */
+  text-align: center;
+  max-width: 90%; /* Make it responsive */
+  /* width: 500px; */
+}
