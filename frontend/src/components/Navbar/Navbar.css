@@ -127,6 +127,7 @@ social-icons img:hover {
 .hamburger span {
   width: 30px;
   height: 4px;
+  color: white;
   background: black;
   transition: 0.3s;
 }
@@ -135,7 +136,9 @@ social-icons img:hover {
 @media (max-width: 768px) {
   .hamburger {
     display: flex;
+    padding-right: 25px;
     z-index: 1100;
+    /* padding: 100px; */
     color: red;
   }
 
@@ -170,7 +173,7 @@ social-icons img:hover {
     padding-left: 2rem;
   }
 
-  nav.active ul li a {
+  nav.active ul li button {
     color: white;
     font-size: 1.8rem;
   }
