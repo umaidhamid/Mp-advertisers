@@ -1,0 +1,108 @@
+/* ✅ Main section */
+.industries-section {
+  width: 100%;
+  text-align: center;
+  padding: 70px 20px;
+  background: #fae3f7;
+}
+
+/* ✅ Heading */
+.industries-title {
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin-bottom: 60px;
+  color: #1a1a1a;
+  border-bottom: 4px solid #e6007a;
+  display: inline-block;
+  padding-bottom: 10px;
+}
+
+/* ✅ Grid Layout */
+.industries-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 45px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* ✅ Cards */
+.industry-card {
+  background: white;
+  padding: 25px 20px;
+  border-radius: 16px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  cursor: pointer;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.industry-card img {
+  width: 65px;
+  height: 65px;
+  object-fit: contain;
+}
+
+.industry-card p {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+/* ✅ Hover Effect */
+.industry-card:hover {
+  transform: translateY(-8px);
+  background: #ffe6f3;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.15);
+}
+
+/* ===========================
+ ✅ 💡 RESPONSIVE DESIGN
+=========================== */
+
+/* ✅ Tablet */
+@media (max-width: 1024px) {
+  .industries-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 35px;
+    max-width: 850px;
+  }
+
+  .industry-card {
+    padding: 22px 18px;
+  }
+}
+
+/* ✅ Mobile */
+@media (max-width: 600px) {
+  .industries-section {
+    padding: 45px 12px;
+  }
+
+  .industries-title {
+    font-size: 2rem;
+    margin-bottom: 35px;
+  }
+
+  .industries-grid {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 25px;
+    max-width: 380px;
+  }
+
+  .industry-card {
+    padding: 20px 16px;
+  }
+
+  .industry-card img {
+    width: 58px;
+    height: 58px;
+  }
+
+  .industry-card p {
+    font-size: 1rem;
+  }
+}

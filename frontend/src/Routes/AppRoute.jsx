@@ -2,13 +2,17 @@ import React from "react";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import AboutUs from "../components/Aboutpage/AboutUs.jsx";
 import Home from "../Home.jsx";
+import Industries from "../components/Industries/Industries.jsx";
+import ContactUs from "../components/ContactUs/ContactUs.jsx";
 const AppRoute = () => {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/Home" element={<Home />} />
-        <Route path="AboutUs" element={<AboutUs />} />
+        <Route path="/AboutUs" element={<AboutUs />} />
+        <Route path="/industries" element={<Industries />} />
+        <Route path="/Contact-Us" element={<ContactUs/>} />
 
         {/* <Route element={<ProtectedRoutes />}> */}
         {/* <Route path="/home" element={<Home />} /> */}

@@ -4,11 +4,13 @@
   height: 100%; */
   margin: 0;
   /* color: aliceblue; */
+
   padding: 0;
 }
 body,
 html {
   width: 100%;
+  overflow-x: hidden;
   height: 100%;
   font-family: Helvetica, sans-serif;
 

@@ -1,13 +1,19 @@
-import React from "react";
+import React ,{useEffect}from "react";
 import video from "../../assets/videoplayback.mp4";
 import Heading from "../../assets/Mpheadline.png";
 import "./Main.css";
 const Main = () => {
+  useEffect(() => {
+    const videoElement = document.getElementById("bgVideo");
+    if (videoElement) {
+      videoElement.playbackRate = 0.8; 
+    }
+  }, []);
   return (
     <div className="herosection overflow-hidden">
-      <video id="bgVideo" loop muted autoPlay src={video}></video>
+      <video id="bgVideo" loop muted  src={video}></video>
       <div className="headings">
-        <h2>Welcome to </h2>
+        <h2>Welcome </h2>
         <img src={Heading} alt="heading" />
         <h1>Create. Advertise. Grow.</h1>
         <p>

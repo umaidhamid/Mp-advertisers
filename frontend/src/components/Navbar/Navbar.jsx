@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Navbar.css";
 import logoImg from "../../assets/Logo.png";
-import fbIcon from "../../assets/facebook.webp";
-import instaIcon from "../../assets/instagram.webp";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faInstagram, faFacebook } from "@fortawesome/free-brands-svg-icons";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -53,33 +53,33 @@ const Navbar = () => {
             </button>
           </li>
           <li>
-           <button
+            <button
               className="nav-link"
               onClick={() => {
                 setIsOpen(false);
                 navigate("/Products");
               }}
             >
-               Products
+              Products
             </button>
           </li>
           <li>
-          <button
+            <button
               className="nav-link"
               onClick={() => {
                 setIsOpen(false);
-                navigate("/AboutUs");
+                navigate("/industries");
               }}
             >
-            Clients
+          Our Services
             </button>
           </li>
           <li>
-          <button
+            <button
               className="nav-link"
               onClick={() => {
                 setIsOpen(false);
-                navigate("/AboutUs");
+                navigate("/Contact-Us");
               }}
             >
               Contact
@@ -89,11 +89,11 @@ const Navbar = () => {
       </nav>
 
       <div className="social-icons">
-        <a href="#">
-          <img src={fbIcon} alt="Facebook" />
+        <a href="https://www.facebook.com/share/1BqnLc5wBA/">
+          <FontAwesomeIcon icon={faFacebook} size="3x" />
         </a>
-        <a href="#">
-          <img src={instaIcon} alt="Instagram" />
+        <a href="https://www.instagram.com/mpadvertisers?igsh=MXNoMXpqaWNpdmVzbA==">
+          <FontAwesomeIcon icon={faInstagram} size="3x" />
         </a>
       </div>
     </header>

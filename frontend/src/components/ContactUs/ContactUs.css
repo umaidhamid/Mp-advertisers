@@ -1,0 +1,128 @@
+/* ✅ Theme Background (Watercolor Pink Style) */
+.contact-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #ffb3d1, #ff66b3, #ffe0f0);
+  background-size: cover;
+  position: relative;
+  /* padding: 40px 0; */
+
+}
+.contact-wrapper::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: url("https://i.imgur.com/lqvbnHJ.png");
+  opacity: 0.35;
+  z-index: -1;
+}
+
+/* ✅ Header */
+.contact-header {
+  text-align: center;
+  margin-bottom: 25px; /* ✅ smaller because full height */
+}
+
+.contact-header h1 {
+  font-size: 3rem;
+  font-weight: 900;
+  color: #000;
+  border-bottom: 4px solid #ff007f;
+  padding-bottom: 6px;
+  display: inline-block;
+  letter-spacing: 1px;
+}
+
+/* ✅ Contact Grid - Now clean centered */
+.contact-grid {
+  width: 55%;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  z-index: 2;
+}
+
+/* ✅ Cards with premium styling */
+.contact-card,
+.contact-form {
+  background: rgba(255, 255, 255, 0.92);
+  padding: 28px 25px;
+  border-radius: 18px;
+  box-shadow: 0px 10px 30px rgba(255, 58, 140, 0.25);
+  backdrop-filter: blur(6px);
+  transition: 0.35s ease;
+  border: 1px solid rgba(255, 0, 122, 0.15);
+}
+
+.contact-card:hover,
+.contact-form:hover {
+  transform: translateY(-10px);
+  box-shadow: 0px 18px 40px rgba(255, 20, 110, 0.35);
+}
+
+/* ✅ Card Titles */
+.contact-card h2 {
+  font-size: 1.7rem;
+  margin-bottom: 10px;
+  font-weight: 800;
+  color: #ff007f;
+}
+
+/* ✅ Form Inputs */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 14px;
+  font-size: 1rem;
+  border-radius: 10px;
+  border: 2px solid #f0cce1;
+  background: #fff;
+  transition: 0.25s;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #ff007f;
+  outline: none;
+}
+
+/* ✅ Button - Strong Accent */
+.contact-form button {
+  background: #ff007f;
+  color: #fff;
+  padding: 14px;
+  font-size: 1.15rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: 0.3s;
+  letter-spacing: 1px;
+}
+
+.contact-form button:hover {
+  background: #d60069;
+  transform: scale(1.03);
+}
+
+/* ✅ Responsive for Mobile */
+@media (max-width: 768px) {
+  .contact-grid {
+    width: 90%;
+    height: 100vh;
+  }
+  .contact-header h1 {
+    font-size: 2.3rem;
+  }
+}
