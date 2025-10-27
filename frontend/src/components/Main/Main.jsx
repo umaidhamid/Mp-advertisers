@@ -18,6 +18,7 @@ const Main = () => {
           make marketing simple, effective, and powerful.
         </p>
       </div>
+     
     </div>
   );
 };

@@ -80,6 +80,7 @@ video {
   height: auto; /* Maintain aspect ratio */
   margin: 1rem auto; /* Center horizontally with top/bottom spacing */
 }
+
 @media (max-width: 768px) {
   .headings img {
     max-width: 90%; /* Shrinks on smaller screens */
