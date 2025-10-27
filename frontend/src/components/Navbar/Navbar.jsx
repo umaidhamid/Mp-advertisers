@@ -71,7 +71,7 @@ const Navbar = () => {
                 navigate("/industries");
               }}
             >
-          Our Services
+              Industries
             </button>
           </li>
           <li>

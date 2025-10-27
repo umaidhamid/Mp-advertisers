@@ -1,0 +1,155 @@
+.cartLogo {
+  display: flex;
+  align-items: end;
+  justify-content: end;
+  width: 100%;
+  padding-right: 30px;
+  padding-top: 20px;
+}
+.ProductsScreen {
+  background: linear-gradient(135deg, #ffb3d1, #ff66b3, #ffe0f0);
+  width: 100%;
+  display: flex;
+  /* height: 100vh; */
+  padding-bottom: 100px;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
+}
+
+.Product-heading {
+  /* margin-top: 20px; */
+  text-align: center;
+  margin-bottom: 40px;
+  padding: 0 15px;
+}
+
+.Product-heading h1 {
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: #003b73;
+  position: relative;
+  display: inline-block;
+  margin-bottom: 12px;
+}
+
+/* ✅ Stylish underline */
+.Product-heading h1::after {
+  content: "";
+  width: 80%;
+  height: 4px;
+  background: #0077ff;
+  display: block;
+  margin: 6px auto 0;
+  border-radius: 2px;
+}
+
+/* ✅ Tagline */
+.Product-heading p {
+  font-size: 1.3rem;
+  /* font-weight: 700; */
+  font-weight: bold;
+  color: #3a3a3a;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.4;
+}
+.Card-main {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* ✅ Always 3 items in desktop */
+  gap: 30px;
+  width: 100%;
+
+  max-width: 1200px; /* ✅ Keeps cards centered */
+  margin: 0 auto; /* ✅ Centers grid container */
+  justify-items: center; /* ✅ Centers cards inside */
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+  .Card-main {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .Card-main {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+  }
+}
+
+/* ✅ Mobile Responsive */
+@media (max-width: 600px) {
+  .Product-heading h1 {
+    font-size: 2rem;
+  }
+
+  .Product-heading p {
+    font-size: 1rem;
+    padding: 0 10px;
+  }
+}
+/*  one card css  */
+.oneCard {
+  width: 260px;
+  height: auto;
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
+  transition: 0.3s ease;
+  cursor: pointer;
+}
+
+/* Hover effect */
+.oneCard:hover {
+  transform: translateY(-6px);
+  box-shadow: 0px 6px 22px rgba(0, 0, 0, 0.22);
+}
+
+/* Product Image */
+.oneCard img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* Product Name */
+.Product-name {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #222;
+  text-align: center;
+}
+
+/* Product Price */
+.product-price {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #0077ff;
+}
+
+/* Add to Cart Button */
+.cart {
+  width: 100%;
+  padding: 10px 0;
+  background: #ff007a;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.cart:hover {
+  background: #d60068;
+}

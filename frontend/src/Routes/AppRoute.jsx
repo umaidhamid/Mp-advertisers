@@ -4,6 +4,7 @@ import AboutUs from "../components/Aboutpage/AboutUs.jsx";
 import Home from "../Home.jsx";
 import Industries from "../components/Industries/Industries.jsx";
 import ContactUs from "../components/ContactUs/ContactUs.jsx";
+import Products from "../components/OverProducts/Products.jsx";
 const AppRoute = () => {
   return (
     <BrowserRouter>
@@ -12,7 +13,8 @@ const AppRoute = () => {
         <Route path="/Home" element={<Home />} />
         <Route path="/AboutUs" element={<AboutUs />} />
         <Route path="/industries" element={<Industries />} />
-        <Route path="/Contact-Us" element={<ContactUs/>} />
+        <Route path="/Contact-Us" element={<ContactUs />} />
+        <Route path="/Products" element={<Products />} />
 
         {/* <Route element={<ProtectedRoutes />}> */}
         {/* <Route path="/home" element={<Home />} /> */}
