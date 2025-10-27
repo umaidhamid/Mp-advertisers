@@ -17,8 +17,7 @@ const Main = () => {
           Passionate about creativity, strategy, and measurable results — we
           make marketing simple, effective, and powerful.
         </p>
-      </div>
-     
+        </div>
     </div>
   );
 };

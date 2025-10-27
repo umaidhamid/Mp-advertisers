@@ -7,6 +7,7 @@
   align-items: center;
   height: auto;
   justify-content: center;
+
   background: linear-gradient(135deg, #111 0%, #ff007a 100%);
   height: 100%;
 }
@@ -41,9 +42,10 @@
   margin: 8px 0 25px;
   letter-spacing: 1px;
 }
-.welcome{
-    padding: 10px;
-    color: rgba(20, 20, 193, 0.849);
+.welcome {
+  padding: 10px;
+  /* color: rgba(20, 20, 193, 0.849); */
+  color: white;
 }
 .hero-services {
   font-size: 18px;

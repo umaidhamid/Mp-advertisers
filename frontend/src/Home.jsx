@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "./components/Navbar/Navbar.jsx";
 import Main from "./components/Main/Main.jsx";
 import { useNavigate } from "react-router-dom";
+import MapSection from "./components/Map/Map.jsx";
 const App = () => {
   const navigate = useNavigate();
   return (
@@ -42,7 +43,40 @@ const App = () => {
         >
           View Products
         </button>
+      </div>{" "}
+      <div
+        style={{
+          width: "100%",
+        }}
+        className="about-wrapper"
+      >
+        {/* Mission Section */}
+        <section className="section-box">
+          <h2 className="heading pink">Mission</h2>
+          <p>To make other brands great, giving them life through marketing.</p>
+        </section>
+
+        {/* Vision Section */}
+        <section className="section-box dark-bg">
+          <h2 className="heading pink">Vision</h2>
+          <p>
+            To be the preferred print and fulfillment partner to marketing
+            managers, through consistency & reliability.
+          </p>
+        </section>
+
+        {/* Purpose Section */}
+        <section className="section-box">
+          <h2 className="heading pink">Our Purpose</h2>
+          <p>
+            We exist to simplify and speed up the printing process to give you a
+            hassle free experience.
+          </p>
+        </section>
+
+        {/* Footer Contact */}
       </div>
+      <MapSection />
     </div>
   );
 };

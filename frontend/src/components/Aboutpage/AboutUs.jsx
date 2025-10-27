@@ -15,29 +15,6 @@ const AboutPage = () => {
       </div>
       <h1 className="welcome">Thanks For Visit</h1>
       <div className="about-wrapper">
-        {/* Mission Section */}
-        <section className="section-box">
-          <h2 className="heading pink">Mission</h2>
-          <p>To make other brands great, giving them life through marketing.</p>
-        </section>
-
-        {/* Vision Section */}
-        <section className="section-box dark-bg">
-          <h2 className="heading pink">Vision</h2>
-          <p>
-            To be the preferred print and fulfillment partner to marketing
-            managers, through consistency & reliability.
-          </p>
-        </section>
-
-        {/* Purpose Section */}
-        <section className="section-box">
-          <h2 className="heading pink">Our Purpose</h2>
-          <p>
-            We exist to simplify and speed up the printing process to give you a
-            hassle free experience.
-          </p>
-        </section>
 
         {/* 7 Reasons Section */}
         <section className="reasons-wrapper">
