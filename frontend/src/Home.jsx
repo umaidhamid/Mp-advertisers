@@ -13,9 +13,12 @@ const App = () => {
           position:"fixed",
           bottom: "30px",
           right: "30px",
-          fontSize: "75px",
-          color: "green",
+          padding:"5px",
+          fontSize: "4rem",
+          color: "white",
           cursor: "pointer",
+          backgroundColor:"green",
+          borderRadius:"50%",
           zIndex:"9000"
         }}
         onClick={() => window.open("https://wa.me/919149455296", "_blank")}
