@@ -97,7 +97,7 @@
 .about-wrapper {
   font-family: "Poppins", sans-serif;
   width: 80%;
-
+  background: linear-gradient(135deg, #ff007a 0%, #9b0050 100%);
   color: #222;
   overflow-x: hidden;
 }
@@ -154,7 +154,7 @@
 /* 7 REASONS SECTION */
 .reasons-wrapper {
   padding: 70px 12%;
-  background: linear-gradient(135deg, #ff007a 0%, #9b0050 100%);
+  /* background: linear-gradient(135deg, #ff007a 0%, #9b0050 100%); */
   color: white;
 }
 
@@ -221,5 +221,73 @@
   }
   .reasons-wrapper {
     padding: 50px 20px;
+  }
+} /* Owners Section */
+.heading{color: white;}
+.owners-section {
+  padding: 70px 12%;
+
+  /* background: linear-gradient(135deg, #ff007a 0%, #9b0050 100%); */
+  text-align: center;
+}
+
+.owners-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
+  margin-top: 40px;
+}
+.AboutHeading{
+    color: #ff007a;
+}
+.owner-card {
+  background: #fafafa;
+  padding: 25px;
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  transition: 0.3s ease;
+}
+
+.owner-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
+}
+
+.owner-photo {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 18px;
+  border: 4px solid #ff007a;
+}
+
+.owner-name {
+  font-size: 22px;
+  font-weight: 700;
+  color: #ff007a;
+}
+
+.owner-position {
+  font-size: 16px;
+  font-weight: 600;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.owner-bio {
+  font-size: 15px;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .owners-grid {
+    gap: 25px;
+  }
+  .owner-photo {
+    width: 120px;
+    height: 120px;
   }
 }

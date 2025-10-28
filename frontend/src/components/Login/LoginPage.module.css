@@ -1,0 +1,125 @@
+.loginContainer {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fae3f7;
+  font-family: "Poppins", sans-serif;
+}
+
+.loginCard {
+  background: #ffffff;
+  width: 360px;
+  padding: 60px 45px;
+  border-radius: 25px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.loginCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+.loginTitle {
+  background: linear-gradient(90deg, #2e3fff, #4a56ff);
+  color: white;
+  padding: 12px 28px;
+  border-radius: 30px;
+  font-size: 1.6rem;
+  margin-bottom: 35px;
+  display: inline-block;
+  letter-spacing: 1px;
+}
+.loginTitle:hover{
+    background: linear-gradient(90deg, #71ccc1, #4c519d);
+  color: black;
+}
+.bold {
+  font-weight: 700;
+  color: white;
+}
+
+.inputGroup {
+  display: flex;
+  align-items: center;
+  background: #f8f8ff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  padding: 15px 15px;
+  /* font-size: larger                     ; */
+  transition: border 0.3s ease;
+}
+
+.inputGroup:focus-within {
+  border: 1px solid #2e3fff;
+  background: #ffffff;
+}
+
+.icon {
+  color: #666;
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+.input {
+  border: none;
+  outline: none;
+  width: 100%;
+  font-size: 20px;
+  background: transparent;
+ color: blue;
+}
+
+.infoBox {
+  background: #f9f9ff;
+  border-radius: 15px;
+  padding: 15px 10px;
+  margin: 25px 0;
+  font-size: 13.5px;
+  color: #333;
+  line-height: 1.6;
+  box-shadow: inset 0 0 10px rgba(46, 63, 255, 0.08);
+  text-align: left;
+}
+
+.infoBox p {
+  margin: 6px 0;
+}
+
+.loginBtn {
+  width: 100%;
+  background: linear-gradient(90deg, #2e3fff, #4a56ff);
+  border: none;
+  color: white;
+  padding: 15px;
+  border-radius: 30px;
+  font-size: 16px;
+  cursor: pointer;
+  letter-spacing: 1px;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.loginBtn:hover {
+  background: linear-gradient(90deg, #1d2bcc, #3846ff);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 480px) {
+  .loginCard {
+    width: 90%;
+    padding: 35px 25px;
+  }
+
+  .loginTitle {
+    font-size: 16px;
+    padding: 10px 20px;
+  }
+
+  .loginBtn {
+    font-size: 15px;
+  }
+}

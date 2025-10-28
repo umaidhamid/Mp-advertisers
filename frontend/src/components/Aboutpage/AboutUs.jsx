@@ -1,7 +1,10 @@
 import React from "react";
 import "./AboutPage.css";
 import { Phone } from "lucide-react";
-import Logo from "../../assets/Logo.png"
+import Logo from "../../assets/Logo.png";
+import shahid from "../../assets/Images/shahid sir.webp"; // add your owner images
+import Owais from "../../assets/Images/OwaisBhat.webp"; // add your owner images
+
 const AboutPage = () => {
   return (
     <div id="main">
@@ -13,8 +16,66 @@ const AboutPage = () => {
 
         <div className="hero-services">PRINTING | DESIGNING | ADVERTISING</div>
       </div>
-      <h1 className="welcome">Thanks For Visit</h1>
+
+      <h1 className="welcome">Thanks For Visiting</h1>
+
       <div className="about-wrapper">
+        {/* About MP Advertisers */}
+        <section className="section-box">
+          <h2 className="heading  AboutHeading pink center">About MP Advertisers</h2>
+          <p>
+            MP Advertisers is a professional advertising and printing company
+            established with the vision to deliver complete printing, branding,
+            and design solutions under one roof. From concept to creation, we
+            handle every detail with precision and creativity. Our mission is to
+            help businesses stand out with impactful visuals, quality materials,
+            and innovative designs. With years of experience and modern
+            technology, we’ve become a trusted name for promotional printing,
+            signage, flex boards, and more — helping brands bring their ideas to
+            life.
+          </p>
+        </section>
+
+        {/* Owners Section */}
+        <section className="owners-section">
+          <h2 className="heading pink center text-white">Our Founders</h2>
+          <div className="owners-grid">
+            <div className="owner-card">
+              <img src={shahid} alt="Owner 1" className="owner-photo" />
+              <h3 className="owner-name">Mr. Shahid Beigh</h3>
+              <p className="owner-position">Founder & Managing Director</p>
+              <p className="owner-bio">
+                A highly accomplished IT professional with deep expertise in IT
+                infrastructure, cloud integration, and sustainable technology
+                innovation, Mr. Beigh established MP Advertisers with the vision
+                of making advanced and affordable technological solutions
+                accessible across Kashmir. Under his dynamic leadership, the
+                company has not only built a strong reputation for reliability
+                and excellence but has also forged meaningful collaborations
+                with leading national and international organizations, driving
+                digital transformation and long-term growth in the region.
+              </p>
+            </div>
+
+            <div className="owner-card">
+              <img src={Owais} alt="Owner 2" className="owner-photo" />
+              <h3 className="owner-name">Mr. Owais Hamid</h3>
+              <p className="owner-position">Co-Founder & Operations Head</p>
+              <p className="owner-bio">
+                With over twelve years of hands-on experience in graphic design,
+                acrylic craftsmanship, and visual communication, Mr. Owais heads
+                the creative division of MP Advertisers with unmatched passion
+                and precision. His deep understanding of modern design trends,
+                coupled with a strong sense of aesthetics and innovation, has
+                been instrumental in shaping the company’s distinctive visual
+                identity. Through his leadership, the creative team consistently
+                delivers high-quality branding, advertising, and promotional
+                solutions that not only reflect professionalism but also capture
+                the essence of the client’s vision and brand story.
+              </p>
+            </div>
+          </div>
+        </section>
 
         {/* 7 Reasons Section */}
         <section className="reasons-wrapper">
@@ -81,9 +142,8 @@ const AboutPage = () => {
             </div>
           </div>
         </section>
-
-        {/* Footer Contact */}
       </div>
+
       <footer className="footer">
         <Phone size={20} />
         <span>9149455296</span>

@@ -5,6 +5,7 @@ import Home from "../Home.jsx";
 import Industries from "../components/Industries/Industries.jsx";
 import ContactUs from "../components/ContactUs/ContactUs.jsx";
 import Products from "../components/OverProducts/Products.jsx";
+import LoginPage from "../components/Login/LoginPage.jsx";
 const AppRoute = () => {
   return (
     <BrowserRouter>
@@ -15,13 +16,7 @@ const AppRoute = () => {
         <Route path="/industries" element={<Industries />} />
         <Route path="/Contact-Us" element={<ContactUs />} />
         <Route path="/Products" element={<Products />} />
-
-        {/* <Route element={<ProtectedRoutes />}> */}
-        {/* <Route path="/home" element={<Home />} /> */}
-        {/* </Route> */}
-
-        {/* <Route path="/register" element={<Register />} /> */}
-        {/* <Route path="*" element={<div>Not Found 404</div>} /> */}
+        <Route path="/AdminLogin" element={<LoginPage />} />
       </Routes>
     </BrowserRouter>
   );

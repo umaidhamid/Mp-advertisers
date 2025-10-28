@@ -3,10 +3,23 @@ import Navbar from "./components/Navbar/Navbar.jsx";
 import Main from "./components/Main/Main.jsx";
 import { useNavigate } from "react-router-dom";
 import MapSection from "./components/Map/Map.jsx";
+import { FaWhatsapp } from "react-icons/fa";
 const App = () => {
   const navigate = useNavigate();
   return (
-    <div className="overflow-hidden">
+    <div style={{ position: "relative" }} className="overflow-hidden">
+      <FaWhatsapp
+        style={{
+          position:"fixed",
+          bottom: "30px",
+          right: "30px",
+          fontSize: "75px",
+          color: "green",
+          cursor: "pointer",
+          zIndex:"9000"
+        }}
+        onClick={() => window.open("https://wa.me/919149455296", "_blank")}
+      />
       <Navbar />
       <Main />
       <div

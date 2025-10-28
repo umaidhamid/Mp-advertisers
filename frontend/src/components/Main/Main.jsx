@@ -6,12 +6,12 @@ const Main = () => {
   useEffect(() => {
     const videoElement = document.getElementById("bgVideo");
     if (videoElement) {
-      videoElement.playbackRate = 0.8; 
+      videoElement.playbackRate = 0.7; 
     }
   }, []);
   return (
     <div className="herosection overflow-hidden">
-      <video id="bgVideo" loop muted  src={video}></video>
+      <video id="bgVideo" loop muted autoPlay src={video}></video>
       <div className="headings">
         <h2>Welcome </h2>
         <img src={Heading} alt="heading" />
