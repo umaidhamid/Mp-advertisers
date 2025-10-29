@@ -60,10 +60,11 @@ const ContactUs = () => {
           <h2>MP Advertisers</h2>
           <p>Srinagar, Jammu & Kashmir, India</p>
           <p>
-            <strong>Email:</strong> support@mpadvertisers.com
+            <strong>Email:</strong> mpadvts@gmail.com
           </p>
           <p>
-            <strong>Phone:</strong> +91 98765 43210
+            <strong>Phone:</strong> +91 9149455296 | +91 9906951150
+            
           </p>
 
           <div className="social-icons">
