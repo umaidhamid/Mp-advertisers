@@ -3,34 +3,40 @@ import styles from "./LoginPage.module.css";
 import { FaUser, FaLock } from "react-icons/fa";
 import { useState } from "react";
 import api from "../../api/axios.js";
+import toast from "react-hot-toast";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../../context/authContext.jsx";
+import { useContext } from "react";
 const LoginPage = () => {
   const [PopUp, setPopUp] = useState("");
   const [userName, setuserName] = useState("");
   const [Password, setPassword] = useState("");
+  const { setIsAuth } = useContext(AuthContext);
+  const navigate = useNavigate();
   console.log(userName, Password);
-  const Loginhandler = (e) => {
+  const Loginhandler = async (e) => {
     e.preventDefault();
-    axios
-      .post(
-        "https://mp-advertisers.onrender.com/api/owners/loginOwner",
-        {
-          userName,
-          Password,
-        },
-        { withCredentials: true }
-      )
-      .then((result) => {
-        toast.success("Login successful!");
-        console.log(result);
-      })
-      .catch((err) => {
-        toast.error("Invalid credentials!");
-        console.log(err);
+
+    try {
+      const result = await api.post("/api/owners/loginOwner", {
+        userName,
+        Password,
       });
+
+      toast.success("Login successful!");
+      setIsAuth(true);
+      console.log("✅ Login Response:", result.data);
+
+      // redirect to dashboard
+      navigate("/dashboard");
+    } catch (err) {
+      console.error("❌ Login Error:", err);
+      toast.error("Invalid credentials!");
+    }
   };
+
   return (
     <div className={styles.loginContainer}>
       <ToastContainer position="top-center" autoClose={2000} />

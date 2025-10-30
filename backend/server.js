@@ -4,7 +4,7 @@ import cors from "cors";
 import morgan from "morgan";
 import cookieParser from "cookie-parser";
 import connectDB from "./Database/database.js";
-
+import { authMiddleware } from "./middleware/auth.middleware.js";
 // Load environment variables
 dotenv.config();
 
@@ -18,7 +18,7 @@ const app = express();
 const allowedOrigins = [
   "http://localhost:5173", // for local dev
   "https://mpadvertisers.vercel.app", // your Vercel frontend
-]
+];
 
 // ✅ Enable CORS safely
 app.use(
@@ -47,6 +47,13 @@ app.use("/api/owners", ownerRoutes);
 // Example route
 app.get("/", (req, res) => {
   res.send("🚀 MP Advertisers backend is running!");
+});
+app.get("/api/owners/checkAuth", authMiddleware, (req, res) => {
+  try {
+    res.status(200).json({ isAuthenticated: true });
+  } catch (e) {
+    res.status(401).json({ isAuthenticated: false });
+  }
 });
 
 // Start server
