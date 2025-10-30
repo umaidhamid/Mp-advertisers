@@ -17,7 +17,7 @@ const app = express();
 // Middleware setup
 const allowedOrigins = [
   "http://localhost:5173", // for local dev
-  "https://mpadvertisers.vercel.app", // your Vercel frontend
+  "https://mp-advertisers.vercel.app", // your Vercel frontend
 ];
 
 // ✅ Enable CORS safely
