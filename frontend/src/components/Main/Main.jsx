@@ -1,6 +1,6 @@
 import React ,{useEffect}from "react";
 import video from "../../assets/videoplayback.mp4";
-import Heading from "../../assets/Mpheadline.png";
+import Heading from "../../assets/Images/MAIN PAGE LOGO.webp";
 import "./Main.css";
 const Main = () => {
   useEffect(() => {
