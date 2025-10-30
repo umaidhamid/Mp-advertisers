@@ -148,6 +148,7 @@ const App = () => {
           </h2>
         </footer>
       </>
+      
     </AuthProvider>
   );
 };
