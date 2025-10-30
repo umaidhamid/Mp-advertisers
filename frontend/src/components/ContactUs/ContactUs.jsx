@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "./ContactUs.css";
-// import toast from "react-hot-toast";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebook, faInstagram } from "@fortawesome/free-brands-svg-icons";
 
@@ -19,7 +18,7 @@ const ContactUs = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!form.name || !form.email || !form.message) {
-      // toast.error();
+     
       return;
     }
 
@@ -28,7 +27,6 @@ const ContactUs = () => {
       alert("Please enter a valid email!");
       return;
     }
-    // const loadingToast = toast.loading("Preparing WhatsApp...");
 
     const phoneNumber = "9149455296"; // ✅ Add your number here (No + sign)
     const textMessage = `Hello, My Name is ${form.name}%0AEmail: ${form.email}%0AMessage: ${form.message}`;
@@ -36,9 +34,9 @@ const ContactUs = () => {
     const whatsappURL = `https://wa.me/${phoneNumber}?text=${textMessage}`;
 
     setTimeout(() => {
-      // toast.dismiss(loadingToast);
+   
       setLoading(false);
-      // toast.success("Redirecting to WhatsApp...");
+  
       window.open(whatsappURL, "_blank");
     }, 2000);
   };

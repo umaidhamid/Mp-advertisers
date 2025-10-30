@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import styles from "./LoginPage.module.css";
 import { FaUser, FaLock } from "react-icons/fa";
 import api from "../../api/axios.js";
-// import toast from "react-hot-toast";
+
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/authContext.jsx";
 
@@ -21,13 +21,12 @@ const LoginPage = () => {
         Password,
       });
 
-      // toast.success("✅ Login successful!");
       setIsAuth(true);
       console.log("✅ Login Response:", result.data);
       navigate("/dashboard");
     } catch (err) {
       console.error("❌ Login Error:", err);
-      // toast.error("Invalid credentials! Please try again.");
+      
     }
   };
 

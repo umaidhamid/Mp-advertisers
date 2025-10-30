@@ -9,11 +9,10 @@ import LoginPage from "../components/Login/LoginPage.jsx";
 import Dashboard from "../components/Dashboard/dashBoard.jsx";
 import ProtectedRoutes from "../ProtectedRoute.jsx";
 import { AuthProvider } from "../context/authContext.jsx";
-// import { Toaster } from "react-hot-toast";
+
 const AppRoute = () => {
   return (
     <AuthProvider>
-      {/* <Toaster position="top-right" reverseOrder={false} /> */}
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
