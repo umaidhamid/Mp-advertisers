@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "./ContactUs.css";
 import toast from "react-hot-toast";
-import { Toaster } from "react-hot-toast";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebook, faInstagram } from "@fortawesome/free-brands-svg-icons";
 
@@ -46,7 +45,6 @@ const ContactUs = () => {
 
   return (
     <div className="contact-wrapper flex flex-col">
-      <Toaster position="top-right" />
       <div className="contact-header">
         <h1>Contact Us</h1>
         <p>

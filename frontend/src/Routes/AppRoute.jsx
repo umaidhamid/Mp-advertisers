@@ -13,8 +13,8 @@ import { Toaster } from "react-hot-toast";
 const AppRoute = () => {
   return (
     <AuthProvider>
+      <Toaster position="top-right" reverseOrder={false} />
       <BrowserRouter>
-        <Toaster position="top-right" reverseOrder={false} />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/Home" element={<Home />} />
