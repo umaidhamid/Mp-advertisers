@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Navbar.css";
-  import logoImg from "../../assets/icons/MAIN LOGO MP.webp";
+import logoImg from "../../assets/icons/MAIN LOGO MP.webp";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faInstagram, faFacebook } from "@fortawesome/free-brands-svg-icons";
 
@@ -83,6 +83,15 @@ const Navbar = () => {
               }}
             >
               Contact
+            </button>
+            <button
+              className="nav-link"
+              onClick={() => {
+                setIsOpen(false);
+                navigate("/dashboard");
+              }}
+            >
+              DashBoard
             </button>
           </li>
         </ul>

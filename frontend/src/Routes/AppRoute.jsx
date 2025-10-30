@@ -6,7 +6,7 @@ import Industries from "../components/Industries/Industries.jsx";
 import ContactUs from "../components/ContactUs/ContactUs.jsx";
 import Products from "../components/OverProducts/Products.jsx";
 import LoginPage from "../components/Login/LoginPage.jsx";
-import Dashboard from "../components/Dashboard/dashBoard.jsx";
+import Dashboard from "../Dashboard/dashBoard.jsx";
 import ProtectedRoutes from "../ProtectedRoute.jsx";
 import { AuthProvider } from "../context/authContext.jsx";
 
@@ -22,9 +22,11 @@ const AppRoute = () => {
           <Route path="/Contact-Us" element={<ContactUs />} />
           <Route path="/Products" element={<Products />} />
           <Route path="/AdminLogin" element={<LoginPage />} />
-          <Route element={<ProtectedRoutes />}>
+          <Route path="/dashboard" element={<Dashboard/>} />
+
+          {/* <Route element={<ProtectedRoutes />}>
             <Route path="/dashboard" element={<Dashboard />} />
-          </Route>
+          </Route> */}
         </Routes>
       </BrowserRouter>
     </AuthProvider>

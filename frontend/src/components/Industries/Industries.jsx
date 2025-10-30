@@ -1,36 +1,20 @@
 import React from "react";
 import "./Industries.css";
-
-// import agriIcon from "../../assets/icons/agriculture.png";
-// import constructionIcon from "../../assets/icons/construction.png";
-// import educationIcon from "../../assets/icons/education.png";
-// import foodIcon from "../../assets/icons/food.png";
-// import cosmeticsIcon from "../../assets/icons/cosmetics.png";
-// import miningIcon from "../../assets/icons/mining.png";
-// import wholesaleIcon from "../../assets/icons/wholesale.png";
-// import buildersIcon from "../../assets/icons/builders.png";
-// import automotiveIcon from "../../assets/icons/automotive.png";
-// import healthcareIcon from "../../assets/icons/healthcare.png";
-// import govtIcon from "../../assets/icons/government.png";
-// import wasteIcon from "../../assets/icons/waste.png";
-// import retailIcon from "../../assets/icons/retail.png";
-// import eventIcon from "../../assets/icons/event.png";
-// import manufacturingIcon from "../../assets/icons/manufacturing.png";
 import agriIcon from "../../assets/Images/INDUSTRIES/AGREECALTURE.webp";
-import constructionIcon from "../../assets/Images/INDUSTRIES/AUTOMETIVE.webp";
-import educationIcon from "../../assets/icons/Logo.png";
-import foodIcon from "../../assets/icons/Logo.png";
-import cosmeticsIcon from "../../assets/icons/Logo.png";
-import miningIcon from "../../assets/icons/Logo.png";
-import wholesaleIcon from "../../assets/icons/Logo.png";
-import buildersIcon from "../../assets/icons/Logo.png";
+import constructionIcon from "../../assets/Images/INDUSTRIES/CONSTRUCTION.webp";
+import educationIcon from "../../assets/Images/INDUSTRIES/Education.webp";
+import foodIcon from "../../assets/Images/INDUSTRIES/FOOD AND BEVRAGES.webp";
+import cosmeticsIcon from "../../assets/Images/INDUSTRIES/PERSONAL CARE.webp";
+import miningIcon from "../../assets/Images/INDUSTRIES/MINING.webp";
+import wholesaleIcon from "../../assets/Images/INDUSTRIES/WHOLESALE TRADE.webp";
+import buildersIcon from "../../assets/Images/INDUSTRIES//HOME BUILDERS.webp";
 import automotiveIcon from "../../assets/Images/INDUSTRIES/AUTOMETIVE.webp";
-import healthcareIcon from "../../assets/icons/Logo.png";
-import govtIcon from "../../assets/icons/Logo.png";
-import wasteIcon from "../../assets/icons/Logo.png";
-import retailIcon from "../../assets/icons/Logo.png";
-import eventIcon from "../../assets/icons/Logo.png";
-import manufacturingIcon from "../../assets/icons/Logo.png";
+import healthcareIcon from "../../assets/Images/INDUSTRIES/HEALTH CARE.webp";
+import govtIcon from "../../assets/Images/INDUSTRIES/COUNCEL GOVERNMENT.webp";
+import wasteIcon from "../../assets/Images/INDUSTRIES/WASE MANAGEMENT.webp";
+import retailIcon from "../../assets/Images/INDUSTRIES/RETAIL.webp";
+import eventIcon from "../../assets/Images/INDUSTRIES/EVENT NMANAGEMENT.webp";
+import manufacturingIcon from "../../assets/Images/INDUSTRIES/MANUFACTURING.webp";
 
 const industries = [
   { name: "Agriculture", icon: agriIcon },

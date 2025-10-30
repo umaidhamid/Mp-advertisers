@@ -1,0 +1,262 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(240, 248, 255, 0.812);
+  font-family: "Poppins", sans-serif;
+  min-height: 100vh;
+}
+
+/* HEADER */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  font-size: 0.9rem;
+  /* padding: 1rem; */
+  flex-wrap: wrap;
+}
+
+.selectedTab {
+  background-color: red;
+  padding: 6px 10px;
+  border-radius: 20px;
+}
+.rate {
+  display: flex;
+  flex-wrap: wrap; /* allows wrapping on small screens */
+  align-items: center;
+  justify-content: space-between; /* distribute space nicely */
+  width: 100%;
+  gap: 10px; /* smaller and more flexible gap */
+}
+
+.rate .input {
+  flex: 1; /* makes both inputs share space equally */
+  min-width: 120px; /* prevent them from becoming too small */
+}
+/* MAIN */
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 2rem 1rem;
+  background-color: #ffe4ec;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+/* UPLOAD SECTION */
+.uploadSection {
+  width: 100%;
+  max-width: 600px;
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+  box-sizing: border-box;
+}
+
+.sectionTitle {
+  text-align: center;
+  font-size: 1.4rem;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+/* FORM */
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+.input {
+  /* width: 100%; */
+  padding: 12px 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.input:focus {
+  border-color: #ff4081;
+}
+
+/* IMAGE UPLOAD */
+.imageUploadBox {
+  position: relative;
+  /* width: 100%; */
+}
+
+.fileInput {
+  opacity: 0;
+  position: absolute;
+  /* width: 100%; */
+  height: 48px;
+  cursor: pointer;
+}
+
+.imageLabel {
+  display: inline-block;
+  /* width: 100%; */
+  text-align: center;
+  padding: 12px;
+  border: 2px dashed #ccc;
+  border-radius: 8px;
+  background-color: #fafafa;
+  color: #666;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+  word-break: break-word;
+}
+
+.imageLabel:hover {
+  border-color: #ff4081;
+  background-color: #fff0f5;
+}
+
+.uploadBtn {
+  margin-top: 10px;
+  background-color: #ff4081;
+  color: white;
+  padding: 12px 16px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  width: 100%;
+}
+
+.uploadBtn:hover {
+  background-color: #e73370;
+}
+
+/* MESSAGE SECTION */
+.messageSection {
+  width: 100%;
+  max-width: 600px;
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+}
+
+.messageBox {
+  width: 90%;
+  height: 50px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  resize: none;
+  font-size: 1rem;
+  outline: none;
+  margin-bottom: 10px;
+}
+
+.messageBox:focus {
+  border-color: #ff4081;
+}
+
+.updateBtn {
+  background-color: #007bff;
+  color: white;
+  padding: 12px 16px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  width: 100%;
+}
+
+.updateBtn:hover {
+  background-color: #005ecb;
+}
+
+/* RESPONSIVE DESIGN */
+
+/* ✅ Tablets */
+@media (max-width: 900px) {
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    font-size: 0.4rem;
+    /* padding: 1rem; */
+    flex-wrap: wrap;
+  }
+
+  .uploadSection,
+  .messageSection {
+    max-width: 90%;
+    padding: 1.25rem;
+  }
+
+  .sectionTitle {
+    font-size: 1.3rem;
+  }
+
+  .uploadBtn,
+  .updateBtn {
+    font-size: 0.95rem;
+  }
+}
+
+/* ✅ Mobile Phones */
+@media (max-width: 600px) {
+  .main {
+    padding: 1.5rem 0.5rem;
+  }
+
+  .uploadSection,
+  .messageSection {
+    width: 95%;
+    padding: 1rem;
+  }
+
+  .sectionTitle {
+    font-size: 1.1rem;
+  }
+
+  .input,
+  .messageBox {
+    font-size: 0.9rem;
+    padding: 10px;
+  }
+
+  .imageLabel {
+    font-size: 0.9rem;
+    padding: 10px;
+  }
+
+  .uploadBtn,
+  .updateBtn {
+    padding: 10px;
+    font-size: 0.9rem;
+  }
+}
+
+/* ✅ Very Small Devices */
+@media (max-width: 400px) {
+  .sectionTitle {
+    font-size: 1rem;
+  }
+
+  .input {
+    padding: 8px;
+  }
+
+  .uploadBtn,
+  .updateBtn {
+    padding: 8px;
+    font-size: 0.85rem;
+  }
+}
