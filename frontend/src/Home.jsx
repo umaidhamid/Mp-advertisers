@@ -13,7 +13,6 @@ const App = () => {
   const navigate = useNavigate();
   return (
     <AuthProvider>
-      {" "}
       <>
         {" "}
         <div style={{ position: "relative" }} className="overflow-hidden">

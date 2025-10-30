@@ -23,7 +23,7 @@ const LoginPage = () => {
 
       setIsAuth(true);
       console.log("✅ Login Response:", result.data);
-      navigate("/dashboard");
+      navigate("/dashBoard");
     } catch (err) {
       console.error("❌ Login Error:", err);
       
