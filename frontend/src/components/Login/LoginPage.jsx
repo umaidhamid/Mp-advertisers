@@ -2,7 +2,6 @@ import React, { useState, useContext } from "react";
 import styles from "./LoginPage.module.css";
 import { FaUser, FaLock } from "react-icons/fa";
 import api from "../../api/axios.js";
-
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/authContext.jsx";
 
@@ -23,10 +22,9 @@ const LoginPage = () => {
 
       setIsAuth(true);
       console.log("✅ Login Response:", result.data);
-      navigate("/dashBoard");
+      navigate("/dashboard");
     } catch (err) {
       console.error("❌ Login Error:", err);
-      
     }
   };
 
@@ -37,7 +35,8 @@ const LoginPage = () => {
           <span className={styles.bold}>Admin</span> Panel
         </h2>
 
-        <form className={styles.loginForm}>
+        {/* ✅ Attach handler to the form */}
+        <form className={styles.loginForm} onSubmit={Loginhandler}>
           <div className={styles.inputGroup}>
             <FaUser className={styles.icon} />
             <input
@@ -66,11 +65,8 @@ const LoginPage = () => {
             <p>⚙️ Enter your credentials to continue.</p>
           </div>
 
-          <button
-            onClick={Loginhandler}
-            type="submit"
-            className={styles.loginBtn}
-          >
+          {/* ✅ Only submit — no click handler */}
+          <button type="submit" className={styles.loginBtn}>
             LOGIN
           </button>
         </form>
