@@ -6,12 +6,12 @@ const router = express.Router();
 
 // Example route to create default owner
 router.post("/createOwner", async (req, res) => {
-  const [userName, Password] = ["umaid", "khan"];
-
+  const { userName, Password } = req.body;
+  console.log(userName);
   try {
-    if (!userName || !Password) {
-      return res.status(400).json("Username and password are required");
-    }
+      if (!userName || !Password) {
+          return res.status(400).json("Username and password are required");
+        }
 
     // Check if owner already exists
     const isExistUser = await owner.findOne({ userName });
@@ -37,7 +37,9 @@ router.post("/createOwner", async (req, res) => {
     res.status(500).json({ message: "Internal Server Error" });
   }
 });
+
 router.post("/loginOwner", async (req, res) => {
+  console.log("BODY RECEIVED:", req.body);
   try {
     const { userName, Password } = req.body; // ✅ get from request body
 
