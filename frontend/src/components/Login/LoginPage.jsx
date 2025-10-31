@@ -3,7 +3,7 @@ import styles from "./LoginPage.module.css";
 import { FaUser, FaLock } from "react-icons/fa";
 import api from "../../api/axios.js";
 import { useNavigate } from "react-router-dom";
-import { AuthContext } from "../../context/authContext.jsx";
+import { AuthContext } from "../../Context/AuthContext.jsx";
 
 const LoginPage = () => {
   const [userName, setuserName] = useState("");

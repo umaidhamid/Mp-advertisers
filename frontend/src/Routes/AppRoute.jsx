@@ -8,7 +8,7 @@ import Products from "../components/OverProducts/Products.jsx";
 import LoginPage from "../components/Login/LoginPage.jsx";
 import Dashboard from "../Dashboard/dashBoard.jsx";
 import ProtectedRoutes from "../ProtectedRoute.jsx";
-import { AuthProvider } from "../context/authContext.jsx";
+import { AuthProvider } from "../Context/AuthContext.jsx";
 
 const AppRoute = () => {
   return (
@@ -22,7 +22,7 @@ const AppRoute = () => {
           <Route path="/Contact-Us" element={<ContactUs />} />
           <Route path="/Products" element={<Products />} />
           <Route path="/AdminLogin" element={<LoginPage />} />
-          <Route path="/dashboard" element={<Dashboard/>} />
+          <Route path="/dashboard" element={<Dashboard />} />
 
           {/* <Route element={<ProtectedRoutes />}>
             <Route path="/dashboard" element={<Dashboard />} />
