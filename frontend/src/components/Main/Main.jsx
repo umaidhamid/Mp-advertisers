@@ -15,7 +15,7 @@ const Main = () => {
       <div className="headings">
         <h2>Welcome </h2>
         <img src={Heading} alt="heading" />
-        <h1>Create. Advertise. Grow.</h1>
+        {/* <h1>Create. Advertise. Grow.</h1> */}
         <p>
           MP Advertisers is a full-service digital advertising and branding
           agency based in India. We specialize in turning ideas into bold
