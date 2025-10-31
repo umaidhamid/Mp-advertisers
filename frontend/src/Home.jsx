@@ -7,14 +7,11 @@ import { FaWhatsapp } from "react-icons/fa";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBullhorn, faClock } from "@fortawesome/free-solid-svg-icons";
 import Slider from "./components/Work/Slider.jsx";
-import { AuthProvider } from "./context/authContext.jsx";
 
 const App = () => {
   const navigate = useNavigate();
   return (
-    <AuthProvider>
       <>
-        {" "}
         <div style={{ position: "relative" }} className="overflow-hidden">
           <FaWhatsapp
             style={{
@@ -147,8 +144,6 @@ const App = () => {
           </h2>
         </footer>
       </>
-      
-    </AuthProvider>
   );
 };
 
