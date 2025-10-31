@@ -1,11 +1,8 @@
 import { Outlet, Navigate } from "react-router-dom";
 import React from "react";
-import { AuthContext } from "./context/authContext.jsx";
 import { useContext } from "react";
 
 function ProtectedRoutes() {
-  const { isAuth } = useContext(AuthContext);
-
   if (isAuth == null)
     return (
       <div
