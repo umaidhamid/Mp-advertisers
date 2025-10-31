@@ -12,8 +12,15 @@ html {
   width: 100%;
   overflow-x: hidden;
   height: 100%;
-  font-family: Helvetica, sans-serif;
-
+  /* font-family: Helvetica, sans-serif; */
+ /* background: linear-gradient(
+    135deg,
+    #200539 0%,
+    #491079 25%,
+    #681ca1 50%,
+    #aa31e4 75%,
+    #d976f5 100%
+  ); */
   /* background-color: grey; */
 }
 .map-wrapper {

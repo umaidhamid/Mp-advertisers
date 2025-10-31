@@ -6,7 +6,7 @@ import { faFacebook, faInstagram } from "@fortawesome/free-brands-svg-icons";
 const ContactUs = () => {
   const [form, setForm] = useState({
     name: "",
-    email: "",
+    Address: "",
     message: "",
   });
 
@@ -17,28 +17,18 @@ const ContactUs = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!form.name || !form.email || !form.message) {
-     
+    if (!form.name || !form.Address || !form.message) {
       return;
     }
-
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(form.email)) {
-      alert("Please enter a valid email!");
-      return;
-    }
-
     const phoneNumber = "9149455296"; // ✅ Add your number here (No + sign)
-    const textMessage = `Hello, My Name is ${form.name}%0AEmail: ${form.email}%0AMessage: ${form.message}`;
+    const textMessage = `Hello, My Name is ${form.name}%0AEmail: ${form.Address}%0AMessage: ${form.message}`;
 
     const whatsappURL = `https://wa.me/${phoneNumber}?text=${textMessage}`;
 
     setTimeout(() => {
-   
       setLoading(false);
-  
       window.open(whatsappURL, "_blank");
-    }, 2000);
+    }, 1000);
   };
 
   return (
@@ -60,7 +50,6 @@ const ContactUs = () => {
           </p>
           <p>
             <strong>Phone:</strong> +91 9149455296 | +91 9906951150
-            
           </p>
 
           <div className="social-icons">
@@ -84,10 +73,10 @@ const ContactUs = () => {
             required
           />
           <input
-            type="email"
-            placeholder="Email Address"
-            name="email"
-            value={form.email}
+            type="text"
+            placeholder="Address"
+            name="Address"
+            value={form.Address}
             onChange={handleChange}
             required
           />

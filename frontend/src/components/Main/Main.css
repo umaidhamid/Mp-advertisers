@@ -10,7 +10,7 @@ video {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 100vw;
   height: 100vh;
   object-fit: cover;
   z-index: -99;
@@ -41,7 +41,7 @@ video {
   position: relative;
   text-align: center; /* Center text on mobile */
   transition: all 1s ease;
-  font-family: sans-serif;
+  /* font-family: sans-serif; */
 }
 .headings h1:hover {
   transform: scale(1.1);
@@ -64,7 +64,7 @@ video {
   color: rgb(250, 22, 170);
   transition: all 1s ease;
   text-align: center;
-  font-family: Arial, Helvetica, sans-serif;
+  /* font-family: Arial, Helvetica, sans-serif; */
   text-transform: capitalize;
 
   display: inline-block; /* Makes border hug text */

@@ -28,7 +28,14 @@ const Navbar = () => {
       </div>
 
       {/* ✅ Slide Menu for Mobile */}
-      <nav className={isOpen ? "active" : ""}>
+      <nav
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+        className={isOpen ? "active" : ""}
+      >
         <ul>
           <li>
             <button
@@ -84,7 +91,7 @@ const Navbar = () => {
             >
               Contact
             </button>
-            <button
+            {/* <button
               className="nav-link"
               onClick={() => {
                 setIsOpen(false);
@@ -92,17 +99,25 @@ const Navbar = () => {
               }}
             >
               DashBoard
-            </button>
+            </button> */}
           </li>
         </ul>
       </nav>
 
       <div className="social-icons">
         <a href="https://www.facebook.com/share/1BqnLc5wBA/">
-          <FontAwesomeIcon icon={faFacebook} size="3x" />
+          <FontAwesomeIcon icon={faFacebook} size="3x" color="blue" />
         </a>
         <a href="https://www.instagram.com/mpadvertisers?igsh=MXNoMXpqaWNpdmVzbA==">
-          <FontAwesomeIcon icon={faInstagram} size="3x" />
+          <FontAwesomeIcon
+            icon={faInstagram}
+            size="3x"
+            // style={{
+            //   background: "linear-gradient(45deg, #ff0000, #ffff00)",
+            //   WebkitBackgroundClip: "text",
+            //   WebkitTextFillColor: "transparent",
+            // }}
+          />
         </a>
       </div>
     </header>

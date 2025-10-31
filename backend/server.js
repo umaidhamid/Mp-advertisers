@@ -5,6 +5,7 @@ import morgan from "morgan";
 import cookieParser from "cookie-parser";
 import connectDB from "./Database/database.js";
 import { authMiddleware } from "./middleware/auth.middleware.js";
+import cloudinaryRoute from "./routes/Cloudinary.route.js";
 // Load environment variables
 dotenv.config();
 
@@ -40,10 +41,12 @@ app.use(cookieParser());
 app.use(morgan("dev"));
 app.use(express.static("uploads")); // serve images or other static files
 
+app.use("/api/cloudinary", cloudinaryRoute);
 // Routes import (you’ll create them next)
 import ownerRoutes from "./routes/owner.routes.js";
 app.use("/api/owners", ownerRoutes);
-
+import productRoute from "./routes/product.route.js";
+app.use("/api/product", productRoute);
 // Example route
 app.get("/", (req, res) => {
   res.send("🚀 MP Advertisers backend is running!");

@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   background-color: rgba(240, 248, 255, 0.812);
-  font-family: "Poppins", sans-serif;
+  /* font-family: "Poppins", sans-serif; */
   min-height: 100vh;
 }
 

@@ -16,10 +16,10 @@ const Dashboard = () => {
       display: "flex",
       alignItems: "center",
       justifyContent: "space-evenly",
-      fontSize: "0.9rem",
-      flexWrap: "wrap",
-      padding: "1rem 0",
-      backgroundColor: "#ffe4ec",
+      fontSize: "0.6rem",
+      // flexWrap: "wrap",
+      // padding: "30px 0",
+      // backgroundColor: "#ffe4ec",
     },
 
     uploadTitle: {
@@ -48,9 +48,15 @@ const Dashboard = () => {
     // ✅ Responsive tweaks
     "@media (max-width: 900px)": {
       header: { fontSize: "0.7rem" },
+      uploadTitle:{fontFamily:"0.5rem"}
     },
-    "@media (max-width: 600px)": {
-      header: { fontSize: "0.5rem" },
+    "@media (max-width: 380px)": {
+      header: { fontSize: "0.2rem" },uploadTitle:{fontFamily:"0.5rem"}
+      
+    },
+    "@media (max-width: 380px)": {
+      header: { fontSize: "0.4rem" },
+      uploadTitle:{fontFamily:"0.5rem"}
     },
   };
 
@@ -63,7 +69,7 @@ const Dashboard = () => {
         <h1 style={styles.allProductsTitle}>All Products</h1>
       </header>
 
-        <Uploadproduct />
+      <Uploadproduct />
     </div>
   );
 };

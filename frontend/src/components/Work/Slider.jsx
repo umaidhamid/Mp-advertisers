@@ -10,14 +10,8 @@ import img1 from "../../assets/Images/SLIDES/SLIDE 1.webp";
 import img2 from "../../assets/Images/SLIDES/SLIDE 2.webp";
 import img3 from "../../assets/Images/SLIDES/SLIDE 3.webp";
 import img4 from "../../assets/Images/SLIDES/SLIDE 4.webp";
-// import img5 from "../../assets/Images/SLIDES/SLIDE 5.webp";
 const ImageSlider = () => {
-  //   const images = [
-  //     "../../assets/Images/shahid sir.webp",
-  //     "../../assets/Images/OwaisBhat.webp",
-  //     "../../assets/Images/Logo.png",
-  //   ];
-  const images = [img1, img2, img3,img4];
+  const images = [img1, img2, img3, img4];
   const [index, setIndex] = useState(0);
 
   // Auto-slide every 3 seconds

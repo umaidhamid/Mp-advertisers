@@ -88,7 +88,7 @@
 =================================== */
 .about-wrapper {
   width: 80%;
-  font-family: "Poppins", sans-serif;
+  /* font-family: "Poppins", sans-serif; */
   /* background: linear-gradient(135deg, #ff007a 0%, #9b0050 100%); */
   color: #222;
   overflow-x: hidden;

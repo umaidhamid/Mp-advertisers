@@ -9,9 +9,9 @@ router.post("/createOwner", async (req, res) => {
   const { userName, Password } = req.body;
   console.log(userName);
   try {
-      if (!userName || !Password) {
-          return res.status(400).json("Username and password are required");
-        }
+    if (!userName || !Password) {
+      return res.status(400).json("Username and password are required");
+    }
 
     // Check if owner already exists
     const isExistUser = await owner.findOne({ userName });

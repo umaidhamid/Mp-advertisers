@@ -7,7 +7,7 @@ import { FaWhatsapp } from "react-icons/fa";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBullhorn, faClock } from "@fortawesome/free-solid-svg-icons";
 import Slider from "./components/Work/Slider.jsx";
-
+import DiscountPopup from "./components/Disount/DiscountPopup.jsx";
 const App = () => {
   const navigate = useNavigate();
   return (
@@ -29,16 +29,19 @@ const App = () => {
           onClick={() => window.open("https://wa.me/919149455296", "_blank")}
         />
         <Navbar />
-        <div
+        {/* msg  */}
+        {/* <div
           style={{
             overflow: "hidden",
             whiteSpace: "nowrap",
-            background: "linear-gradient(90deg, #ff0000a7, #ff4d4d)",
+            // background: "linear-gradient(90deg, #ff0000a7, #ff4d4d)",
             color: "white",
             padding: "8px 0",
             position: "relative",
             fontWeight: "600",
             fontSize: "18px",
+
+            backgroundColor: "grey",
           }}
         >
           <div
@@ -60,8 +63,10 @@ const App = () => {
         
     `}
           </style>
-        </div>
+        </div> */}
+        {/* <DiscountPopup /> */}
         <Main />
+        {/* product btn  */}
         <div
           style={{
             width: "100%",
@@ -69,9 +74,50 @@ const App = () => {
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            // backgroundColor: "#f0f4f8", // subtle light background
           }}
-        ></div>
+        >
+          <button
+            style={{
+              background: "linear-gradient(135deg, #6a11cb, #2575fc)",
+              padding: "10px 9px",
+              color: "white",
+              borderRadius: "12px 24px",
+              boxShadow: "0 6px 15px rgba(0,0,0,0.2)",
+              fontSize: "1.5rem",
+              fontWeight: "600",
+              border: "none",
+              cursor: "pointer",
+              transition: "all 0.3s ease",
+              animation: "slideIn 0.6s ease-out, pulse 2s ease-in-out infinite",
+            }}
+            onMouseEnter={(e) =>
+              (e.currentTarget.style.transform = "translateY(-3px) scale(1.05)")
+            }
+            onMouseLeave={(e) =>
+              (e.currentTarget.style.transform = "translateY(0) scale(1)")
+            }
+            onClick={() => navigate("/Products")}
+          >
+            View Products
+          </button>
+
+          {/* Inline CSS keyframes directly inside JSX */}
+          <style>
+            {`
+      @keyframes slideIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      @keyframes pulse {
+        0% { transform: scale(1); box-shadow: 0 0 0 rgba(37, 117, 252, 0.4); }
+        50% { transform: scale(1.05); box-shadow: 0 0 20px rgba(37, 117, 252, 0.6); }
+        100% { transform: scale(1); box-shadow: 0 0 0 rgba(37, 117, 252, 0.4); }
+      }
+    `}
+          </style>
+        </div>
+
         <div
           style={{
             width: "100%",
@@ -82,6 +128,7 @@ const App = () => {
             <Slider />
           </section>
           {/* Mission Section */}
+
           <section className="section-box ">
             <h2 className="heading pink">Mission</h2>
             <p>

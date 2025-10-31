@@ -1,5 +1,7 @@
 import React from "react";
-
+import { useState } from "react";
+import axios from "axios";
+import api from "../../api/axios";
 const UploadProduct = () => {
   const styles = {
     main: {
@@ -129,27 +131,92 @@ const UploadProduct = () => {
       width: "100%",
     },
   };
+  const [productname, setproductname] = useState("");
+  const [productrate, setproductrate] = useState("");
+  const [productunit, setproductunit] = useState("");
+  const [productdiscount, setproductdiscount] = useState("");
+  const [image, setImage] = useState(null);
+  const [discountmsg, setdiscountmsg] = useState("");
 
+  const handleImageChange = async (e) => {
+    setImage(e.target.files[0]);
+  };
+
+  //
+  const FormHandler = async (e) => {
+    e.preventDefault();
+
+    try {
+      if (!image) return alert("Please upload an image!");
+
+      console.log("Form working...");
+
+      // Step 1️⃣: Get Cloudinary signature from backend
+      const { data } = await axios.get(
+        "http://localhost:5000/api/cloudinary/get-signature"
+      );
+
+      // Step 2️⃣: Upload image to Cloudinary
+      const formData = new FormData();
+      formData.append("file", image);
+      formData.append("api_key", data.api_key);
+      formData.append("timestamp", data.timestamp);
+      formData.append("upload_preset", "Mp_Advt");
+      formData.append("signature", data.signature);
+
+      const uploadRes = await axios.post(
+        `https://api.cloudinary.com/v1_1/${data.cloud_name}/image/upload`,
+        formData
+      );
+
+      const imageUrl = uploadRes.data.secure_url;
+      console.log("✅ Uploaded image URL:", imageUrl);
+
+      // Step 3️⃣: Send product data to your API
+      const response = await api.post("/api/product/createProduct", {
+        name: productname,
+        price: Number(productrate),
+        unit: productunit,
+        discount: Number(productdiscount),
+        imageUrl: imageUrl, // ✅ Use Cloudinary URL here, not the file
+      });
+
+      console.log("✅ Product created:", response.data);
+    } catch (error) {
+      console.error("❌ Error creating product:", error);
+    }
+  };
   return (
     <main style={styles.main}>
       {/* Product Upload Form */}
       <section style={styles.uploadSection}>
         <h2 style={styles.sectionTitle}>Add New Product</h2>
-        <form style={styles.formGroup}>
-          <input type="text" style={styles.input} placeholder="Product Name" />
+        <form style={styles.formGroup} onSubmit={FormHandler}>
+          <input
+            type="text"
+            style={styles.input}
+            onChange={(e) => {
+              setproductname(e.target.value);
+            }}
+            placeholder="Product Name"
+          />
 
           <div style={styles.rate}>
             <input
               type="number"
               style={styles.input}
               placeholder="Product Rate"
+              onChange={(e) => {
+                setproductrate(e.target.value);
+              }}
             />
             <input
               type="text"
-              placeholder="by"
+              placeholder="Units"
               style={styles.input}
-              name=""
-              id=""
+              onChange={(e) => {
+                setproductunit(e.target.value);
+              }}
             />
           </div>
 
@@ -159,6 +226,9 @@ const UploadProduct = () => {
             placeholder="Product Discount (%)"
             min={0}
             max={100}
+            onChange={(e) => {
+              setproductdiscount(e.target.value);
+            }}
           />
 
           <div style={styles.imageUploadBox}>
@@ -169,6 +239,7 @@ const UploadProduct = () => {
               type="file"
               id="productImage"
               accept="image/*"
+              onChange={handleImageChange}
               style={styles.fileInput}
             />
           </div>
@@ -186,6 +257,9 @@ const UploadProduct = () => {
           style={styles.messageBox}
           placeholder="Write a message or offer update..."
           maxLength={100}
+          onChange={(e) => {
+            setdiscountmsg(e.target.value);
+          }}
         />
         <button style={styles.updateBtn}>Update Offer</button>
       </section>
