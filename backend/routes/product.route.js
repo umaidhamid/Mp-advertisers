@@ -2,6 +2,7 @@ import express from "express";
 import cloudinary from "../utils/cloudinary.js"; // adjust path if needed
 import Product from "../models/product.model.js";
 const router = express.Router();
+import message from "../models/message.js";
 import { authMiddleware } from "../middleware/auth.middleware.js";
 router.post("/createProduct", async (req, res) => {
   try {
@@ -69,6 +70,56 @@ router.get("/getproducts", async (req, res) => {
       message: "❌ Server error while fetching products.",
       error: error.message,
     });
+  }
+});
+router.post("/uploadmsg", async (req, res) => {
+  try {
+    const { uploadmessage } = req.body;
+
+    // Validation
+    if (!uploadmessage || uploadmessage.trim() === "") {
+      return res.status(400).json({
+        success: false,
+        message: "Message text is required.",
+      });
+    }
+
+    // Save message to DB
+    const newMsg = await message.create({ message: uploadmessage });
+
+    // Respond back to frontend
+    res.status(201).json({
+      success: true,
+      message: "✅ Message uploaded successfully!",
+      data: newMsg,
+    });
+  } catch (error) {
+    console.error("❌ Error uploading message:", error);
+    res.status(500).json({
+      success: false,
+      message: "Server error while uploading message.",
+      error: error.message,
+    });
+  }
+});
+router.get("/getmessage", async (req, res) => {
+  try {
+    const latestMessage = await message.findOne().sort({ createdAt: -1 });
+
+    if (!latestMessage) {
+      return res.status(200).json({
+        success: true,
+        latestMessage: { message: "No messages yet" },
+      });
+    }
+
+    res.status(200).json({
+      success: true,
+      latestMessage,
+    });
+  } catch (error) {
+    console.error("❌ Error fetching message:", error);
+    res.status(500).json({ success: false, message: "Server error" });
   }
 });
 

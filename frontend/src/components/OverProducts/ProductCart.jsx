@@ -5,7 +5,7 @@ const ProductCart = ({ product }) => {
   return (
     <div className="oneCard">
       <img src={product.imageUrl} alt="Products" />
-      <h1 className="Product-name">{product.name}r</h1>
+      <h1 className="Product-name">{product.name}</h1>
       <div
         style={{
           display: "flex",

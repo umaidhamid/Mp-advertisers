@@ -7,8 +7,26 @@ import { FaWhatsapp } from "react-icons/fa";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBullhorn, faClock } from "@fortawesome/free-solid-svg-icons";
 import Slider from "./components/Work/Slider.jsx";
-import DiscountPopup from "./components/Disount/DiscountPopup.jsx";
+import { useState } from "react";
+import { useEffect } from "react";
+import api from "./api/axios.js";
 const App = () => {
+  const [message, setMessage] = useState("");
+
+  useEffect(() => {
+    const fetchMessage = async () => {
+      try {
+        const response = await api.get("/api/product/getmessage");
+        if (response.data.success) {
+          setMessage(response.data.latestMessage.message);
+        }
+      } catch (error) {
+        console.error("❌ Error fetching message:", error);
+      }
+    };
+
+    fetchMessage();
+  }, []); // ✅ Run only once on mount
   const navigate = useNavigate();
   return (
     <>
@@ -30,7 +48,7 @@ const App = () => {
         />
         <Navbar />
         {/* msg  */}
-        {/* <div
+        <div
           style={{
             overflow: "hidden",
             whiteSpace: "nowrap",
@@ -50,7 +68,7 @@ const App = () => {
               animation: "scrollText 10s linear infinite",
             }}
           >
-            <FontAwesomeIcon icon={faBullhorn} /> 🎉 50% OFF on Lightboards —
+            <FontAwesomeIcon icon={faBullhorn} /> 🎉 {message} | 
             Hurry Up! <FontAwesomeIcon icon={faClock} />
           </div>
 
@@ -63,7 +81,7 @@ const App = () => {
         
     `}
           </style>
-        </div> */}
+        </div>
         {/* <DiscountPopup /> */}
         <Main />
         {/* product btn  */}
