@@ -10,6 +10,7 @@
   background: linear-gradient(135deg, #ffb3d1, #ff66b3, #ffe0f0);
   width: 100%;
   display: flex;
+min-height: 100vh;
   /* height: 100vh; */
   padding-bottom: 100px;
   flex-direction: column;

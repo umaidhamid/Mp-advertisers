@@ -137,9 +137,7 @@ const UploadProduct = () => {
       toast.info("Uploading image, please wait...");
 
       // Step 1️⃣: Get Cloudinary signature
-      const { data } = await api.get(
-        "/api/cloudinary/get-signature"
-      );
+      const { data } = await api.get("/api/cloudinary/get-signature");
 
       // Step 2️⃣: Upload image to Cloudinary
       const formData = new FormData();
@@ -250,9 +248,19 @@ const UploadProduct = () => {
           />
 
           <div style={styles.imageUploadBox}>
-            <label htmlFor="productImage" style={styles.imageLabel}>
-              Choose Image
+            <label
+              htmlFor="productImage"
+              style={{
+                ...styles.imageLabel,
+                borderColor: image ? "#007bff" : "#ccc", // change border color to blue
+                backgroundColor: image ? "#e6f0ff" : "#fafafa", // light blue background
+                color: image ? "#007bff" : "#666", // text color blue
+                fontWeight: image ? "600" : "normal",
+              }}
+            >
+              {image ? `✅ ${image.name}` : "Choose Image"}
             </label>
+
             <input
               type="file"
               id="productImage"
