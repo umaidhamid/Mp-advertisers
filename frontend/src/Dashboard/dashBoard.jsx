@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./dashboard.module.css";
+import styles from "./Dashboard.module.css";
 import Uploadproduct from "./Uploadproduct/Uploadproduct.jsx";
 import ViewAllProduct from "./viewproducts/ViewAllProduct.jsx";
 const Dashboard = () => {
