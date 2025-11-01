@@ -122,5 +122,61 @@ router.get("/getmessage", async (req, res) => {
     res.status(500).json({ success: false, message: "Server error" });
   }
 });
+router.put("/updateProduct", async (req, res) => {
+  try {
+    const { productid, name, price, unit, discount, imageUrl, finalprice } =
+      req.body;
 
+    // Find product by ID
+    const product = await Product.findById(productid);
+    if (!product) {
+      return res.status(404).json({ message: "Product not found" });
+    }
+
+    // Update only the fields provided
+    if (name) product.name = name;
+    if (price) product.price = price;
+    if (unit) product.unit = unit;
+    if (discount) product.discount = discount;
+    if (imageUrl) product.imageUrl = imageUrl;
+    if (finalprice) product.finalprice = finalprice;
+
+    // Save changes
+    const updatedProduct = await product.save();
+
+    res.status(200).json({
+      message: "✅ Product updated successfully",
+      product: updatedProduct,
+    });
+  } catch (error) {
+    console.error("Error updating product:", error);
+    res.status(500).json({
+      message: "❌ Server error while updating product",
+      error: error.message,
+    });
+  }
+});
+
+router.delete("/deleteproduct/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    // Check if product exists
+    const product = await Product.findById(id);
+    if (!product) {
+      return res.status(404).json({ message: "❌ Product not found" });
+    }
+
+    // Delete product
+    await Product.findByIdAndDelete(id);
+
+    res.status(200).json({ message: "✅ Product deleted successfully" });
+  } catch (error) {
+    console.error("Error deleting product:", error);
+    res.status(500).json({
+      message: "❌ Server error while deleting product",
+      error: error.message,
+    });
+  }
+});
 export default router;

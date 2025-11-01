@@ -9,7 +9,6 @@ import api from "../../api/axios.js";
 const Products = () => {
   const [Products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
-
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
@@ -23,7 +22,7 @@ const Products = () => {
     const fetchProducts = async () => {
       try {
         const response = await api.get("/api/product/getproducts");
-
+        console.log("Fetched products:", response.data);
         setProducts(response.data.products || []); // use correct field name from backend
       } catch (error) {
         console.error("❌ Error fetching products:", error);
