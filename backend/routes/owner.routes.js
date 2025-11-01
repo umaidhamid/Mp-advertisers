@@ -64,12 +64,12 @@ router.post("/loginOwner", async (req, res) => {
 
     // 4️⃣ Success — you can now generate a token (optional)
     const token = GenerateToken(User._id); // if you’re using JWT later
-    res.cookie("MpCookie", token, {
-      httpOnly: true, // prevents JS access
-      sameSite: "strict", // prevents CSRF attacks
-      maxAge: 1 * 60 * 60 * 1000, // 1 hr
+    res.cookie("token", token, {
+      httpOnly: true, // cannot be accessed via JS
+      secure: true, // true if using HTTPS (set false for localhost)
+      sameSite: "None", // important for frontend-backend across domains
+      maxAge: 24 * 60 * 60 * 1000, 
     });
-
     res.status(200).json({
       message: "Login successful",
       user: {
