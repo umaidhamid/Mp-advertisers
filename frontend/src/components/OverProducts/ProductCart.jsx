@@ -1,6 +1,5 @@
 import React from "react";
 import "./Products.css";
-import Logo from "../../assets/Logo.png";
 const ProductCart = ({ product }) => {
   return (
     <div className="oneCard">

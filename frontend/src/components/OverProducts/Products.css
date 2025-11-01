@@ -7,10 +7,11 @@
   padding-top: 20px;
 }
 .ProductsScreen {
-  background: linear-gradient(135deg, #ffb3d1, #ff66b3, #ffe0f0);
+  /* background: linear-gradient(135deg, #ffb3d1, #ff66b3, #ffe0f0); */
+  background: linear-gradient(to right, #211550c4 0%, #58266cc3 50%, #7a2d77af 100%);
   width: 100%;
   display: flex;
-min-height: 100vh;
+  min-height: 100vh;
   /* height: 100vh; */
   padding-bottom: 100px;
   flex-direction: column;
@@ -28,7 +29,8 @@ min-height: 100vh;
 .Product-heading h1 {
   font-size: 2.6rem;
   font-weight: 700;
-  color: #003b73;
+  /* color: #003b73; */
+  color: white;
   position: relative;
   display: inline-block;
   margin-bottom: 12px;

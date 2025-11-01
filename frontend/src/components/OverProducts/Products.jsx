@@ -3,10 +3,21 @@ import "./Products.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import ProductCart from "./ProductCart";
+import Loader from "../../loader/Loader.jsx";
 // import { useEffect } from "react";
 import api from "../../api/axios.js";
 const Products = () => {
   const [Products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 1000); // 1 second delay
+
+    return () => clearTimeout(timer);
+  }, []);
+
   useEffect(() => {
     // define async function inside
     const fetchProducts = async () => {
@@ -22,6 +33,9 @@ const Products = () => {
     fetchProducts(); // call it
   }, []);
 
+  if (loading) {
+    return <Loader />;
+  }
   return (
     <div className="ProductsScreen">
       <h1 className="cartLogo">

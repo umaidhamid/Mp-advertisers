@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Uploadproduct from "./Uploadproduct/Uploadproduct.jsx";
 import ViewAllProduct from "./viewproducts/ViewAllProduct.jsx";
-
+import api from "../api/axios.js";
+import { useNavigate } from "react-router-dom";
+import { fas } from "@fortawesome/free-solid-svg-icons";
 const Dashboard = () => {
   const styles = {
     container: {
@@ -48,28 +50,50 @@ const Dashboard = () => {
     // ✅ Responsive tweaks
     "@media (max-width: 900px)": {
       header: { fontSize: "0.7rem" },
-      uploadTitle:{fontFamily:"0.5rem"}
+      uploadTitle: { fontFamily: "0.5rem" },
     },
     "@media (max-width: 380px)": {
-      header: { fontSize: "0.2rem" },uploadTitle:{fontFamily:"0.5rem"}
-      
+      header: { fontSize: "0.2rem" },
+      uploadTitle: { fontFamily: "0.5rem" },
     },
     "@media (max-width: 380px)": {
       header: { fontSize: "0.4rem" },
-      uploadTitle:{fontFamily:"0.5rem"}
+      uploadTitle: { fontFamily: "0.5rem" },
     },
   };
+  const [isAuth, setIsAuth] = useState(false);
+  const [selected, setSelected] = useState(true);
+  const navigate = useNavigate();
+  // Check authentication from server cookie
+  useEffect(() => {
+    api
+      .get("/api/owners/checkAuth", {
+        withCredentials: true,
+      })
+      .then((res) => {
+        setIsAuth(res.data.isAuthenticated); // Example: backend should return { isAuthenticated: true/false }
+      })
+      .catch(() => {
+        setIsAuth(false);
+        navigate("/Home");
+      });
+  }, []);
 
   return (
     <div style={styles.container}>
       {/* Header */}
       <header style={styles.header}>
-        <h1 style={styles.uploadTitle}>Upload Product</h1>
-        <h1 style={styles.separator}>|</h1>
-        <h1 style={styles.allProductsTitle}>All Products</h1>
-      </header>
+        <h1 onClick={() => setSelected(true)} style={styles.uploadTitle}>
+          Upload Product
+        </h1>
 
-      <Uploadproduct />
+        <h1 style={styles.separator}>|</h1>
+
+        <h1 onClick={() => setSelected(false)} style={styles.allProductsTitle}>
+          All Products
+        </h1>
+      </header>
+      {selected ? <Uploadproduct /> : <ViewAllProduct />}
     </div>
   );
 };
