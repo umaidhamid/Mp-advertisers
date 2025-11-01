@@ -66,8 +66,8 @@ router.post("/loginOwner", async (req, res) => {
     const token = GenerateToken(User._id); // if you’re using JWT later
     res.cookie("MpCookie", token, {
       httpOnly: true, // cannot be accessed via JS
-      secure: true, // true if using HTTPS (set false for localhost)
-      // sameSite: "None", // important for frontend-backend across domains
+      secure: process.env.NODE_ENV === "production", // ✅ true only on HTTPS
+      sameSite: process.env.NODE_ENV === "production" ? "None" : "Lax", // ✅ allows cross-domain only in production
       maxAge: 24 * 60 * 60 * 1000,
     });
     res.status(200).json({
