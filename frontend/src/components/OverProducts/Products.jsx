@@ -23,7 +23,7 @@ const Products = () => {
     const fetchProducts = async () => {
       try {
         const response = await api.get("/api/product/getproducts");
-        console.log("Fetched products:", response.data);
+
         setProducts(response.data.products || []); // use correct field name from backend
       } catch (error) {
         console.error("❌ Error fetching products:", error);
