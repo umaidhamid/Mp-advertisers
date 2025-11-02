@@ -121,6 +121,7 @@ const UploadProduct = () => {
   const [productdiscount, setproductdiscount] = useState("");
   const [image, setImage] = useState(null);
   const [discountmsg, setdiscountmsg] = useState("");
+  const [description, setdescription] = useState("");
 
   // 🟢 Handle image selection
   const handleImageChange = (e) => {
@@ -161,6 +162,7 @@ const UploadProduct = () => {
         unit: productunit,
         discount: Number(productdiscount),
         imageUrl: imageUrl,
+        description: description,
       });
 
       if (response.data.success) {
@@ -245,6 +247,15 @@ const UploadProduct = () => {
             max={100}
             value={productdiscount}
             onChange={(e) => setproductdiscount(e.target.value)}
+          />
+          <input
+            type="text"
+            style={styles.input}
+            placeholder="Description "
+            min={0}
+            max={100}
+            value={description}
+            onChange={(e) => setdescription(e.target.value)}
           />
 
           <div style={styles.imageUploadBox}>

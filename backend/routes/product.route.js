@@ -6,7 +6,7 @@ import message from "../models/message.js";
 import { authMiddleware } from "../middleware/auth.middleware.js";
 router.post("/createProduct", async (req, res) => {
   try {
-    const { name, price, discount, unit, imageUrl } = req.body;
+    const { name, price, discount, unit, imageUrl, description } = req.body;
 
     // 🧩 Validation check
     if (!name || !price || !unit || !imageUrl) {
@@ -30,6 +30,7 @@ router.post("/createProduct", async (req, res) => {
       unit: unit.trim(),
       imageUrl: imageUrl.trim(),
       finalprice, // ✅ matches schema exactly
+      description,
     });
 
     // ✅ Success response
@@ -124,8 +125,16 @@ router.get("/getmessage", async (req, res) => {
 });
 router.put("/updateProduct", async (req, res) => {
   try {
-    const { productid, name, price, unit, discount, imageUrl, finalprice } =
-      req.body;
+    const {
+      productid,
+      name,
+      price,
+      unit,
+      discount,
+      imageUrl,
+      finalprice,
+      description,
+    } = req.body;
 
     // Find product by ID
     const product = await Product.findById(productid);
@@ -140,6 +149,7 @@ router.put("/updateProduct", async (req, res) => {
     if (discount) product.discount = discount;
     if (imageUrl) product.imageUrl = imageUrl;
     if (finalprice) product.finalprice = finalprice;
+    if (description) product.description = description;
 
     // Save changes
     const updatedProduct = await product.save();

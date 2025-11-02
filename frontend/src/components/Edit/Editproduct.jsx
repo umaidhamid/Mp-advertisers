@@ -8,6 +8,7 @@ const EditProduct = ({ product, setEdit }) => {
   const [productname, setproductname] = useState(product?.name || "");
   const [productrate, setproductrate] = useState(product?.price || "");
   const [productunit, setproductunit] = useState(product?.unit || "");
+  const [description, setdescription] = useState(product?.description || "");
   const [productdiscount, setproductdiscount] = useState(
     product?.discount || ""
   );
@@ -80,6 +81,7 @@ const EditProduct = ({ product, setEdit }) => {
         discount: Number(productdiscount),
         finalprice: Number(finalprice),
         imageUrl: newImageUrl,
+        description: description,
       });
 
       if (
@@ -130,6 +132,12 @@ const EditProduct = ({ product, setEdit }) => {
           placeholder="Unit"
           value={productunit}
           onChange={(e) => setproductunit(e.target.value)}
+        />
+        <input
+          type="text"
+          placeholder="Description "
+          value={description}
+          onChange={(e) => setdescription(e.target.value)}
         />
 
         <input

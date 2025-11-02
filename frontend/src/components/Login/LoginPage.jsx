@@ -22,7 +22,9 @@ const LoginPage = () => {
 
       console.log("✅ Login Response:", result.data);
       toast.success("✅ Login successful!", { position: "bottom-right" });
-      navigate("/dashboard");
+      setTimeout(() => {
+        navigate("/dashboard");
+      }, 1000);
     } catch (err) {
       console.error("❌ Login Error:", err);
       toast.error("❌ Invalid username or password!", {
