@@ -156,9 +156,11 @@
 }
 .discription {
   width: 35%;
-  padding: 10px 0;
- background-color: #0077ff;
-color:black;
+  padding: 14px 0;
+  background-color: #0077ff;
+  /* color: black
+  ; */
+  color: yellow;
   align-items: center;
   justify-content: center;
   border: none;
@@ -170,7 +172,7 @@ color:black;
   cursor: pointer;
   transition: 0.3s;
 }
-  
+
 /* Add to Cart Button */
 .cart {
   width: 100%;
@@ -187,4 +189,30 @@ color:black;
 
 .cart:hover {
   background: #d60068;
+}
+.product-description {
+  font-size: 1.8rem;
+  margin-top: 10px;
+  /* font-weight: bold; */
+  color: #333;
+  padding: 8px;
+  border-radius: 8px;
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  width: 100%;
+  box-sizing: border-box;
+
+  /* ensures text wraps properly */
+  word-wrap: break-word;
+  white-space: normal; /* allow multiple lines */
+  overflow: hidden; /* no scrollbar, no overflow */
+}
+
+/* Optional: smooth scroll bar styling */
+.product-description::-webkit-scrollbar {
+  width: 6px;
+}
+.product-description::-webkit-scrollbar-thumb {
+  background: #aaa;
+  border-radius: 10px;
 }

@@ -53,7 +53,7 @@ const ProductCart = ({ product }) => {
         </h3>
         <h1 className="Product-unit">{product.unit}</h1>
       </div>
-      {dis && <p>{product.description}</p>}
+      {dis && <p className="product-description">{product.descriptionn }loremkjansdkjaskjdkjasdkjnaskdjnaskdjnaskjdnaskjdnaskjdnaskjdnaskjnk</p>}
       <div style={{ display: "flex ", width: "100%", gap: "10px" }}>
         <p className="discription" onClick={() => setdis(!dis)}>
           discription

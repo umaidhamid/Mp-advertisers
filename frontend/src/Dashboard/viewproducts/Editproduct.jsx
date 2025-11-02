@@ -21,7 +21,7 @@ const EditProduct = ({ product }) => {
       toast.error("Server error while deleting product!");
     }
   };
-  
+
   return (
     <>
       <div className="oneCard">
@@ -79,7 +79,7 @@ const EditProduct = ({ product }) => {
             ₹{product.finalprice}
           </h3>
         </div>
-<p>{product.description }</p>
+        <p>{product.description}</p>
         <div
           style={{
             display: "flex",
