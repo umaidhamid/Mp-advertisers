@@ -3,9 +3,25 @@ import "./Products.css";
 import { fas } from "@fortawesome/free-solid-svg-icons";
 const ProductCart = ({ product }) => {
   const [dis, setdis] = useState(false);
+  const [loaded, setloaded] = useState(false);
+  function orderhandler() {
+    const phoneNumber = "919149455296"; // your WhatsApp number (with country code, no +)
+    const message = `Hello, I want to order ${product.name} priced at ₹${product.price}`;
+    const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
+      message
+    )}`;
+    window.location.href = url; // opens WhatsApp chat in new tab
+  }
   return (
     <div className="oneCard">
-      <img src={product.imageUrl} alt="Products" className="imagepreview" />
+      {!loaded && <div className="skeleton-loader"></div>}
+      <img
+        src={product.imageUrl}
+        onLoad={() => setloaded(true)}
+        alt="Products"
+        className="imagepreview"
+        style={{ display: loaded ? "block" : "none" }}
+      />
       <h1 className="Product-name">{product.name}</h1>
 
       <div
@@ -53,13 +69,15 @@ const ProductCart = ({ product }) => {
         </h3>
         <h1 className="Product-unit">{product.unit}</h1>
       </div>
-      {dis && <p className="product-description">{product.description}</p>}
+      {dis && <p className="product-description">{product.description }bkbkajsdkajsdkasjdnkajsn</p>}
       <div style={{ display: "flex ", width: "100%", gap: "10px" }}>
         <p className="discription" onClick={() => setdis(!dis)}>
           About
         </p>
 
-        <button className="cart">Add to Cart</button>
+        <button onClick={orderhandler} className="cart">
+          Click To Order
+        </button>
       </div>
     </div>
   );

@@ -15,7 +15,7 @@ import wasteIcon from "../../assets/Images/INDUSTRIES/WASE MANAGEMENT.webp";
 import retailIcon from "../../assets/Images/INDUSTRIES/RETAIL.webp";
 import eventIcon from "../../assets/Images/INDUSTRIES/EVENT NMANAGEMENT.webp";
 import manufacturingIcon from "../../assets/Images/INDUSTRIES/MANUFACTURING.webp";
-
+import { useNavigate } from "react-router-dom";
 const industries = [
   { name: "Agriculture", icon: agriIcon },
   { name: "Construction", icon: constructionIcon },
@@ -35,8 +35,17 @@ const industries = [
 ];
 
 const Industries = () => {
+  const navigate = useNavigate();
   return (
     <section className="industries-section">
+      <h1
+        id="backbtn"
+        onClick={(e) => {
+          navigate("/Home");
+        }}
+      >
+        back
+      </h1>
       <h1 className="industries-title">Industries We Serve</h1>
 
       <div className="industries-grid">

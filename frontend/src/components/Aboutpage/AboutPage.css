@@ -29,7 +29,9 @@
   margin-bottom: 20px;
   animation: zoomIn 1.2s ease-in-out;
 }
-
+.welcome{
+  color: white;
+}
 .hero-title {
   font-size: 48px;
   font-weight: 900;

@@ -30,6 +30,7 @@ const App = () => {
   const navigate = useNavigate();
   return (
     <>
+     
       <div style={{ position: "relative" }} className="overflow-hidden">
         <FaWhatsapp
           style={{
@@ -68,8 +69,9 @@ const App = () => {
               animation: "scrollText 10s linear infinite",
             }}
           >
-            <FontAwesomeIcon icon={faBullhorn} /> 🎉 {message} | 
-            Hurry Up! <FontAwesomeIcon icon={faClock} />
+            <FontAwesomeIcon icon={faBullhorn} />
+            {message}
+            <FontAwesomeIcon icon={faClock} />
           </div>
 
           <style>

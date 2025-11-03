@@ -10,10 +10,11 @@
 body,
 html {
   width: 100%;
+  user-select: none;
   overflow-x: hidden;
   height: 100%;
   /* font-family: Helvetica, sans-serif; */
- /* background: linear-gradient(
+  /* background: linear-gradient(
     135deg,
     #200539 0%,
     #491079 25%,
@@ -62,4 +63,30 @@ html {
   .footer-text {
     font-size: 14px;
   }
+}
+#backbtn {
+  display: inline-block;
+  position: absolute;
+  top: 15px;
+  left: 10px;
+
+  font-size: 1.3rem;
+  font-weight: 600;
+  text-transform: capitalize;
+
+  padding: 6px 12px;
+  border-radius: 7px;
+  background-color: purple;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none; /* removes underline */
+}
+
+/* 🔥 Hover effect for interactivity */
+#backbtn:hover {
+  color: purple;
+  background-color: white;
+  border: 2px solid purple;
+  transform: scale(1.05);
 }

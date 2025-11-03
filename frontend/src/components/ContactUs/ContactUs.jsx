@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import "./ContactUs.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebook, faInstagram } from "@fortawesome/free-brands-svg-icons";
-
+import { useNavigate } from "react-router-dom";
 const ContactUs = () => {
+  const navigate = useNavigate();
   const [form, setForm] = useState({
     name: "",
     Address: "",
@@ -33,6 +34,14 @@ const ContactUs = () => {
 
   return (
     <div className="contact-wrapper flex flex-col">
+      <h1
+        id="backbtn"
+        onClick={(e) => {
+          navigate("/Home");
+        }}
+      >
+        back
+      </h1>
       <div className="contact-header">
         <h1>Contact Us</h1>
         <p>

@@ -5,10 +5,12 @@ import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import ProductCart from "./ProductCart";
 import Loader from "../../loader/Loader.jsx";
 // import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import api from "../../api/axios.js";
 const Products = () => {
   const [Products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
+  const navigate=useNavigate()
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
@@ -37,6 +39,14 @@ const Products = () => {
   }
   return (
     <div className="ProductsScreen">
+      <h1
+        id="backbtn"
+        onClick={(e) => {
+          navigate("/Home");
+        }}
+      >
+        back
+      </h1>
       <h1 className="cartLogo">
         <FontAwesomeIcon icon={faShoppingCart} size="lg" />
       </h1>

@@ -4,10 +4,19 @@ import { Phone } from "lucide-react";
 import Logo from "../../assets/Logo.png";
 import shahid from "../../assets/Images/shahid sir.webp"; // add your owner images
 import Owais from "../../assets/Images/OwaisBhat.webp"; // add your owner images
-
+import { useNavigate } from "react-router-dom";
 const AboutPage = () => {
+  const navigate = useNavigate();
   return (
     <div id="main">
+      <h1
+        id="backbtn"
+        onClick={(e) => {
+          navigate("/Home");
+        }}
+      >
+        back
+      </h1>
       <div className="hero-container">
         <img src={Logo} alt="MP Advertisers Logo" className="hero-logo" />
 
@@ -16,13 +25,13 @@ const AboutPage = () => {
 
         <div className="hero-services">PRINTING | DESIGNING | ADVERTISING</div>
       </div>
-
       <h1 className="welcome">Thanks For Visiting</h1>
-
       <div className="about-wrapper">
         {/* About MP Advertisers */}
         <section className="section-box">
-          <h2 className="heading  AboutHeading pink center">About MP Advertisers</h2>
+          <h2 className="heading  AboutHeading pink center">
+            About MP Advertisers
+          </h2>
           <p>
             MP Advertisers is a professional advertising and printing company
             established with the vision to deliver complete printing, branding,
@@ -143,7 +152,6 @@ const AboutPage = () => {
           </div>
         </section>
       </div>
-
       <footer className="footer">
         <Phone size={20} />
         <span>9149455296</span>
