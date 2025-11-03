@@ -30,15 +30,15 @@ const App = () => {
   const navigate = useNavigate();
   return (
     <>
-     
       <div style={{ position: "relative" }} className="overflow-hidden">
         <FaWhatsapp
           style={{
             position: "fixed",
-            bottom: "30px",
-            right: "30px",
-            padding: "5px",
-            fontSize: "4rem",
+
+            bottom: "10px",
+            left: "10px",
+            padding: "1px",
+            fontSize: "3rem",
             color: "white",
             cursor: "pointer",
             backgroundColor: "green",

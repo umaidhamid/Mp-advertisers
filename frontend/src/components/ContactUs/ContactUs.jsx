@@ -60,7 +60,7 @@ const ContactUs = () => {
           <p>
             <strong>Phone:</strong> +91 9149455296 | +91 9906951150
           </p>
-
+{/* 
           <div className="social-icons">
             <a href="https://www.facebook.com/share/1BqnLc5wBA/">
               <FontAwesomeIcon icon={faFacebook} size="4x" />
@@ -68,7 +68,7 @@ const ContactUs = () => {
             <a href="https://www.instagram.com/mpadvertisers?igsh=MXNoMXpqaWNpdmVzbA==">
               <FontAwesomeIcon icon={faInstagram} size="4x" />
             </a>
-          </div>
+          </div> */}
         </div>
 
         {/* ✅ Updated Contact Form */}
