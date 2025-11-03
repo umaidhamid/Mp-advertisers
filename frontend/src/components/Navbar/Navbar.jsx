@@ -25,7 +25,7 @@ const Navbar = () => {
     {
       icon: faInstagram,
       url: "https://www.instagram.com/mpadvertisers?igsh=MXNoMXpqaWNpdmVzbA==",
-      color: "#e4405f",
+      color: "#006effff",
       label: "Instagram",
     },
     {
