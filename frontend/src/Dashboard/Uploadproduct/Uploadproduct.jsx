@@ -176,6 +176,7 @@ const UploadProduct = () => {
       setproductrate("");
       setproductunit("");
       setproductdiscount("");
+      setdescription("");
       setImage(null);
     } catch (error) {
       console.error("❌ Error creating product:", error);

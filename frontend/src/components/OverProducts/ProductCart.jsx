@@ -74,7 +74,7 @@ const ProductCart = ({ product }) => {
       )}
       <div style={{ display: "flex ", width: "100%", gap: "10px" }}>
         <p className="discription" onClick={() => setdis(!dis)}>
-          About
+          Discription
         </p>
 
         <button onClick={orderhandler} className="cart">

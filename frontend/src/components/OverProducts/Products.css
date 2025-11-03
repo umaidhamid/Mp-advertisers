@@ -172,11 +172,9 @@
   color: #0077ff;
 }
 .discription {
-  width: 35%;
+  width: 45%;
   padding: 14px 6px;
   background-color: #0077ff;
-  /* color: black
-  ; */
   color: yellow;
   align-items: center;
   justify-content: center;
@@ -184,7 +182,7 @@
   text-align: center;
   text-transform: capitalize;
   border-radius: 6px;
-  font-size: 0.95rem;
+  font-size: 0.70rem;
   font-weight: 600;
   cursor: pointer;
   transition: 0.3s;
