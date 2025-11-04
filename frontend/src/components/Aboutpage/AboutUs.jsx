@@ -162,7 +162,7 @@ const AboutPage = () => {
 
             <div className="reason-card">
               <img
-                src="src\assets\Images\Reasons\PRODUCTION SAMPLE.webp"
+                src="../../assets/Images/Reasons/PRODUCTION SAMPLE.webp"
                 alt="Rapid Delivery"
                 className="reason-icon"
               />
