@@ -2,6 +2,8 @@ import React from "react";
 import "./AboutPage.css";
 import { Phone } from "lucide-react";
 import Logo from "../../assets/Logo.png";
+import printImage from "../../assets/Images/Reasons/PRINT MANAGEMENT.webp";
+
 import shahid from "../../assets/Images/shahid sir.webp"; // add your owner images
 import Owais from "../../assets/Images/OwaisBhat.webp"; // add your owner images
 import { useNavigate } from "react-router-dom";
@@ -176,7 +178,7 @@ const AboutPage = () => {
 
             <div className="reason-card">
               <img
-                src="../../assets/Images/Reasons/PRINT MANAGEMENT.webp"
+                src={printImage}
                 alt="Print Managements"
                 className="reason-icon"
               />
