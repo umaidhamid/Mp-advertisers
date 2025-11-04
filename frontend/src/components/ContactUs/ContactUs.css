@@ -98,10 +98,11 @@
 
 /* ✅ Button - Strong Accent */
 .contact-form button {
+  width: 60%;
   background: #ff007f;
   color: #fff;
   padding: 14px;
-  font-size: 1.15rem;
+  font-size: 1.1rem;
   font-weight: 600;
   border: none;
   border-radius: 12px;

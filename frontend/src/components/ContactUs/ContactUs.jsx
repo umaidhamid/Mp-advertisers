@@ -3,6 +3,7 @@ import "./ContactUs.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebook, faInstagram } from "@fortawesome/free-brands-svg-icons";
 import { useNavigate } from "react-router-dom";
+import SocialNav from "../socialNav/SocialNav";
 const ContactUs = () => {
   const navigate = useNavigate();
   const [form, setForm] = useState({
@@ -34,6 +35,7 @@ const ContactUs = () => {
 
   return (
     <div className="contact-wrapper flex flex-col">
+      <SocialNav />
       <h1
         id="backbtn"
         onClick={(e) => {
@@ -60,7 +62,7 @@ const ContactUs = () => {
           <p>
             <strong>Phone:</strong> +91 9149455296 | +91 9906951150
           </p>
-{/* 
+          {/* 
           <div className="social-icons">
             <a href="https://www.facebook.com/share/1BqnLc5wBA/">
               <FontAwesomeIcon icon={faFacebook} size="4x" />
@@ -97,7 +99,21 @@ const ContactUs = () => {
             onChange={handleChange}
             required
           ></textarea>
-          <button type="submit">Send Message on WhatsApp</button>
+          <div style={{ display: "flex", justifyContent: "space-evenly" }}>
+            <button
+              style={{
+                width: "30%",
+                background: "linear-gradient(to right, blue, purple)",
+              }}
+              type="submit"
+            >
+              <a href="tel: 9149455296" style={{ color: "white" }}>
+                Call Now
+              </a>
+            </button>
+
+            <button type="submit">Send Message </button>
+          </div>
         </form>
       </div>
     </div>

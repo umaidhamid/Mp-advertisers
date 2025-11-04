@@ -137,6 +137,58 @@ const App = () => {
     `}
           </style>
         </div>
+        <div
+          style={{ 
+            marginTop:"10px",
+            width: "100%",
+            height: "8vh",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <button
+            style={{
+              background: "linear-gradient(135deg, #ff512f, #dd2476)",
+              padding: "10px 20px",
+              color: "white",
+              borderRadius: "12px 24px",
+              boxShadow: "0 6px 15px rgba(0,0,0,0.2)",
+              fontSize: "1.5rem",
+              fontWeight: "600",
+              border: "none",
+              cursor: "pointer",
+              transition: "all 0.3s ease",
+              animation: "slideIn 0.6s ease-out, pulse 2s ease-in-out infinite",
+            }}
+            onMouseEnter={(e) =>
+              (e.currentTarget.style.transform = "translateY(-3px) scale(1.05)")
+            }
+            onMouseLeave={(e) =>
+              (e.currentTarget.style.transform = "translateY(0) scale(1)")
+            }
+            onClick={() =>
+              window.open("https://share.google/guicGhIBZFXROWUXq", "_blank")
+            }
+          >
+            Rate Us On Google
+          </button>
+
+          <style>
+            {`
+      @keyframes slideIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      @keyframes pulse {
+        0% { transform: scale(1); box-shadow: 0 0 0 rgba(221, 36, 118, 0.4); }
+        50% { transform: scale(1.05); box-shadow: 0 0 20px rgba(221, 36, 118, 0.6); }
+        100% { transform: scale(1); box-shadow: 0 0 0 rgba(221, 36, 118, 0.4); }
+      }
+    `}
+          </style>
+        </div>
 
         <div
           style={{

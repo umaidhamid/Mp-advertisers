@@ -93,6 +93,12 @@ const AboutPage = () => {
 
           <div className="reasons-grid">
             <div className="reason-card">
+              <img
+                src="src\assets\Images\Reasons\MARKETTING PROFESSIONAL.webp"
+                alt="Rapid Delivery"
+                className="reason-icon"
+              />
+
               <h3>Marketing Professional Focus</h3>
               <p>
                 We are not just a general print company. We give you confidence
@@ -101,6 +107,11 @@ const AboutPage = () => {
             </div>
 
             <div className="reason-card">
+              <img
+                src="src\assets\Images\Reasons\RAPID RESPONSE.webp"
+                alt="Rapid Delivery"
+                className="reason-icon"
+              />
               <h3>Rapid Response Service & Delivery</h3>
               <p>
                 • Quotation within 3 hours <br />
@@ -110,6 +121,11 @@ const AboutPage = () => {
             </div>
 
             <div className="reason-card">
+              <img
+                src="src\assets\Images\Reasons\ONE STOP SHOP.webp"
+                alt="Rapid Delivery"
+                className="reason-icon"
+              />
               <h3>1 Stop Shop</h3>
               <p>
                 From concept & design, print and delivery. 1 company = control +
@@ -118,6 +134,11 @@ const AboutPage = () => {
             </div>
 
             <div className="reason-card">
+              <img
+                src="src\assets\Images\Reasons\GRAPHIC DESIGN.webp"
+                alt="Rapid Delivery"
+                className="reason-icon"
+              />
               <h3>Graphic Design</h3>
               <p>
                 Equipped with the latest design software, our creative team
@@ -126,6 +147,11 @@ const AboutPage = () => {
             </div>
 
             <div className="reason-card">
+              <img
+                src="src\assets\Images\Reasons\DEDICATED TEAM.webp"
+                alt="Rapid Delivery"
+                className="reason-icon"
+              />
               <h3>Dedicated Team</h3>
               <p>
                 • In operation since 2015 <br />
@@ -135,6 +161,11 @@ const AboutPage = () => {
             </div>
 
             <div className="reason-card">
+              <img
+                src="src\assets\Images\Reasons\PRODUCTION SAMPLE.webp"
+                alt="Rapid Delivery"
+                className="reason-icon"
+              />
               <h3>Pre-production Samples</h3>
               <p>
                 • Digital hard copy samples for production <br />• Digital soft
@@ -143,6 +174,11 @@ const AboutPage = () => {
             </div>
 
             <div className="reason-card">
+              <img
+                src="src\assets\Images\Reasons\PRINT MANAGEMENT.webp"
+                alt="Rapid Delivery"
+                className="reason-icon"
+              />
               <h3>Print Management</h3>
               <p>
                 From beginning to end, we handle the entire printing process and

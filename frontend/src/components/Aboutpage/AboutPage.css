@@ -29,7 +29,7 @@
   margin-bottom: 20px;
   animation: zoomIn 1.2s ease-in-out;
 }
-.welcome{
+.welcome {
   color: white;
 }
 .hero-title {
@@ -104,11 +104,10 @@
   text-align: center;
   background: #fff;
 }
-.slider{
+.slider {
   padding: 1px 1%;
   text-align: center;
-background: linear-gradient(135deg, #111 0%, #333 100%);
-
+  background: linear-gradient(135deg, #111 0%, #333 100%);
 }
 
 .section-box p {
@@ -160,7 +159,7 @@ background: linear-gradient(135deg, #111 0%, #333 100%);
    💡 7 REASONS SECTION
 =================================== */
 .reasons-wrapper {
-  padding: 70px 12%;
+  padding: 30px 10%;
   color: white;
 }
 
@@ -202,12 +201,24 @@ background: linear-gradient(135deg, #111 0%, #333 100%);
   border-color: #ff007a;
   box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
 }
+.reason-card img {
+  width: 80px; /* size of the icon */
+  height: 80px;
+  object-fit: contain; /* ensures proper scaling */
+  display: block;
+  margin: 0 auto 15px auto; /* centers image and adds space below */
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
 
+.reason-card:hover img {
+  transform: scale(1.1); /* small zoom effect on hover */
+  filter: drop-shadow(0 0 10px rgba(255, 0, 122, 0.6));
+}
 /* ===================================
    👥 OWNERS SECTION
 =================================== */
 .owners-section {
-  padding: 70px 12%;
+  padding: 40px 8% 0px;
   text-align: center;
 }
 
