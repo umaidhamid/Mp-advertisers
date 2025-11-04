@@ -2,7 +2,13 @@ import React from "react";
 import "./AboutPage.css";
 import { Phone } from "lucide-react";
 import Logo from "../../assets/Logo.png";
-import printImage from "../../assets/Images/Reasons/PRINT MANAGEMENT.webp";
+import marketingImg from "../../assets/Images/Reasons/MARKETING-PROFESSIONAL.webp";
+import rapidImg from "../../assets/Images/Reasons/RAPID-RESPONSE.webp";
+import oneStopImg from "../../assets/Images/Reasons/ONE-STOP-SHOP.webp";
+import graphicImg from "../../assets/Images/Reasons/GRAPHIC-DESIGN.webp";
+import teamImg from "../../assets/Images/Reasons/DEDICATED-TEAM.webp";
+import sampleImg from "../../assets/Images/Reasons/PRODUCTION-SAMPLE.webp";
+import printImg from "../../assets/Images/Reasons/PRINT-MANAGEMENT.webp";
 
 import shahid from "../../assets/Images/shahid sir.webp"; // add your owner images
 import Owais from "../../assets/Images/OwaisBhat.webp"; // add your owner images
@@ -96,11 +102,10 @@ const AboutPage = () => {
           <div className="reasons-grid">
             <div className="reason-card">
               <img
-                src="src\assets\Images\Reasons\MARKETTING PROFESSIONAL.webp"
-                alt="Rapid Delivery"
+                src={marketingImg}
+                alt="Marketing Professional Focus"
                 className="reason-icon"
               />
-
               <h3>Marketing Professional Focus</h3>
               <p>
                 We are not just a general print company. We give you confidence
@@ -110,8 +115,8 @@ const AboutPage = () => {
 
             <div className="reason-card">
               <img
-                src="src\assets\Images\Reasons\RAPID RESPONSE.webp"
-                alt="Rapid Delivery"
+                src={rapidImg}
+                alt="Rapid Response Service"
                 className="reason-icon"
               />
               <h3>Rapid Response Service & Delivery</h3>
@@ -124,8 +129,8 @@ const AboutPage = () => {
 
             <div className="reason-card">
               <img
-                src="src\assets\Images\Reasons\ONE STOP SHOP.webp"
-                alt="Rapid Delivery"
+                src={oneStopImg}
+                alt="One Stop Shop"
                 className="reason-icon"
               />
               <h3>1 Stop Shop</h3>
@@ -137,8 +142,8 @@ const AboutPage = () => {
 
             <div className="reason-card">
               <img
-                src="src\assets\Images\Reasons\GRAPHIC DESIGN.webp"
-                alt="Rapid Delivery"
+                src={graphicImg}
+                alt="Graphic Design"
                 className="reason-icon"
               />
               <h3>Graphic Design</h3>
@@ -149,11 +154,7 @@ const AboutPage = () => {
             </div>
 
             <div className="reason-card">
-              <img
-                src="src\assets\Images\Reasons\DEDICATED TEAM.webp"
-                alt="Rapid Delivery"
-                className="reason-icon"
-              />
+              <img src={teamImg} alt="Dedicated Team" className="reason-icon" />
               <h3>Dedicated Team</h3>
               <p>
                 • In operation since 2015 <br />
@@ -164,9 +165,8 @@ const AboutPage = () => {
 
             <div className="reason-card">
               <img
-                // src="../../assets/Images/Reasons/PRODUCTION SAMPLE.webp"
-                src="../../assets/Images/Reasons/PRODUCTION SAMPLE.webp"
-                alt="Rapid Delivery"
+                src={sampleImg}
+                alt="Pre-production Samples"
                 className="reason-icon"
               />
               <h3>Pre-production Samples</h3>
@@ -178,8 +178,8 @@ const AboutPage = () => {
 
             <div className="reason-card">
               <img
-                src={printImage}
-                alt="Print Managements"
+                src={printImg}
+                alt="Print Management"
                 className="reason-icon"
               />
               <h3>Print Management</h3>
