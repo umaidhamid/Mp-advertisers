@@ -2,13 +2,13 @@ import React from "react";
 import "./AboutPage.css";
 import { Phone } from "lucide-react";
 import Logo from "../../assets/Logo.png";
-import marketingImg from "../../assets/Images/Reasons/MARKETING-PROFESSIONAL.webp";
-import rapidImg from "../../assets/Images/Reasons/RAPID-RESPONSE.webp";
-import oneStopImg from "../../assets/Images/Reasons/ONE-STOP-SHOP.webp";
-import graphicImg from "../../assets/Images/Reasons/GRAPHIC-DESIGN.webp";
-import teamImg from "../../assets/Images/Reasons/DEDICATED-TEAM.webp";
-import sampleImg from "../../assets/Images/Reasons/PRODUCTION-SAMPLE.webp";
-import printImg from "../../assets/Images/Reasons/PRINT-MANAGEMENT.webp";
+import marketingImg from "../../assets/Images/Reasons/MARKETTING PROFESSIONAL.webp";
+import rapidImg from "../../assets/Images/Reasons/RAPID RESPONSE.webp";
+import oneStopImg from "../../assets/Images/Reasons/ONE STOP SHOP.webp";
+import graphicImg from "../../assets/Images/Reasons/GRAPHIC DESIGN.webp";
+import teamImg from "../../assets/Images/Reasons/DEDICATED TEAM.webp";
+import sampleImg from "../../assets/Images/Reasons/PRODUCTION SAMPLE.webp";
+import printImg from "../../assets/Images/Reasons/PRINT MANAGEMENT.webp";
 
 import shahid from "../../assets/Images/shahid sir.webp"; // add your owner images
 import Owais from "../../assets/Images/OwaisBhat.webp"; // add your owner images
