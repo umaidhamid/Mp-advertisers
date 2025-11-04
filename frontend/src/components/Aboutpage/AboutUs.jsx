@@ -162,6 +162,7 @@ const AboutPage = () => {
 
             <div className="reason-card">
               <img
+                // src="../../assets/Images/Reasons/PRODUCTION SAMPLE.webp"
                 src="../../assets/Images/Reasons/PRODUCTION SAMPLE.webp"
                 alt="Rapid Delivery"
                 className="reason-icon"
@@ -175,8 +176,8 @@ const AboutPage = () => {
 
             <div className="reason-card">
               <img
-                src="src\assets\Images\Reasons\PRINT MANAGEMENT.webp"
-                alt="Rapid Delivery"
+                src="../../assets/Images/Reasons/PRINT MANAGEMENT.webp"
+                alt="Print Managements"
                 className="reason-icon"
               />
               <h3>Print Management</h3>
