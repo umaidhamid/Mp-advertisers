@@ -23,6 +23,16 @@
   align-items: center;
   /* justify-content: center; */
 }
+.top-row {
+  display: flex;
+  margin-right: 25px;
+  align-items: center;
+  justify-content: flex-end; /* ✅ use this instead of justify-items */
+  /* background-color: rebeccapurple; */
+  width: 100%;
+  padding: 10px 20px; /* optional: add some breathing space */
+  gap: 10px; /* optional: spacing between items */
+}
 
 .Product-heading {
   /* margin-top: 20px; */
