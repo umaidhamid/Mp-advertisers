@@ -209,7 +209,10 @@ const UploadProduct = () => {
       toast.error("Server error while uploading message!");
     }
   };
-
+  function finalPrice(discount, rate) {
+    const price = rate - (rate * discount) / 100;
+    return price.toFixed(2); // e.g. round to 2 decimals
+  }
   return (
     <main style={styles.main}>
       {/* Product Upload Form */}
@@ -239,7 +242,6 @@ const UploadProduct = () => {
               onChange={(e) => setproductunit(e.target.value)}
             />
           </div>
-
           <input
             type="number"
             style={styles.input}
@@ -252,13 +254,19 @@ const UploadProduct = () => {
           <input
             type="text"
             style={styles.input}
+            placeholder="Final Price"
+            value={finalPrice(productdiscount, productrate)} // Call the function directly
+            readOnly // prevent editing
+          />
+          <input
+            type="text"
+            style={styles.input}
             placeholder="Description "
             min={0}
             max={100}
             value={description}
             onChange={(e) => setdescription(e.target.value)}
           />
-
           <div style={styles.imageUploadBox}>
             <label
               htmlFor="productImage"
@@ -281,7 +289,6 @@ const UploadProduct = () => {
               style={styles.fileInput}
             />
           </div>
-
           <button type="submit" style={styles.uploadBtn}>
             Upload Product
           </button>

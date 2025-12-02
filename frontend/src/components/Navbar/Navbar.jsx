@@ -151,7 +151,7 @@ const Navbar = () => {
           >
             <FontAwesomeIcon
               icon={social.icon}
-              size="lg"
+              size="s"
               color={social.color}
             />
           </a>

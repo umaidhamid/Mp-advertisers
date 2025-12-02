@@ -168,7 +168,7 @@ const App = () => {
               (e.currentTarget.style.transform = "translateY(0) scale(1)")
             }
             onClick={() =>
-              window.open("https://share.google/guicGhIBZFXROWUXq", "_blank")
+              window.open("https://www.google.com/search?hl=en-IN&gl=in&q=MP+Advertisers,+Aari+Bagh+Stop,+Bagati+Kani+Pora,+Badgam,+Jammu+and+Kashmir+190015&ludocid=13384264947038041550&lsig=AB86z5XdEYej7r5ZnS1g8AuXuMdr#lrd=0x38e18f73e7aec7ab:0xb9be760e73ea35ce,3", "_blank")
             }
           >
             Rate Us On Google
