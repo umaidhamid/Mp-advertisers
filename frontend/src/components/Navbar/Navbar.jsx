@@ -1,8 +1,8 @@
-import React from "react";
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
 import "./Navbar.css";
 import logoImg from "../../assets/icons/MAIN LOGO MP.webp";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faInstagram,
@@ -13,7 +13,6 @@ import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const navigate = useNavigate();
 
   const socialLinks = [
     {
@@ -42,13 +41,18 @@ const Navbar = () => {
     },
   ];
 
+  const closeMenu = () => setIsOpen(false);
+
   return (
     <header>
+      {/* Logo */}
       <div className="logo">
-        <img src={logoImg} alt="Logo" onClick={() => navigate("/")} />
-      </div>
+        <NavLink to="/" onClick={closeMenu}>
+          <img src={logoImg} alt="Logo" />
+        </NavLink>
+      </div>  
 
-      {/* Hamburger Button */}
+      {/* Hamburger */}
       <button
         className="hamburger"
         onClick={() => setIsOpen(!isOpen)}
@@ -62,64 +66,28 @@ const Navbar = () => {
       {/* Navigation */}
       <nav className={isOpen ? "active" : ""}>
         <ul>
-          <li>
-            <button
-              className="nav-link"
-              onClick={() => {
-                setIsOpen(false);
-                navigate("/");
-              }}
-            >
-              Home
-            </button>
-          </li>
-          <li>
-            <button
-              className="nav-link"
-              onClick={() => {
-                setIsOpen(false);
-                navigate("/AboutUs");
-              }}
-            >
-              About Us
-            </button>
-          </li>
-          <li>
-            <button
-              className="nav-link"
-              onClick={() => {
-                setIsOpen(false);
-                navigate("/Products");
-              }}
-            >
-              Products
-            </button>
-          </li>
-          <li>
-            <button
-              className="nav-link"
-              onClick={() => {
-                setIsOpen(false);
-                navigate("/industries");
-              }}
-            >
-              Industries
-            </button>
-          </li>
-          <li>
-            <button
-              className="nav-link"
-              onClick={() => {
-                setIsOpen(false);
-                navigate("/Contact-Us");
-              }}
-            >
-              Contact Us 
-            </button>
-          </li>
+          {[
+            { to: "/", label: "Home" },
+            { to: "/AboutUs", label: "About Us" },
+            { to: "/Products", label: "Products" },
+            { to: "/industries", label: "Industries" },
+            { to: "/Contact-Us", label: "Contact Us" },
+          ].map((item) => (
+            <li key={item.to}>
+              <NavLink
+                to={item.to}
+                onClick={closeMenu}
+                className={({ isActive }) =>
+                  `nav-link ${isActive ? "active-link" : ""}`
+                }
+              >
+                {item.label}
+              </NavLink>
+            </li>
+          ))}
         </ul>
 
-        {/* Social icons in mobile menu */}
+        {/* Mobile Social Icons */}
         <div className="mobile-social">
           {socialLinks.map((social) => (
             <a
@@ -151,7 +119,7 @@ const Navbar = () => {
           >
             <FontAwesomeIcon
               icon={social.icon}
-              size="s"
+              size="sm"
               color={social.color}
             />
           </a>

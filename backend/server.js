@@ -6,16 +6,14 @@ import cookieParser from "cookie-parser";
 import connectDB from "./Database/database.js";
 import { authMiddleware } from "./middleware/auth.middleware.js";
 import cloudinaryRoute from "./routes/Cloudinary.route.js";
-// Load environment variables
+
 dotenv.config();
 
-// Connect to MongoDB
-connectDB();
 
-// Initialize express app
+connectDB();
+ 
 const app = express();
 
-// Middleware setup
 const allowedOrigins = [
   "http://localhost:5173", // for local dev
   "https://mp-advertisers.vercel.app", // your Vercel frontend
@@ -42,7 +40,6 @@ app.use(morgan("dev"));
 app.use(express.static("uploads")); // serve images or other static files
 
 app.use("/api/cloudinary", cloudinaryRoute);
-// Routes import (you’ll create them next)
 import ownerRoutes from "./routes/owner.routes.js";
 app.use("/api/owners", ownerRoutes);
 import productRoute from "./routes/product.route.js";

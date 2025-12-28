@@ -39,7 +39,7 @@ router.post("/createOwner", async (req, res) => {
 });
 
 router.post("/loginOwner", async (req, res) => {
-  console.log("BODY RECEIVED:", req.body);
+  // console.log("BODY RECEIVED:", req.body);
   try {
     const { userName, Password } = req.body; // ✅ get from request body
 
@@ -61,9 +61,7 @@ router.post("/loginOwner", async (req, res) => {
     if (!isMatch) {
       return res.status(400).json({ message: "Invalid username or password" });
     }
-
-    // 4️⃣ Success — you can now generate a token (optional)
-    const token = GenerateToken(User._id); // if you’re using JWT later
+    const token = GenerateToken(User._id);
     res.cookie("MpCookie", token, {
       httpOnly: true, // cannot be accessed via JS
       secure: process.env.NODE_ENV === "production", // ✅ true only on HTTPS

@@ -47,8 +47,7 @@ const App = () => {
           }}
           onClick={() => window.open("https://wa.me/919149455296", "_blank")}
         />
-        <Navbar />
-        {/* msg  */}
+        {/* <Navbar /> */}
         <div
           style={{
             overflow: "hidden",
@@ -84,7 +83,6 @@ const App = () => {
     `}
           </style>
         </div>
-        {/* <DiscountPopup /> */}
         <Main />
         {/* product btn  */}
         <div

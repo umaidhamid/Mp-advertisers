@@ -1,13 +1,13 @@
-import React from "react";
-import Home from "./Home.jsx";
-import Navbar from "./components/Navbar/Navbar.jsx";
-const App = () => {
+import Navbar from "../components/Navbar/Navbar";
+import { Outlet } from "react-router-dom";
+
+const MainLayout = () => {
   return (
-    <div>
-      <Navbar />
-      <Home />
-    </div>
+    <>
+      {/* <Navbar /> */}
+      {/* <Outlet /> 👈 Page content renders here */}
+    </>
   );
 };
 
-export default App;
+export default MainLayout;

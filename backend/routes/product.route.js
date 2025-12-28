@@ -29,7 +29,7 @@ router.post("/createProduct", async (req, res) => {
       discount: discountNum,
       unit: unit.trim(),
       imageUrl: imageUrl.trim(),
-      finalprice, // ✅ matches schema exactly
+      finalprice, 
       description,
     });
 

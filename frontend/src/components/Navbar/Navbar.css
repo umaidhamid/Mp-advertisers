@@ -1,3 +1,4 @@
+/* ================= HEADER ================= */
 header {
   width: 100%;
   display: flex;
@@ -13,7 +14,7 @@ header {
   backdrop-filter: blur(10px);
 }
 
-/* Logo */
+/* ================= LOGO ================= */
 .logo {
   display: flex;
   align-items: center;
@@ -31,7 +32,7 @@ header {
   transform: scale(1.05);
 }
 
-/* Navigation */
+/* ================= NAVIGATION ================= */
 nav {
   display: flex;
   align-items: center;
@@ -52,6 +53,7 @@ nav ul li {
   position: relative;
 }
 
+/* 🔥 NAV LINK (FIXED) */
 nav ul li .nav-link {
   color: white;
   background: transparent;
@@ -66,30 +68,25 @@ nav ul li .nav-link {
   position: relative;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+
+  /* ❌ REMOVE DEFAULT UNDERLINE */
+  text-decoration: none;
 }
 
-nav ul li .nav-link::before {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%) scaleX(0);
-  width: 80%;
-  height: 2px;
-  background: white;
-  transition: transform 0.3s ease;
-}
-
+/* Hover effect (NO underline) */
 nav ul li .nav-link:hover {
   background: rgba(255, 255, 255, 0.15);
   transform: translateY(-2px);
 }
 
-nav ul li .nav-link:hover::before {
-  transform: translateX(-50%) scaleX(1);
+/* ✅ ACTIVE PAGE (BACKGROUND ONLY) */
+.nav-link.active-link {
+  background: rgba(237, 243, 169, 0.611);
+  font-weight: 800;
+
 }
 
-/* Social Icons Desktop */
+/* ================= SOCIAL ICONS ================= */
 .social-icons {
   margin-right: 20px;
   display: flex;
@@ -104,7 +101,7 @@ nav ul li .nav-link:hover::before {
   justify-content: center;
   width: 30px;
   height: 30px;
-  background: rgba(255, 255, 255, 0.358);
+  background: rgba(255, 255, 255, 0.35);
   border-radius: 50%;
   transition: all 0.3s ease;
   backdrop-filter: blur(10px);
@@ -116,12 +113,12 @@ nav ul li .nav-link:hover::before {
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
-/* Mobile Social Icons (hidden by default) */
+/* ================= MOBILE ================= */
 .mobile-social {
   display: none;
 }
 
-/* Hamburger */
+/* ================= HAMBURGER ================= */
 .hamburger {
   display: none;
   flex-direction: column;
@@ -153,7 +150,7 @@ nav ul li .nav-link:hover::before {
   transform: rotate(-45deg) translate(7px, -7px);
 }
 
-/* Mobile Styles */
+/* ================= MOBILE STYLES ================= */
 @media (max-width: 968px) {
   header {
     padding: 1rem 1.5rem;
@@ -168,17 +165,14 @@ nav ul li .nav-link:hover::before {
     margin-right: 23px;
   }
 
-  /* Hide desktop social icons on mobile */
   .social-icons {
     display: none;
   }
 
-  /* Hide desktop nav */
   nav ul {
     display: none;
   }
 
-  /* Mobile slide menu */
   nav {
     position: fixed;
     top: 0;
@@ -191,7 +185,6 @@ nav ul li .nav-link:hover::before {
     z-index: 1000;
     flex-direction: column;
     justify-content: flex-start;
-    gap: 0;
     box-shadow: -5px 0 20px rgba(0, 0, 0, 0.3);
   }
 
@@ -207,10 +200,6 @@ nav ul li .nav-link:hover::before {
     padding: 0 1.5rem;
   }
 
-  nav.active ul li {
-    width: 100%;
-  }
-
   nav.active ul li .nav-link {
     width: 100%;
     text-align: left;
@@ -219,16 +208,10 @@ nav ul li .nav-link:hover::before {
     display: block;
   }
 
-  nav.active ul li .nav-link::before {
-    display: none;
-  }
-
-  /* Show social icons in mobile menu */
   nav.active .mobile-social {
     display: flex;
     justify-content: center;
     gap: 0.8rem;
-    margin-right: 3rem;
     padding: 2rem 1.5rem;
     border-top: 1px solid rgba(255, 255, 255, 0.2);
   }

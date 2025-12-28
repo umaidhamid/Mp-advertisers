@@ -20,7 +20,7 @@ const LoginPage = () => {
         Password,
       });
 
-      console.log("✅ Login Response:", result.data);
+      // console.log("✅ Login Response:", result.data);
       toast.success("✅ Login successful!", { position: "bottom-right" });
       setTimeout(() => {
         navigate("/dashboard");
