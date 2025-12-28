@@ -64,7 +64,7 @@ nav ul li .nav-link {
   padding: 0.6rem 1.2rem;
   border-radius: 8px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
   position: relative;
   text-transform: uppercase;
   letter-spacing: 0.5px;
@@ -83,7 +83,7 @@ nav ul li .nav-link:hover {
 .nav-link.active-link {
   background: rgba(237, 243, 169, 0.611);
   font-weight: 800;
-
+  color: #681ca1;
 }
 
 /* ================= SOCIAL ICONS ================= */

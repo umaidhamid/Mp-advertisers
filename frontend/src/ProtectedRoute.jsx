@@ -1,35 +1,17 @@
-import { Outlet, Navigate } from "react-router-dom";
-import React from "react";
-import { useContext } from "react";
+import React, { useContext } from "react";
+import { Navigate, Outlet } from "react-router-dom";
 
-function ProtectedRoutes() {
-  if (isAuth == null)
-    return (
-      <div
-        className="spinner"
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          width: "100%",
-          height: "100%",
-        }}
-      >
-        <div
-          style={{
-            padding: "10px",
-            border: "7px solid blue",
-            borderTop: "7px solid transparent",
-            animation: "spin 0.7s linear infinite",
-            borderRadius: "50%",
-            height: "150px",
-            width: "150px",
-          }}
-        ></div>
-      </div>
-    );
+import { AuthContext } from "./context/authContext"; // adjust path if needed
 
-  return isAuth ? <Outlet /> : <Navigate to={"/Home"} replace />;
-}
+const ProtectedRoutes = () => {
+  const { isAuth, loading } = useContext(AuthContext);
+
+  // ⏳ Wait until auth check completes
+  if (loading) {
+    return null; // or <Loader />
+  }
+
+  return isAuth ? <Outlet /> : <Navigate to="/AdminLogin" replace />;
+};
 
 export default ProtectedRoutes;
