@@ -10,7 +10,7 @@ import LoginPage from "../components/Login/LoginPage.jsx";
 import Dashboard from "../Dashboard/dashBoard.jsx";
 import ProtectedRoutes from "../ProtectedRoute.jsx";
 import Loader from "../loader/Loader.jsx";
-
+import NotFound from "../components/NotFound.jsx";
 import MainLayout from "../layouts/MainLayout.jsx";
 
 const AppRoute = () => {
@@ -28,6 +28,7 @@ const AppRoute = () => {
       <Routes>
         {/* 🌍 PUBLIC ROUTES WITH NAVBAR */}
         <Route element={<MainLayout />}>
+          <Route path="*" element={<NotFound />} />
           <Route path="/" element={<Home />} />
           <Route path="/Home" element={<Home />} />
           <Route path="/AboutUs" element={<AboutUs />} />
@@ -35,10 +36,6 @@ const AppRoute = () => {
           <Route path="/Contact-Us" element={<ContactUs />} />
           <Route path="/Products" element={<Products />} />
           <Route path="/AdminLogin" element={<LoginPage />} />
-        </Route>
-
-        {/* 🔐 PROTECTED DASHBOARD (NO NAVBAR) */}
-        <Route element={<ProtectedRoutes />}>
           <Route path="/dashboard" element={<Dashboard />} />
         </Route>
       </Routes>

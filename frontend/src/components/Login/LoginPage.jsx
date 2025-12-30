@@ -5,10 +5,12 @@ import api from "../../api/axios.js";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 const LoginPage = () => {
   const [userName, setuserName] = useState("");
   const [Password, setPassword] = useState("");
+const [showPassword, setShowPassword] = useState(false);
+
   const navigate = useNavigate();
 
   const Loginhandler = async (e) => {
@@ -53,16 +55,25 @@ const LoginPage = () => {
               />
             </div>
 
-            <div className={styles.inputGroup}>
-              <FaLock className={styles.icon} />
-              <input
-                type="password"
-                placeholder="Password"
-                required
-                onChange={(e) => setPassword(e.target.value)}
-                className={styles.input}
-              />
-            </div>
+         <div className={styles.inputGroup}>
+  <FaLock className={styles.icon} />
+
+  <input
+    type={showPassword ? "text" : "password"}
+    placeholder="Password"
+    required
+    onChange={(e) => setPassword(e.target.value)}
+    className={styles.input}
+  />
+
+  <span
+    className={styles.eyeIcon}
+    onClick={() => setShowPassword(!showPassword)}
+  >
+    {showPassword ? <FaEyeSlash /> : <FaEye />}
+  </span>
+</div>
+
 
             <div className={styles.infoBox}>
               <p>👋 Welcome back, Admin.</p>

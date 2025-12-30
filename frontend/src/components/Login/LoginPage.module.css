@@ -1,125 +1,158 @@
+/* 🌌 Full Page Background */
 .loginContainer {
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
-  align-items: center;
   justify-content: center;
-  background: #fae3f7;
-  /* font-family: "Poppins", sans-serif; */
+  align-items: center;
+  background: linear-gradient(135deg, #2e1065, #1e1b4b, #020617);
+  font-family: "Inter", sans-serif;
+  animation: fadeIn 0.8s ease-in-out;
 }
 
+/* 💎 Login Card */
 .loginCard {
-  background: #ffffff;
-  width: 360px;
-  padding: 60px 45px;
-  border-radius: 25px;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+  max-width: 420px;
+  padding: 40px 36px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.55);
+  color: #ede9fe;
+  animation: slideUp 0.7s ease;
 }
 
-.loginCard:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
-}
-
+/* 🏷 Title */
 .loginTitle {
-  background: linear-gradient(90deg, #2e3fff, #4a56ff);
-  color: white;
-  padding: 12px 28px;
-  border-radius: 30px;
-  font-size: 1.6rem;
-  margin-bottom: 35px;
-  display: inline-block;
-  letter-spacing: 1px;
-}
-.loginTitle:hover{
-    background: linear-gradient(90deg, #71ccc1, #4c519d);
-  color: black;
-}
-.bold {
-  font-weight: 700;
-  color: white;
+  text-align: center;
+  font-size: 28px;
+  font-weight: 500;
+  margin-bottom: 25px;
+  letter-spacing: 0.5px;
 }
 
+.bold {
+  font-weight: 800;
+  color: #c084fc;
+}
+
+/* 🧾 Form */
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* 🔐 Input Group */
 .inputGroup {
   display: flex;
   align-items: center;
-  background: #f8f8ff;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  margin-bottom: 20px;
-  padding: 15px 15px;
-  /* font-size: larger                     ; */
-  transition: border 0.3s ease;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  padding: 12px 14px;
+  border: 1px solid transparent;
+  transition: all 0.3s ease;
 }
 
-.inputGroup:focus-within {
-  border: 1px solid #2e3fff;
-  background: #ffffff;
+.inputGroup:hover {
+  border-color: #a855f7;
 }
 
+/* 🧩 Icons */
 .icon {
-  color: #666;
+  color: #d8b4fe;
   font-size: 16px;
   margin-right: 10px;
 }
 
+/* ✏ Inputs */
 .input {
+  background: transparent;
   border: none;
   outline: none;
+  color: #f5f3ff;
+  font-size: 14px;
   width: 100%;
-  font-size: 20px;
-  background: transparent;
- color: blue;
 }
 
+.input::placeholder {
+  color: #c4b5fd;
+}
+
+/* ℹ️ Info Box */
 .infoBox {
-  background: #f9f9ff;
-  border-radius: 15px;
-  padding: 15px 10px;
-  margin: 25px 0;
-  font-size: 13.5px;
-  color: #333;
+  margin-top: 10px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.07);
+  font-size: 13px;
   line-height: 1.6;
-  box-shadow: inset 0 0 10px rgba(46, 63, 255, 0.08);
-  text-align: left;
+  color: #ddd6fe;
 }
 
-.infoBox p {
-  margin: 6px 0;
-}
-
+/* 🚀 Login Button */
 .loginBtn {
-  width: 100%;
-  background: linear-gradient(90deg, #2e3fff, #4a56ff);
-  border: none;
-  color: white;
-  padding: 15px;
+  margin-top: 12px;
+  padding: 13px;
   border-radius: 30px;
-  font-size: 16px;
+  border: none;
   cursor: pointer;
+  background: linear-gradient(135deg, #a855f7, #7c3aed);
+  color: #1e1b4b;
+  font-weight: 700;
   letter-spacing: 1px;
-  font-weight: 500;
-  transition: 0.3s;
+  transition: all 0.3s ease;
 }
 
 .loginBtn:hover {
-  background: linear-gradient(90deg, #1d2bcc, #3846ff);
   transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(168, 85, 247, 0.45);
 }
 
+.loginBtn:active {
+  transform: scale(0.98);
+}
+
+/* 🎬 Animations */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.eyeIcon {
+  color: #d8b4fe;
+  cursor: pointer;
+  font-size: 16px;
+  margin-left: 8px;
+  transition: color 0.2s ease;
+}
+
+.eyeIcon:hover {
+  color: #a855f7;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* 📱 Responsive */
 @media (max-width: 480px) {
   .loginCard {
-    width: 90%;
-    padding: 35px 25px;
+    padding: 32px 26px;
   }
 
   .loginTitle {
-    font-size: 16px;
-    padding: 10px 20px;
-  }
-
-  .loginBtn {
-    font-size: 15px;
+    font-size: 24px;
   }
 }
