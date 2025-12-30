@@ -8,7 +8,6 @@ import ContactUs from "../components/ContactUs/ContactUs.jsx";
 import Products from "../components/OverProducts/Products.jsx";
 import LoginPage from "../components/Login/LoginPage.jsx";
 import Dashboard from "../Dashboard/dashBoard.jsx";
-import ProtectedRoutes from "../ProtectedRoute.jsx";
 import Loader from "../loader/Loader.jsx";
 import NotFound from "../components/NotFound.jsx";
 import MainLayout from "../layouts/MainLayout.jsx";
