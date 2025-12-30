@@ -4,8 +4,4 @@ import { BrowserRouter } from "react-router-dom";
 import "./index.css";
 
 import AppRoute from "./Routes/AppRoute.jsx";
-createRoot(document.getElementById("root")).render(
-  <AuthProvider>
-    <AppRoute />
-  </AuthProvider>
-);
+createRoot(document.getElementById("root")).render(<AppRoute />);
