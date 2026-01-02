@@ -136,8 +136,8 @@ const App = () => {
           </style>
         </div>
         <div
-          style={{ 
-            marginTop:"10px",
+          style={{
+            marginTop: "10px",
             width: "100%",
             height: "8vh",
             display: "flex",
@@ -166,7 +166,10 @@ const App = () => {
               (e.currentTarget.style.transform = "translateY(0) scale(1)")
             }
             onClick={() =>
-              window.open("https://search.google.com/local/writereview?placeid=ChIJq8eu53OP4TgRzjXqcw52vrk", "_blank")
+              window.open(
+                "https://search.google.com/local/writereview?placeid=ChIJq8eu53OP4TgRzjXqcw52vrk",
+                "_blank"
+              )
             }
           >
             Rate Us On Google
@@ -228,10 +231,46 @@ const App = () => {
         </div>
         <MapSection />
       </div>
-      <footer className="copywrite">
-        <h2 className="CopywriteHeading">
+      <footer className="">
+        <h2
+          className="CopywriteHeading"
+          style={{
+            // marginTop: "30px",
+            padding: "14px 20px",
+            width: "100%",
+            textAlign: "center",
+            fontSize: "0.9rem",
+            fontWeight: 500,
+            color: "#e5e7eb",
+            background: "rgba(0, 0, 0, 0.25)",
+            backdropFilter: "blur(6px)",
+            borderTop: "1px solid rgba(255, 255, 255, 0.15)",
+            letterSpacing: "0.3px",
+            lineHeight: "1.6",
+          }}
+        >
           © {new Date().getFullYear()} Created and Developed by{" "}
-          <span>Umaid Hamid</span>. All Rights Reserved.
+          <span
+            style={{
+              color: "#ff66c4",
+              fontWeight: 600,
+            }}
+          >
+            Umaid Hamid
+          </span>
+          . All Rights Reserved.
+          <br />
+          <span
+            style={{
+              display: "block",
+              marginTop: "6px",
+              fontSize: "0.8rem",
+              color: "#d1d5db",
+            }}
+          >
+            📍 Aaribagh Stop, B.K Pora, Nowgam, Srinagar, Jammu and Kashmir,
+            India - 190015
+          </span>
         </h2>
       </footer>
     </>
