@@ -138,9 +138,9 @@ nav ul li .nav-link:hover {
   transition: all 0.3s ease;
 }
 
-.hamburger span.open:nth-child(1) {
+/* .hamburger span.open:nth-child(1) {
   transform: rotate(45deg) translate(7px, 7px);
-}
+} */
 
 .hamburger span.open:nth-child(2) {
   opacity: 0;
@@ -177,7 +177,7 @@ nav ul li .nav-link:hover {
     position: fixed;
     top: 0;
     right: -100%;
-    width: 280px;
+    width: 350px;
     height: 100vh;
     background: linear-gradient(180deg, #681ca1 0%, #aa31e4 100%);
     padding: 100px 0 2rem 0;

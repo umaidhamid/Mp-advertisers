@@ -29,7 +29,7 @@ router.post("/createProduct", async (req, res) => {
       discount: discountNum,
       unit: unit.trim(),
       imageUrl: imageUrl.trim(),
-      finalprice, 
+      finalprice,
       description,
     });
 
@@ -50,19 +50,37 @@ router.post("/createProduct", async (req, res) => {
 });
 router.get("/getproducts", async (req, res) => {
   try {
-    const products = await Product.find();
+    const page = Math.max(parseInt(req.query.page) || 1, 1);
+    const limit = Math.max(parseInt(req.query.limit) || 10, 1);
+    const search = req.query.search || "";
 
-    if (!products || products.length === 0) {
-      return res.status(404).json({
-        success: false,
-        message: "No products found!",
-      });
+    const skip = (page - 1) * limit;
+
+    // 🔍 Search filter
+    const query = {};
+    if (search) {
+      query.name = { $regex: search, $options: "i" }; // case-insensitive
     }
+
+    // 📊 Total count (AFTER search filter)
+    const totalProducts = await Product.countDocuments(query);
+
+    // 📦 Fetch products
+    const products = await Product.find(query)
+      .skip(skip)
+      .limit(limit)
+      .sort({ _id: -1 });
 
     res.status(200).json({
       success: true,
       message: "✅ Products fetched successfully!",
-      products,
+      data: products,
+      pagination: {
+        totalProducts,
+        currentPage: page,
+        totalPages: Math.ceil(totalProducts / limit),
+        limit,
+      },
     });
   } catch (error) {
     console.error("Error fetching products:", error);
@@ -73,6 +91,8 @@ router.get("/getproducts", async (req, res) => {
     });
   }
 });
+
+
 router.post("/uploadmsg", async (req, res) => {
   try {
     const { uploadmessage } = req.body;
