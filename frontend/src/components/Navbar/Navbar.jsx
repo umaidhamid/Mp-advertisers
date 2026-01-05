@@ -64,6 +64,7 @@ const Navbar = () => {
               { to: "/Products", label: "Products" },
               { to: "/industries", label: "Industries" },
               { to: "/Contact-Us", label: "Contact Us" },
+              { to: "/gallery", label: "Gallery" },
             ].map((item) => (
               <li key={item.to}>
                 <NavLink

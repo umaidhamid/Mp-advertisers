@@ -12,6 +12,7 @@ import Loader from "../loader/Loader.jsx";
 import NotFound from "../components/NotFound.jsx";
 import MainLayout from "../layouts/MainLayout.jsx";
 import Test from "../Test.jsx";
+import Gallery from "../Gallery/Gallery.jsx";
 const AppRoute = () => {
   const [loading, setLoading] = useState(true);
 
@@ -44,6 +45,7 @@ const AppRoute = () => {
           <Route path="/industries" element={<Industries />} />
           <Route path="/Contact-Us" element={<ContactUs />} />
           <Route path="/Products" element={<Products />} />
+          <Route path="/gallery" element={<Gallery />} />
           <Route path="/AdminLogin" element={<LoginPage />} />
           <Route path="/dashboard" element={<Dashboard />} />
         </Route>

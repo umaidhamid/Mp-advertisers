@@ -34,4 +34,11 @@ export const bubbleItems = [
     rotation: 8,
     hoverStyles: { bgColor: "#8b5cf6", textColor: "#ffffff" },
   },
+  {
+    label: "Gallery",
+    href: "/gallery",
+    ariaLabel: "gallery",
+    rotation: 8,
+    hoverStyles: { bgColor: "#8b5cf6", textColor: "#ffffff" },
+  },
 ];
