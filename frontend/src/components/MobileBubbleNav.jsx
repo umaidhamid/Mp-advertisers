@@ -13,12 +13,13 @@ const MobileBubbleNav = () => {
             gap: "5px",
             alignItems: "center",
             justifyContent: "center",
+            backgroundColor: "transparent",
           }}
         >
           <span
             style={{
               width: "22px",
-              height: "2px",
+              height: "3px",
               backgroundColor: "#111",
               borderRadius: "2px",
             }}
@@ -26,7 +27,7 @@ const MobileBubbleNav = () => {
           <span
             style={{
               width: "22px",
-              height: "2px",
+              height: "3px",
               backgroundColor: "#111",
               borderRadius: "2px",
             }}
@@ -34,7 +35,7 @@ const MobileBubbleNav = () => {
           <span
             style={{
               width: "22px",
-              height: "2px",
+              height: "3px",
               backgroundColor: "#111",
               borderRadius: "2px",
             }}
@@ -42,7 +43,7 @@ const MobileBubbleNav = () => {
         </div>
       }
       items={bubbleItems}
-      menuBg="#ffffff"
+      // menuBg="transparent" // ✅ THIS FIXES WHITE BG
       menuContentColor="#111111"
       useFixedPosition={true}
     />

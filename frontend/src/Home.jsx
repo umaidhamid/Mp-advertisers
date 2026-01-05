@@ -35,7 +35,6 @@ const App = () => {
         <FaWhatsapp
           style={{
             position: "fixed",
-
             bottom: "10px",
             left: "10px",
             padding: "1px",
@@ -209,7 +208,7 @@ const App = () => {
                 "Make Your Brand Impossible to Ignore.",
                 "Where Your Brand Meets Perfect Print.",
                 "Your Brand, Seen Everywhere.",
-                " We don’t just print designs",
+                "We don’t just print designs",
                 "we build brand identity.",
               ]}
               rotationInterval={2000}
@@ -217,16 +216,16 @@ const App = () => {
               mainClassName="
     text-center
     text-white
-    font-extrabold
+    font-semibold
     leading-tight
     max-w-[90%]
     mx-auto
 
-    text-xl          /* mobile */
-    sm:text-2xl      /* small screens */
-    md:text-4xl      /* tablets */
-    lg:text-5xl      /* desktop */
-    xl:text-6xl      /* large desktop */
+    text-xl
+    sm:text-2xl
+    md:text-4xl
+    lg:text-5xl
+    xl:text-6xl
   "
               elementLevelClassName="
     inline-block

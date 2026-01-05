@@ -31,7 +31,7 @@ const BubbleMenu = ({
           width: 58,
           height: 60,
 
-          background: menuBg,
+          backgroundColor: "transparent",       
           color: menuContentColor,
           border: "none",
           fontSize: 26,
