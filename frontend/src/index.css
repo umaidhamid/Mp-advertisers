@@ -7,11 +7,15 @@
 
   padding: 0;
 }
+@import "tailwindcss";
 body,
 html {
   width: 100%;
   user-select: none;
+
   overflow-x: hidden;
+  overflow-y: auto;
+
   height: 100%;
   /* font-family: Helvetica, sans-serif; */
   /* background: linear-gradient(

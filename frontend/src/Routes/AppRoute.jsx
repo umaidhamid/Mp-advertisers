@@ -11,7 +11,7 @@ import Dashboard from "../Dashboard/dashBoard.jsx";
 import Loader from "../loader/Loader.jsx";
 import NotFound from "../components/NotFound.jsx";
 import MainLayout from "../layouts/MainLayout.jsx";
-
+import Test from "../Test.jsx";
 const AppRoute = () => {
   const [loading, setLoading] = useState(true);
 
@@ -27,6 +27,16 @@ const AppRoute = () => {
       <Routes>
         {/* 🌍 PUBLIC ROUTES WITH NAVBAR */}
         <Route element={<MainLayout />}>
+          <Route
+            path="/test"
+            element={
+              <div className="min-h-screen bg-black flex items-center justify-center">
+                <h1 className="text-6xl font-bold text-red-500">
+                  TAILWIND v4 WORKS
+                </h1>
+              </div>
+            }
+          />
           <Route path="*" element={<NotFound />} />
           <Route path="/" element={<Home />} />
           <Route path="/Home" element={<Home />} />

@@ -174,7 +174,7 @@ const Products = () => {
               lineHeight: "1.6",
             }}
           >
-            © {new Date().getFullYear()} Created and Developed by{" "}
+            © 2025 Created and Developed by{" "}
             <span
               style={{
                 color: "#ff66c4",
@@ -193,7 +193,8 @@ const Products = () => {
                 color: "#d1d5db",
               }}
             >
-              📍 Aaribagh Stop, B.K Pora, Nowgam, Srinagar, Jammu and Kashmir, India - 190015
+              📍 Aaribagh Stop, B.K Pora, Nowgam, Srinagar, Jammu and Kashmir,
+              India - 190015
             </span>
           </h2>
         </footer>

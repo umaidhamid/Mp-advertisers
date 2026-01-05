@@ -10,6 +10,7 @@ import Slider from "./components/Work/Slider.jsx";
 import { useState } from "react";
 import { useEffect } from "react";
 import api from "./api/axios.js";
+import RotatingText from "../animation/RotatingText.jsx";
 const App = () => {
   const [message, setMessage] = useState("");
 
@@ -201,7 +202,43 @@ const App = () => {
             <Slider />
           </section>
           {/* Mission Section */}
+          <div className=" flex items-center bg-black justify-center text-5xl font-bold h-[100px]">
+            <RotatingText
+              texts={[
+                "Your Brand, Printed to Perfection.",
+                "Make Your Brand Impossible to Ignore.",
+                "Where Your Brand Meets Perfect Print.",
+                "Your Brand, Seen Everywhere.",
+                " We don’t just print designs",
+                "we build brand identity.",
+              ]}
+              rotationInterval={2000}
+              staggerDuration={0.02}
+              mainClassName="
+    text-center
+    text-white
+    font-extrabold
+    leading-tight
+    max-w-[90%]
+    mx-auto
 
+    text-xl          /* mobile */
+    sm:text-2xl      /* small screens */
+    md:text-4xl      /* tablets */
+    lg:text-5xl      /* desktop */
+    xl:text-6xl      /* large desktop */
+  "
+              elementLevelClassName="
+    inline-block
+    bg-gradient-to-r
+    from-indigo-400
+    via-purple-500
+    to-pink-500
+    bg-clip-text
+    text-transparent
+  "
+            />
+          </div>
           <section className="section-box ">
             <h2 className="heading pink">Mission</h2>
             <p>
@@ -249,7 +286,7 @@ const App = () => {
             lineHeight: "1.6",
           }}
         >
-          © {new Date().getFullYear()} Created and Developed by{" "}
+          © 2025 Created and Developed by{" "}
           <span
             style={{
               color: "#ff66c4",
@@ -264,6 +301,7 @@ const App = () => {
             style={{
               display: "block",
               marginTop: "6px",
+              padding: "1px",
               fontSize: "0.8rem",
               color: "#d1d5db",
             }}

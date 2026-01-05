@@ -112,7 +112,20 @@ nav ul li .nav-link:hover {
   background: rgba(255, 255, 255, 0.2);
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
+.mobile-navbar {
+  display: none;
+}
 
+/* SHOW ONLY ON SMALL DEVICES */
+@media (max-width: 768px) {
+  .mobile-navbar {
+    display: block;
+    position: fixed; /* IMPORTANT */
+    bottom: 20px;
+    right: 20px;
+    z-index: 99999; /* VERY IMPORTANT */
+  }
+}
 /* ================= MOBILE ================= */
 .mobile-social {
   display: none;

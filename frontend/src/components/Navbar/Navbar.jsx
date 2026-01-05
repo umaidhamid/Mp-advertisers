@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import "./Navbar.css";
 import logoImg from "../../assets/icons/MAIN LOGO MP.webp";
+import MobileBubbleNav from "../MobileBubbleNav";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -23,13 +24,13 @@ const Navbar = () => {
     },
     {
       icon: faInstagram,
-      url: "https://www.instagram.com/mpadvertisers?igsh=MXNoMXpqaWNpdmVzbA==",
-      color: "#006effff",
+      url: "https://www.instagram.com/mpadvertisers",
+      color: "#006eff",
       label: "Instagram",
     },
     {
       icon: faYoutube,
-      url: "https://youtube.com/@mpadvertisers?si=0psLeH6DIbMC-weF",
+      url: "https://youtube.com/@mpadvertisers",
       color: "#ff0000",
       label: "YouTube",
     },
@@ -44,51 +45,42 @@ const Navbar = () => {
   const closeMenu = () => setIsOpen(false);
 
   return (
-    <header>
-      {/* Logo */}
-      <div className="logo">
-        <NavLink to="/" onClick={closeMenu}>
-          <img src={logoImg} alt="Logo" />
-        </NavLink>
-      </div>  
+    <>
+      {/* ===== DESKTOP NAVBAR ===== */}
+      <header className="desktop-navbar">
+        {/* Logo */}
+        <div className="logo">
+          <NavLink to="/">
+            <img src={logoImg} alt="Logo" />
+          </NavLink>
+        </div>
 
-      {/* Hamburger */}
-      <button
-        className="hamburger"
-        onClick={() => setIsOpen(!isOpen)}
-        aria-label="Toggle menu"
-      >
-        <span className={isOpen ? "open" : ""}></span>
-        <span className={isOpen ? "open" : ""}></span>
-        <span className={isOpen ? "open" : ""}></span>
-      </button>
+        {/* Navigation */}
+        <nav>
+          <ul>
+            {[
+              { to: "/", label: "Home" },
+              { to: "/AboutUs", label: "About Us" },
+              { to: "/Products", label: "Products" },
+              { to: "/industries", label: "Industries" },
+              { to: "/Contact-Us", label: "Contact Us" },
+            ].map((item) => (
+              <li key={item.to}>
+                <NavLink
+                  to={item.to}
+                  className={({ isActive }) =>
+                    `nav-link ${isActive ? "active-link" : ""}`
+                  }
+                >
+                  {item.label}
+                </NavLink>
+              </li>
+            ))}
+          </ul>
+        </nav>
 
-      {/* Navigation */}
-      <nav className={isOpen ? "active" : ""}>
-        <ul>
-          {[
-            { to: "/", label: "Home" },
-            { to: "/AboutUs", label: "About Us" },
-            { to: "/Products", label: "Products" },
-            { to: "/industries", label: "Industries" },
-            { to: "/Contact-Us", label: "Contact Us" },
-          ].map((item) => (
-            <li key={item.to}>
-              <NavLink
-                to={item.to}
-                onClick={closeMenu}
-                className={({ isActive }) =>
-                  `nav-link ${isActive ? "active-link" : ""}`
-                }
-              >
-                {item.label}
-              </NavLink>
-            </li>
-          ))}
-        </ul>
-
-        {/* Mobile Social Icons */}
-        <div className="mobile-social">
+        {/* Desktop Social Icons */}
+        <div className="social-icons">
           {socialLinks.map((social) => (
             <a
               key={social.label}
@@ -99,33 +91,19 @@ const Navbar = () => {
             >
               <FontAwesomeIcon
                 icon={social.icon}
-                size="1.5x"
+                size="sm"
                 color={social.color}
               />
             </a>
           ))}
         </div>
-      </nav>
+      </header>
 
-      {/* Desktop Social Icons */}
-      <div className="social-icons">
-        {socialLinks.map((social) => (
-          <a
-            key={social.label}
-            href={social.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label={social.label}
-          >
-            <FontAwesomeIcon
-              icon={social.icon}
-              size="sm"
-              color={social.color}
-            />
-          </a>
-        ))}
+      {/* ===== MOBILE NAV ===== */}
+      <div className="mobile-navbar">
+        <MobileBubbleNav />
       </div>
-    </header>
+    </>
   );
 };
 

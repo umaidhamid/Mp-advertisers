@@ -56,10 +56,7 @@ const Dashboard = () => {
       header: { fontSize: "0.2rem" },
       uploadTitle: { fontFamily: "0.5rem" },
     },
-    "@media (max-width: 380px)": {
-      header: { fontSize: "0.4rem" },
-      uploadTitle: { fontFamily: "0.5rem" },
-    },
+ 
   };
   const [isAuth, setIsAuth] = useState(false);
   const [selected, setSelected] = useState(true);
