@@ -30,7 +30,37 @@ const items = [
 
 const Gallery = () => {
   return (
-    <div style={{ height: "600px", position: "relative" }}>
+    <div style={{ height: "100vh", position: "relative" }}>
+      <h1
+        className="
+      pointer-events-none
+      select-none
+      absolute
+      top-1/2
+      left-1/2
+      -translate-x-1/2
+      -translate-y-1/2
+      z-20
+
+      text-center
+      font-semibold
+      tracking-tight
+      text-white/90
+
+      text-xl
+      sm:text-2xl
+      md:text-3xl
+      lg:text-4xl
+      xl:text-5xl
+
+      leading-tight
+      max-w-[90%]
+      mx-auto
+    "
+      >
+        Interact to Experience the Gallery
+      </h1>
+
       <InfiniteMenu items={items} />
     </div>
   );

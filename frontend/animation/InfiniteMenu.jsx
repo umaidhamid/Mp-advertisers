@@ -1182,35 +1182,6 @@ export default function InfiniteMenu({ items = [], scale = 1.0 }) {
           >
             {activeItem.description}
           </p>
-
-          <div
-            onClick={handleButtonClick}
-            className={`
-          absolute
-          left-1/2
-          z-10
-          w-[60px]
-          h-[60px]
-          grid
-          place-items-center
-          bg-[#00ffff]
-          border-[5px]
-          border-black
-          rounded-full
-          cursor-pointer
-          transition-all
-          ease-[cubic-bezier(0.25,0.1,0.25,1.0)]
-          ${
-            isMoving
-              ? "bottom-[-80px] opacity-0 pointer-events-none duration-[100ms] scale-0 -translate-x-1/2"
-              : "bottom-[3.8em] opacity-100 pointer-events-auto duration-[500ms] scale-100 -translate-x-1/2"
-          }
-        `}
-          >
-            <p className="select-none relative text-[#060010] top-[2px] text-[26px]">
-              &#x2197;
-            </p>
-          </div>
         </>
       )}
     </div>
