@@ -234,10 +234,10 @@
 }
 
 /* Optional: smooth scroll bar styling */
-.product-description::-webkit-scrollbar {
+/* .product-description::-webkit-scrollbar {
   width: 6px;
 }
 .product-description::-webkit-scrollbar-thumb {
   background: #aaa;
   border-radius: 10px;
-}
+} */

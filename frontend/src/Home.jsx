@@ -85,112 +85,7 @@ const App = () => {
         </div>
         <Main />
         {/* product btn  */}
-        <div
-          style={{
-            width: "100%",
-            height: "8vh",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          <button
-            style={{
-              background: "linear-gradient(135deg, #6a11cb, #2575fc)",
-              padding: "10px 9px",
-              color: "white",
-              borderRadius: "12px 24px",
-              boxShadow: "0 6px 15px rgba(0,0,0,0.2)",
-              fontSize: "1.5rem",
-              fontWeight: "600",
-              border: "none",
-              cursor: "pointer",
-              transition: "all 0.3s ease",
-              animation: "slideIn 0.6s ease-out, pulse 2s ease-in-out infinite",
-            }}
-            onMouseEnter={(e) =>
-              (e.currentTarget.style.transform = "translateY(-3px) scale(1.05)")
-            }
-            onMouseLeave={(e) =>
-              (e.currentTarget.style.transform = "translateY(0) scale(1)")
-            }
-            onClick={() => navigate("/Products")}
-          >
-            View Products
-          </button>
-
-          {/* Inline CSS keyframes directly inside JSX */}
-          <style>
-            {`
-      @keyframes slideIn {
-        from { opacity: 0; transform: translateY(20px); }
-        to { opacity: 1; transform: translateY(0); }
-      }
-
-      @keyframes pulse {
-        0% { transform: scale(1); box-shadow: 0 0 0 rgba(37, 117, 252, 0.4); }
-        50% { transform: scale(1.05); box-shadow: 0 0 20px rgba(37, 117, 252, 0.6); }
-        100% { transform: scale(1); box-shadow: 0 0 0 rgba(37, 117, 252, 0.4); }
-      }
-    `}
-          </style>
-        </div>
-        <div
-          style={{
-            marginTop: "10px",
-            width: "100%",
-            height: "8vh",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          <button
-            style={{
-              background: "linear-gradient(135deg, #ff512f, #dd2476)",
-              padding: "10px 20px",
-              color: "white",
-              borderRadius: "12px 24px",
-              boxShadow: "0 6px 15px rgba(0,0,0,0.2)",
-              fontSize: "1.5rem",
-              fontWeight: "600",
-              border: "none",
-              cursor: "pointer",
-              transition: "all 0.3s ease",
-              animation: "slideIn 0.6s ease-out, pulse 2s ease-in-out infinite",
-            }}
-            onMouseEnter={(e) =>
-              (e.currentTarget.style.transform = "translateY(-3px) scale(1.05)")
-            }
-            onMouseLeave={(e) =>
-              (e.currentTarget.style.transform = "translateY(0) scale(1)")
-            }
-            onClick={() =>
-              window.open(
-                "https://search.google.com/local/writereview?placeid=ChIJq8eu53OP4TgRzjXqcw52vrk",
-                "_blank"
-              )
-            }
-          >
-            Rate Us On Google
-          </button>
-
-          <style>
-            {`
-      @keyframes slideIn {
-        from { opacity: 0; transform: translateY(20px); }
-        to { opacity: 1; transform: translateY(0); }
-      }
-
-      @keyframes pulse {
-        0% { transform: scale(1); box-shadow: 0 0 0 rgba(221, 36, 118, 0.4); }
-        50% { transform: scale(1.05); box-shadow: 0 0 20px rgba(221, 36, 118, 0.6); }
-        100% { transform: scale(1); box-shadow: 0 0 0 rgba(221, 36, 118, 0.4); }
-      }
-    `}
-          </style>
-        </div>
-
+      
         <div
           style={{
             width: "100%",
@@ -201,7 +96,7 @@ const App = () => {
             <Slider />
           </section>
           {/* Mission Section */}
-          <div className=" flex items-center bg-black justify-center text-5xl font-bold h-[100px]">
+          <div className=" flex items-center bg-black justify-center text-5xl font-bold h-[100px] relative z-10">
             <RotatingText
               texts={[
                 "Your Brand, Printed to Perfection.",
@@ -238,7 +133,7 @@ const App = () => {
   "
             />
           </div>
-          <section className="section-box ">
+          <section className="section-box relative z-10 w-[100vw] ">
             <h2 className="heading pink">Mission</h2>
             <p>
               To make other brands great, giving them life through marketing.
@@ -246,7 +141,7 @@ const App = () => {
           </section>
 
           {/* Vision Section */}
-          <section className="section-box dark-bg">
+          <section className="section-box dark-bg relative z-10  ">
             <h2 className="heading pink">Vision</h2>
             <p>
               To be the preferred print and fulfillment partner to marketing
@@ -255,7 +150,7 @@ const App = () => {
           </section>
 
           {/* Purpose Section */}
-          <section className="section-box">
+          <section className="section-box relative z-10">
             <h2 className="heading pink">Our Purpose</h2>
             <p>
               We exist to simplify and speed up the printing process to give you
@@ -267,7 +162,7 @@ const App = () => {
         </div>
         <MapSection />
       </div>
-      <footer className="">
+      <footer className="relative z-10">
         <h2
           className="CopywriteHeading"
           style={{

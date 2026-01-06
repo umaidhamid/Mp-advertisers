@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import style from "./ImageSlider.module.css";
+import React, { useState, useEffect, useRef } from "react";
+import styles from "./ImageSlider.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faChevronLeft,
@@ -10,49 +10,76 @@ import img1 from "../../assets/Images/SLIDES/SLIDE 1.webp";
 import img2 from "../../assets/Images/SLIDES/SLIDE 2.webp";
 import img3 from "../../assets/Images/SLIDES/SLIDE 3.webp";
 import img4 from "../../assets/Images/SLIDES/SLIDE 4.webp";
+
+const images = [img1, img2, img3, img4];
+
 const ImageSlider = () => {
-  const images = [img1, img2, img3, img4];
   const [index, setIndex] = useState(0);
+  const intervalRef = useRef(null);
 
-  // Auto-slide every 3 seconds
+  const startAutoSlide = () => {
+    intervalRef.current = setInterval(() => {
+      setIndex((prev) => (prev + 1) % images.length);
+    }, 3500);
+  };
+
+  const stopAutoSlide = () => {
+    clearInterval(intervalRef.current);
+  };
+
   useEffect(() => {
-    const timer = setInterval(() => {
-      nextSlide();
-    }, 3000);
-    return () => clearInterval(timer);
-  }, [index]);
+    startAutoSlide();
+    return stopAutoSlide;
+  }, []);
 
-  const nextSlide = () => {
-    setIndex((prev) => (prev + 1) % images.length);
-  };
+  const nextSlide = () => setIndex((prev) => (prev + 1) % images.length);
 
-  const prevSlide = () => {
+  const prevSlide = () =>
     setIndex((prev) => (prev - 1 + images.length) % images.length);
-  };
 
   return (
-    <div className={style.slider}>
-      {/* Left button */}
-      <button className={`${style.navBtn} ${style.left}`} onClick={prevSlide}>
+    <div
+      className={styles.slider}
+      onMouseEnter={stopAutoSlide}
+      onMouseLeave={startAutoSlide}
+    >
+      {/* Slides */}
+      {images.map((img, i) => (
+        <img
+          key={i}
+          src={img}
+          alt={`slide-${i}`}
+          className={`${styles.image} ${i === index ? styles.active : ""}`}
+          loading="lazy"
+        />
+      ))}
+
+      {/* Navigation */}
+      <button
+        className={`${styles.navBtn} ${styles.left}`}
+        onClick={prevSlide}
+        aria-label="Previous slide"
+      >
         <FontAwesomeIcon icon={faChevronLeft} />
       </button>
 
-      {/* Image */}
-      <img src={images[index]} alt="slide" className={style.image} />
-
-      {/* Right button */}
-      <button className={`${style.navBtn} ${style.right}`} onClick={nextSlide}>
+      <button
+        className={`${styles.navBtn} ${styles.right}`}
+        onClick={nextSlide}
+        aria-label="Next slide"
+      >
         <FontAwesomeIcon icon={faChevronRight} />
       </button>
 
-      {/* Dots navigation */}
-      <div className={style.dots}>
+      {/* Dots */}
+      <div className={styles.dots}>
         {images.map((_, i) => (
-          <span
+          <button
             key={i}
             onClick={() => setIndex(i)}
-            className={`${style.dot} ${i === index ? style.active : ""}`}
-          ></span>
+            className={`${styles.dot} ${i === index ? styles.activeDot : ""}`}
+            aria-label={`Go to slide ${i + 1}`}
+          />
         ))}
       </div>
     </div>

@@ -13,6 +13,7 @@ const MapSection = () => {
         height: "350px",
         margin: "40px 0",
       }}
+      className="relative z-10"
     >
       <a
         href={googleMapClickLink}

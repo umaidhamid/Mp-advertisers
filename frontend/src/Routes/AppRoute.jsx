@@ -12,6 +12,7 @@ import Loader from "../loader/Loader.jsx";
 import NotFound from "../components/NotFound.jsx";
 import MainLayout from "../layouts/MainLayout.jsx";
 import Test from "../Test.jsx";
+import MainHome from "../home/MainHome.jsx";
 import Gallery from "../Gallery/Gallery.jsx";
 const AppRoute = () => {
   const [loading, setLoading] = useState(true);
@@ -21,7 +22,7 @@ const AppRoute = () => {
     return () => clearTimeout(timer);
   }, []);
 
-  if (loading) return <Loader />;
+  // if (loading) return <Loader />;
 
   return (
     <BrowserRouter>
@@ -40,6 +41,7 @@ const AppRoute = () => {
           />
           <Route path="*" element={<NotFound />} />
           <Route path="/" element={<Home />} />
+          <Route path="/hero" element={<MainHome />} />
           <Route path="/Home" element={<Home />} />
           <Route path="/AboutUs" element={<AboutUs />} />
           <Route path="/industries" element={<Industries />} />
