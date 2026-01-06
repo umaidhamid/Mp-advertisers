@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { NavLink } from "react-router-dom";
 import "./Navbar.css";
 import logoImg from "../../assets/icons/MAIN LOGO MP.webp";
@@ -13,88 +13,68 @@ import {
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const navItems = [
+    { to: "/", label: "Home" },
+    { to: "/AboutUs", label: "About Us" },
+    { to: "/Products", label: "Products" },
+    { to: "/industries", label: "Industries" },
+    { to: "/gallery", label: "Gallery" },
+    { to: "/Contact-Us", label: "Contact Us" },
+  ];
 
   const socialLinks = [
     {
       icon: faFacebook,
       url: "https://www.facebook.com/share/1BqnLc5wBA/",
       color: "#1877f2",
-      label: "Facebook",
     },
     {
       icon: faInstagram,
       url: "https://www.instagram.com/mpadvertisers",
-      color: "#006eff",
-      label: "Instagram",
+      color: "#e1306c",
     },
     {
       icon: faYoutube,
       url: "https://youtube.com/@mpadvertisers",
       color: "#ff0000",
-      label: "YouTube",
     },
-    {
-      icon: faEnvelope,
-      url: "mailto:mpadvts@gmail.com",
-      color: "#ffffff",
-      label: "Email",
-    },
+    { icon: faEnvelope, url: "mailto:mpadvts@gmail.com", color: "#ffffff" },
   ];
-
-  const closeMenu = () => setIsOpen(false);
 
   return (
     <>
       {/* ===== DESKTOP NAVBAR ===== */}
       <header className="desktop-navbar">
         {/* Logo */}
-        <div className="logo">
-          <NavLink to="/">
-            <img src={logoImg} alt="Logo" />
-          </NavLink>
-        </div>
+        <NavLink to="/" className="logo">
+          <img src={logoImg} alt="MP Advertisers Logo" />
+        </NavLink>
 
         {/* Navigation */}
-        <nav>
-          <ul>
-            {[
-              { to: "/", label: "Home" },
-              { to: "/AboutUs", label: "About Us" },
-              { to: "/Products", label: "Products" },
-              { to: "/industries", label: "Industries" },
-              { to: "/Contact-Us", label: "Contact Us" },
-              { to: "/gallery", label: "Gallery" },
-            ].map((item) => (
-              <li key={item.to}>
-                <NavLink
-                  to={item.to}
-                  className={({ isActive }) =>
-                    `nav-link ${isActive ? "active-link" : ""}`
-                  }
-                >
-                  {item.label}
-                </NavLink>
-              </li>
-            ))}
-          </ul>
+        <nav className="nav-links">
+          {navItems.map((item) => (
+            <NavLink
+              key={item.to}
+              to={item.to}
+              className={({ isActive }) =>
+                `nav-link ${isActive ? "active" : ""}`
+              }
+            >
+              {item.label}
+            </NavLink>
+          ))}
         </nav>
 
-        {/* Desktop Social Icons */}
+        {/* Social Icons */}
         <div className="social-icons">
-          {socialLinks.map((social) => (
+          {socialLinks.map((social, i) => (
             <a
-              key={social.label}
+              key={i}
               href={social.url}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label={social.label}
             >
-              <FontAwesomeIcon
-                icon={social.icon}
-                size="sm"
-                color={social.color}
-              />
+              <FontAwesomeIcon icon={social.icon} />
             </a>
           ))}
         </div>

@@ -1,6 +1,8 @@
 import React from "react";
-import "./AboutPage.css";
-import { Phone } from "lucide-react";
+import { motion } from "framer-motion";
+import { Phone, ArrowLeft } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+
 import Logo from "../../assets/Logo.png";
 import marketingImg from "../../assets/Images/Reasons/MARKETTING PROFESSIONAL.webp";
 import rapidImg from "../../assets/Images/Reasons/RAPID RESPONSE.webp";
@@ -10,190 +12,269 @@ import teamImg from "../../assets/Images/Reasons/DEDICATED TEAM.webp";
 import sampleImg from "../../assets/Images/Reasons/PRODUCTION SAMPLE.webp";
 import printImg from "../../assets/Images/Reasons/PRINT MANAGEMENT.webp";
 
-import shahid from "../../assets/Images/shahid sir.webp"; // add your owner images
-import Owais from "../../assets/Images/OwaisBhat.webp"; // add your owner images
-import { useNavigate } from "react-router-dom";
+import shahid from "../../assets/Images/shahid sir.webp";
+import Owais from "../../assets/Images/OwaisBhat.webp";
+
+const reasons = [
+  {
+    img: marketingImg,
+    title: "Marketing Professional Focus",
+    desc: "Confidence in print and project execution.",
+  },
+  {
+    img: rapidImg,
+    title: "Rapid Response Service",
+    desc: "Fast quotes, tracking & guaranteed timelines.",
+  },
+  {
+    img: oneStopImg,
+    title: "One Stop Shop",
+    desc: "From concept to delivery with full accountability.",
+  },
+  {
+    img: graphicImg,
+    title: "Graphic Design",
+    desc: "Modern tools turning ideas into visuals.",
+  },
+  {
+    img: teamImg,
+    title: "Dedicated Team",
+    desc: "Experienced professionals focused on success.",
+  },
+  {
+    img: sampleImg,
+    title: "Production Samples",
+    desc: "Pre-production digital assurance.",
+  },
+  {
+    img: printImg,
+    title: "Print Management",
+    desc: "End-to-end print handled perfectly.",
+  },
+];
+
 const AboutPage = () => {
   const navigate = useNavigate();
+
   return (
-    <div id="main">
-      <h1
-        id="backbtn"
-        onClick={(e) => {
-          navigate("/Home");
+    <div
+      style={{
+        background: "#0b0b14",
+        color: "#fff",
+        fontFamily: "Inter, sans-serif",
+      }}
+    >
+
+      {/* HERO */}
+      <section
+        style={{
+          minHeight: "100vh",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+          textAlign: "center",
+          padding: "0 24px",
         }}
       >
-        back
-      </h1>
-      <div className="hero-container">
-        <img src={Logo} alt="MP Advertisers Logo" className="hero-logo" />
+        <motion.img
+          src={Logo}
+          alt="MP Advertisers"
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6 }}
+          style={{ width: 130, marginBottom: 24 }}
+        />
 
-        <h1 className="hero-title">MP ADVERTISERS</h1>
-        <p className="hero-tagline">A Complete Printing Solution</p>
+        <motion.h1
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2 }}
+          style={{
+            fontSize: "3.5rem",
+            fontWeight: 800,
+            background: "linear-gradient(90deg,#a855f7,#ec4899)",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+          }}
+        >
+          MP ADVERTISERS
+        </motion.h1>
 
-        <div className="hero-services">PRINTING | DESIGNING | ADVERTISING</div>
-      </div>
-      <h1 className="welcome">Thanks For Visiting</h1>
-      <div className="about-wrapper">
-        {/* About MP Advertisers */}
-        <section className="section-box">
-          <h2 className="heading  AboutHeading pink center">
-            About MP Advertisers
-          </h2>
-          <p>
-            MP Advertisers is a professional advertising and printing company
-            established with the vision to deliver complete printing, branding,
-            and design solutions under one roof. From concept to creation, we
-            handle every detail with precision and creativity. Our mission is to
-            help businesses stand out with impactful visuals, quality materials,
-            and innovative designs. With years of experience and modern
-            technology, we’ve become a trusted name for promotional printing,
-            signage, flex boards, and more — helping brands bring their ideas to
-            life.
-          </p>
-        </section>
+        <p style={{ marginTop: 16, fontSize: 18, color: "#cbd5f5" }}>
+          A Complete Printing Solution
+        </p>
 
-        {/* Owners Section */}
-        <section className="owners-section">
-          <h2 className="heading pink center text-white">Our Founders</h2>
-          <div className="owners-grid">
-            <div className="owner-card">
-              <img src={shahid} alt="Owner 1" className="owner-photo" />
-              <h3 className="owner-name">Mr. Shahid Beigh</h3>
-              <p className="owner-position">Founder & Managing Director</p>
-              <p className="owner-bio">
-                A highly accomplished IT professional with deep expertise in IT
-                infrastructure, cloud integration, and sustainable technology
-                innovation, Mr. Beigh established MP Advertisers with the vision
-                of making advanced and affordable technological solutions
-                accessible across Kashmir. Under his dynamic leadership, the
-                company has not only built a strong reputation for reliability
-                and excellence but has also forged meaningful collaborations
-                with leading national and international organizations, driving
-                digital transformation and long-term growth in the region.
-              </p>
-            </div>
+        <div
+          style={{
+            marginTop: 20,
+            letterSpacing: 2,
+            fontSize: 14,
+            color: "#9ca3af",
+          }}
+        >
+          PRINTING • DESIGNING • ADVERTISING
+        </div>
+      </section>
 
-            <div className="owner-card">
-              <img src={Owais} alt="Owner 2" className="owner-photo" />
-              <h3 className="owner-name">Mr. Owais Hamid</h3>
-              <p className="owner-position">Co-Founder & Operations Head</p>
-              <p className="owner-bio">
-                With over twelve years of hands-on experience in graphic design,
-                acrylic craftsmanship, and visual communication, Mr. Owais heads
-                the creative division of MP Advertisers with unmatched passion
-                and precision. His deep understanding of modern design trends,
-                coupled with a strong sense of aesthetics and innovation, has
-                been instrumental in shaping the company’s distinctive visual
-                identity. Through his leadership, the creative team consistently
-                delivers high-quality branding, advertising, and promotional
-                solutions that not only reflect professionalism but also capture
-                the essence of the client’s vision and brand story.
-              </p>
-            </div>
-          </div>
-        </section>
+      {/* ABOUT */}
+      <section
+        style={{
+          maxWidth: 900,
+          margin: "0 auto",
+          padding: "80px 24px",
+          textAlign: "center",
+        }}
+      >
+        <motion.h2
+          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 20 }}
+          viewport={{ once: true }}
+          style={{ fontSize: "2.5rem", fontWeight: 700, marginBottom: 24 }}
+        >
+          About MP Advertisers
+        </motion.h2>
 
-        {/* 7 Reasons Section */}
-        <section className="reasons-wrapper">
-          <h2 className="heading center">7 Reasons</h2>
-          <p className="sub-title center">(Why MP Advertisers)</p>
+        <p style={{ fontSize: 18, lineHeight: 1.8, color: "#d1d5db" }}>
+          MP Advertisers is a professional advertising and printing company
+          delivering complete branding and printing solutions under one roof.
+          From concept to creation, we help businesses stand out through
+          quality, creativity, and innovation.
+        </p>
+      </section>
 
-          <div className="reasons-grid">
-            <div className="reason-card">
+      {/* FOUNDERS */}
+      <section
+        style={{
+          background: "linear-gradient(135deg,#681ca1,#aa31e4)",
+          padding: "90px 24px",
+        }}
+      >
+        <h2
+          style={{
+            textAlign: "center",
+            fontSize: "2.5rem",
+            fontWeight: 700,
+            marginBottom: 60,
+          }}
+        >
+          Our Founders
+        </h2>
+
+        <div
+          style={{
+            maxWidth: 1100,
+            margin: "0 auto",
+            display: "grid",
+            gap: 40,
+            gridTemplateColumns: "repeat(auto-fit,minmax(300px,1fr))",
+          }}
+        >
+          {[
+            {
+              img: shahid,
+              name: "Mr. Shahid Beigh",
+              role: "Founder & Managing Director",
+              bio: "Visionary leader driving innovation, technology, and long-term growth.",
+            },
+            {
+              img: Owais,
+              name: "Mr. Owais Hamid",
+              role: "Co-Founder & Operations Head",
+              bio: "Creative expert with 12+ years in design and branding excellence.",
+            },
+          ].map((p, i) => (
+            <motion.div
+              key={i}
+              whileHover={{ y: -10 }}
+              style={{
+                background: "rgba(0,0,0,0.35)",
+                borderRadius: 28,
+                padding: 32,
+                textAlign: "center",
+                backdropFilter: "blur(10px)",
+              }}
+            >
               <img
-                src={marketingImg}
-                alt="Marketing Professional Focus"
-                className="reason-icon"
+                src={p.img}
+                alt={p.name}
+                style={{
+                  width: 130,
+                  height: 130,
+                  borderRadius: "50%",
+                  objectFit: "cover",
+                  marginBottom: 20,
+                }}
               />
-              <h3>Marketing Professional Focus</h3>
-              <p>
-                We are not just a general print company. We give you confidence
-                in print and project execution.
-              </p>
-            </div>
+              <h3 style={{ fontSize: 20, fontWeight: 600 }}>{p.name}</h3>
+              <p style={{ color: "#f472b6", marginBottom: 12 }}>{p.role}</p>
+              <p style={{ color: "#e5e7eb", lineHeight: 1.6 }}>{p.bio}</p>
+            </motion.div>
+          ))}
+        </div>
+      </section>
 
-            <div className="reason-card">
+      {/* REASONS */}
+      <section
+        style={{ padding: "100px 24px", maxWidth: 1200, margin: "0 auto" }}
+      >
+        <h2
+          style={{
+            textAlign: "center",
+            fontSize: "3rem",
+            fontWeight: 700,
+            marginBottom: 70,
+          }}
+        >
+          7 Reasons{" "}
+          <span style={{ color: "#ec4899" }}>(Why MP Advertisers)</span>
+        </h2>
+
+        <div
+          style={{
+            display: "grid",
+            gap: 40,
+            gridTemplateColumns: "repeat(auto-fit,minmax(260px,1fr))",
+          }}
+        >
+          {reasons.map((r, i) => (
+            <motion.div
+              key={i}
+              whileHover={{ y: -12 }}
+              style={{
+                background: "rgba(255,255,255,0.06)",
+                borderRadius: 24,
+                padding: 36,
+                textAlign: "center",
+              }}
+            >
               <img
-                src={rapidImg}
-                alt="Rapid Response Service"
-                className="reason-icon"
+                src={r.img}
+                alt={r.title}
+                style={{ width: 80, marginBottom: 24 }}
               />
-              <h3>Rapid Response Service & Delivery</h3>
-              <p>
-                • Quotation within 3 hours <br />
-                • Fast online ordering <br />
-                • Job tracking <br />• Guaranteed production time lines
-              </p>
-            </div>
+              <h3 style={{ fontSize: 20, fontWeight: 600, marginBottom: 10 }}>
+                {r.title}
+              </h3>
+              <p style={{ color: "#cbd5f5", lineHeight: 1.6 }}>{r.desc}</p>
+            </motion.div>
+          ))}
+        </div>
+      </section>
 
-            <div className="reason-card">
-              <img
-                src={oneStopImg}
-                alt="One Stop Shop"
-                className="reason-icon"
-              />
-              <h3>1 Stop Shop</h3>
-              <p>
-                From concept & design, print and delivery. 1 company = control +
-                accountability + project execution.
-              </p>
-            </div>
-
-            <div className="reason-card">
-              <img
-                src={graphicImg}
-                alt="Graphic Design"
-                className="reason-icon"
-              />
-              <h3>Graphic Design</h3>
-              <p>
-                Equipped with the latest design software, our creative team
-                transforms ideas into designs.
-              </p>
-            </div>
-
-            <div className="reason-card">
-              <img src={teamImg} alt="Dedicated Team" className="reason-icon" />
-              <h3>Dedicated Team</h3>
-              <p>
-                • In operation since 2015 <br />
-                • Your success is our business <br />• Professional graphics
-                designers
-              </p>
-            </div>
-
-            <div className="reason-card">
-              <img
-                src={sampleImg}
-                alt="Pre-production Samples"
-                className="reason-icon"
-              />
-              <h3>Pre-production Samples</h3>
-              <p>
-                • Digital hard copy samples for production <br />• Digital soft
-                copy assurance proof
-              </p>
-            </div>
-
-            <div className="reason-card">
-              <img
-                src={printImg}
-                alt="Print Management"
-                className="reason-icon"
-              />
-              <h3>Print Management</h3>
-              <p>
-                From beginning to end, we handle the entire printing process and
-                deliver a perfect final product.
-              </p>
-            </div>
-          </div>
-        </section>
-      </div>
-      <footer className="footer">
-        <Phone size={20} />
-        <span>9149455296</span>
+      {/* FOOTER */}
+      <footer
+        style={{
+          background: "#000",
+          padding: 24,
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          gap: 10,
+          color: "#d1d5db",
+        }}
+      >
+        <Phone size={18} /> 9149455296
       </footer>
     </div>
   );

@@ -23,7 +23,7 @@ const MainHome = () => {
         const res = await api.get("/api/product/getproducts", {
           params: {
             page: 1,
-            limit: 3, // 👈 only show 3 on home page
+            limit: 6, // 👈 only show 3 on home page
           },
         });
         // console.log(res.data?.data);
@@ -62,10 +62,10 @@ const MainHome = () => {
               fontSize: "2rem",
               fontWeight: "600",
               marginBottom: "2rem",
-              color: "#111",
+              color: "white",
             }}
           >
-            Our Work
+            Welcome
           </h2>
 
           <ImageSlider />
