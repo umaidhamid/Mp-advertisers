@@ -64,7 +64,6 @@ const AboutPage = () => {
         fontFamily: "Inter, sans-serif",
       }}
     >
-
       {/* HERO */}
       <section
         style={{
@@ -175,13 +174,13 @@ const AboutPage = () => {
               img: shahid,
               name: "Mr. Shahid Beigh",
               role: "Founder & Managing Director",
-              bio: "Visionary leader driving innovation, technology, and long-term growth.",
+              bio: "Mr. Shahid Beigh is a highly accomplished IT professional and entrepreneur with extensive experience in IT infrastructure, cloud solutions, and technology-driven business development. With a strong vision to bridge the gap between innovation and accessibility, he founded MP Advertisers to deliver reliable, high-quality, and affordable printing and advertising solutions across Kashmir and beyond. Under his leadership, the company has evolved into a trusted brand known for professionalism, timely delivery, and technical excellence. His strategic mindset, combined with a commitment to sustainable growth and innovation, has enabled MP Advertisers to collaborate with reputed national and international organizations while continuously adapting to modern market demands and technological advancements.",
             },
             {
               img: Owais,
               name: "Mr. Owais Hamid",
               role: "Co-Founder & Operations Head",
-              bio: "Creative expert with 12+ years in design and branding excellence.",
+              bio: "Mr. Owais Hamid brings over twelve years of hands-on experience in graphic design, acrylic fabrication, signage solutions, and visual communication. As the creative backbone of MP Advertisers, he oversees design execution, production quality, and operational workflows with exceptional precision. His deep understanding of contemporary design trends, materials, and fabrication techniques allows him to transform client concepts into impactful visual identities. Through his leadership, the creative and production teams consistently deliver high-quality branding, advertising, and promotional solutions that combine aesthetic excellence with functional durability, ensuring each project reflects the client’s vision while maintaining the company’s commitment to quality and innovation.",
             },
           ].map((p, i) => (
             <motion.div

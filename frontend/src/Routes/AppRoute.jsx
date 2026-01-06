@@ -42,7 +42,8 @@ const AppRoute = () => {
           <Route path="*" element={<NotFound />} />
           <Route path="/" element={<Home />} />
           <Route path="/hero" element={<MainHome />} />
-          <Route path="/Home" element={<Home />} />
+          {/* <Route path="/Home" element={<Home />} /> */}
+          <Route path="/Home" element={<MainHome />} />
           <Route path="/AboutUs" element={<AboutUs />} />
           <Route path="/industries" element={<Industries />} />
           <Route path="/Contact-Us" element={<ContactUs />} />
