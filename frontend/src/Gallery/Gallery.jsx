@@ -31,7 +31,7 @@ const items = [
 const Gallery = () => {
   return (
     <div style={{ height: "100vh", position: "relative" }}>
-      <h1
+      {/* <h1
         className="
       pointer-events-none
       select-none
@@ -59,7 +59,7 @@ const Gallery = () => {
     "
       >
         Interact to Experience the Gallery
-      </h1>
+      </h1> */}
 
       <InfiniteMenu items={items} />
     </div>

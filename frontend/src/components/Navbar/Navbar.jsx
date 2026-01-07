@@ -44,7 +44,7 @@ const Navbar = () => {
   return (
     <>
       {/* ===== DESKTOP NAVBAR ===== */}
-      <header className="desktop-navbar">
+      <header className="desktop-navbar text-white">
         {/* Logo */}
         <NavLink to="/" className="logo">
           <img src={logoImg} alt="MP Advertisers Logo" />

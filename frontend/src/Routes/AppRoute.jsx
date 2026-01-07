@@ -14,6 +14,8 @@ import MainLayout from "../layouts/MainLayout.jsx";
 import Test from "../Test.jsx";
 import MainHome from "../home/MainHome.jsx";
 import Gallery from "../Gallery/Gallery.jsx";
+// import ScrollToTop from "./components/ScrollToTop";
+import ScrollToTop from "../components/ScrollToTop.jsx";
 const AppRoute = () => {
   const [loading, setLoading] = useState(true);
 
@@ -26,32 +28,27 @@ const AppRoute = () => {
 
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Routes>
-        {/* 🌍 PUBLIC ROUTES WITH NAVBAR */}
+        {/* 🌍 PUBLIC ROUTES WITH LAYOUT */}
         <Route element={<MainLayout />}>
-          <Route
-            path="/test"
-            element={
-              <div className="min-h-screen bg-black flex items-center justify-center">
-                <h1 className="text-6xl font-bold text-red-500">
-                  TAILWIND v4 WORKS
-                </h1>
-              </div>
-            }
-          />
-          <Route path="*" element={<NotFound />} />
-          <Route path="/" element={<Home />} />
-          <Route path="/hero" element={<MainHome />} />
-          {/* <Route path="/Home" element={<Home />} /> */}
-          <Route path="/Home" element={<MainHome />} />
+          <Route index element={<MainHome />} />
+          <Route path="/home" element={<MainHome />} />
+          {/* <Route path="/hero" element={<MainHome />} /> */}
+
           <Route path="/AboutUs" element={<AboutUs />} />
           <Route path="/industries" element={<Industries />} />
-          <Route path="/Contact-Us" element={<ContactUs />} />
-          <Route path="/Products" element={<Products />} />
+          <Route path="/products" element={<Products />} />
           <Route path="/gallery" element={<Gallery />} />
-          <Route path="/AdminLogin" element={<LoginPage />} />
-          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/contact-us" element={<ContactUs />} />
         </Route>
+
+        {/* 🔐 ADMIN ROUTES */}
+        <Route path="/admin/login" element={<LoginPage />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+
+        {/* ❌ 404 (ALWAYS LAST, OUTSIDE LAYOUT) */}
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   );

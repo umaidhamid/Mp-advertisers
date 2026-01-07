@@ -11,10 +11,18 @@ const getDiscountedPrice = (price, discount = 0) => {
 const ProductCard = ({ product, index }) => {
   const navigate = useNavigate();
 
-  const finalPrice = getDiscountedPrice(
-    product.price,
-    product.discount
-  );
+  const finalPrice = getDiscountedPrice(product.price, product.discount);
+
+  // ✅ WHATSAPP ORDER HANDLER
+  const orderhandler = () => {
+    const phoneNumber = "919149455296"; // country code + number (no +)
+    const message = `Hello, I want to order *${product.name}* priced at ₹${finalPrice}.`;
+    const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
+      message
+    )}`;
+
+    window.open(url, "_blank"); // ✅ opens in new tab
+  };
 
   return (
     <motion.div
@@ -30,15 +38,12 @@ const ProductCard = ({ product, index }) => {
         boxShadow: "0 10px 25px rgba(0,0,0,0.1)",
         overflow: "hidden",
         transition: "box-shadow 0.3s ease",
+        height: "100%",
       }}
     >
-      {/* Image */}
+      {/* IMAGE */}
       <div
-        style={{
-          position: "relative",
-          height: "240px",
-          overflow: "hidden",
-        }}
+        style={{ position: "relative", height: "240px", overflow: "hidden" }}
       >
         <img
           src={product.imageUrl}
@@ -49,15 +54,10 @@ const ProductCard = ({ product, index }) => {
             objectFit: "cover",
             transition: "transform 0.7s ease",
           }}
-          onMouseOver={(e) =>
-            (e.currentTarget.style.transform = "scale(1.1)")
-          }
-          onMouseOut={(e) =>
-            (e.currentTarget.style.transform = "scale(1)")
-          }
+          onMouseOver={(e) => (e.currentTarget.style.transform = "scale(1.1)")}
+          onMouseOut={(e) => (e.currentTarget.style.transform = "scale(1)")}
         />
 
-        {/* Discount Badge */}
         {product.discount > 0 && (
           <div
             style={{
@@ -75,29 +75,15 @@ const ProductCard = ({ product, index }) => {
             {product.discount}% OFF
           </div>
         )}
-
-        {/* Overlay */}
-        <div
-          style={{
-            position: "absolute",
-            inset: 0,
-            background:
-              "linear-gradient(to top, rgba(0,0,0,0.6), transparent)",
-            opacity: 0,
-            transition: "opacity 0.3s ease",
-          }}
-          className="overlay"
-        />
       </div>
 
-      {/* Content */}
+      {/* CONTENT */}
       <div style={{ padding: "24px" }}>
         <h3
           style={{
             fontSize: "18px",
             fontWeight: 600,
             color: "#111827",
-            margin: 0,
             whiteSpace: "nowrap",
             overflow: "hidden",
             textOverflow: "ellipsis",
@@ -106,22 +92,9 @@ const ProductCard = ({ product, index }) => {
           {product.name}
         </h3>
 
-        {/* Price */}
-        <div
-          style={{
-            marginTop: "12px",
-            display: "flex",
-            alignItems: "center",
-            gap: "12px",
-          }}
-        >
-          <span
-            style={{
-              fontSize: "20px",
-              fontWeight: 700,
-              color: "#4f46e5",
-            }}
-          >
+        {/* PRICE */}
+        <div style={{ marginTop: "12px", display: "flex", gap: "12px" }}>
+          <span style={{ fontSize: "20px", fontWeight: 700, color: "#4f46e5" }}>
             ₹{finalPrice}
           </span>
 
@@ -138,43 +111,70 @@ const ProductCard = ({ product, index }) => {
           )}
         </div>
 
-        {/* CTA */}
-      <motion.button
-  whileHover={{ scale: 1.05 }}
-  whileTap={{ scale: 0.95 }}
-  onClick={() => navigate("/products")}
-  style={{
-    marginTop: "20px",
-    display: "inline-flex",
-    alignItems: "center",
-    gap: "8px",
-    background: "#eef2ff",
-    border: "1px solid #c7d2fe",
-    padding: "10px 16px",
-    borderRadius: "999px",
-    cursor: "pointer",
-    fontSize: "14px",
-    fontWeight: 500,
-    color: "#4338ca",
-  }}
->
-  View details
-  <ArrowRight size={18} />
-</motion.button>
+        {/* DESCRIPTION */}
+        <p
+          style={{
+            marginTop: "8px",
+            fontSize: "14px",
+            color: "#6b7280",
+            lineHeight: "1.5",
+            display: "-webkit-box",
+            WebkitLineClamp: 2,
+            WebkitBoxOrient: "vertical",
+            overflow: "hidden",
+          }}
+        >
+          {product.description}
+        </p>
 
+        {/* ACTION BUTTONS */}
+        <div style={{ marginTop: "20px", display: "flex", gap: "12px" }}>
+          {/* VIEW DETAILS */}
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={() => navigate("/products")}
+            style={{
+              flex: 1,
+              display: "inline-flex",
+              justifyContent: "center",
+              alignItems: "center",
+              gap: "8px",
+              background: "#eef2ff",
+              border: "1px solid #c7d2fe",
+              padding: "10px 16px",
+              borderRadius: "999px",
+              cursor: "pointer",
+              fontSize: "14px",
+              fontWeight: 500,
+              color: "#4338ca",
+            }}
+          >
+            View details
+            <ArrowRight size={18} />
+          </motion.button>
+
+          {/* WHATSAPP ORDER */}
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={orderhandler}
+            style={{
+              flex: 1,
+              background: "#22c55e",
+              color: "#fff",
+              border: "none",
+              padding: "10px 16px",
+              borderRadius: "999px",
+              fontSize: "14px",
+              fontWeight: 600,
+              cursor: "pointer",
+            }}
+          >
+            Click To Order
+          </motion.button>
+        </div>
       </div>
-
-      {/* Border Glow */}
-      <div
-        style={{
-          position: "absolute",
-          inset: 0,
-          borderRadius: "24px",
-          border: "1px solid rgba(79,70,229,0)",
-          pointerEvents: "none",
-          transition: "border 0.3s ease",
-        }}
-      />
     </motion.div>
   );
 };

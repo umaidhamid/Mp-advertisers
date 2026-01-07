@@ -2,12 +2,70 @@ import React, { useEffect, useState } from "react";
 import HeroSection from "./HeroSection";
 import ImageSlider from "../components/Work/Slider";
 import RotatingText from "../../animation/RotatingText.jsx";
-import LogoLoop from "../components/loop";
 import ProductCard from "../components/homepageproducts/ProductCard";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
-// import api from "../../api/axios.js";
 import api from "../api/axios.js";
+import LogoLoop from "../../animation/LogoLoop";
+import MapSection from "../components/Map/Map";
+import Footer from "../components/footer/Footer";
+import {
+  Printer,
+  Image,
+  Palette,
+  PenTool,
+  Layers,
+  ScanLine,
+  Camera,
+  Megaphone,
+  LayoutTemplate,
+  Sticker,
+} from "lucide-react";
+
+const iconClass = "w-15 h-15 stroke-[1.2] transition-all duration-300 ease-out";
+
+const logos = [
+  {
+    node: <Printer className={`${iconClass} text-blue-600`} />,
+    ariaLabel: "Printing Services",
+  },
+  {
+    node: <Image className={`${iconClass} text-emerald-500`} />,
+    ariaLabel: "Photo Printing",
+  },
+  {
+    node: <Palette className={`${iconClass} text-pink-500`} />,
+    ariaLabel: "Creative Design",
+  },
+  {
+    node: <PenTool className={`${iconClass} text-indigo-500`} />,
+    ariaLabel: "Graphic Design",
+  },
+  {
+    node: <LayoutTemplate className={`${iconClass} text-cyan-500`} />,
+    ariaLabel: "Layout & Flex Printing",
+  },
+  {
+    node: <Sticker className={`${iconClass} text-yellow-500`} />,
+    ariaLabel: "Sticker & Label Printing",
+  },
+  {
+    node: <Camera className={`${iconClass} text-violet-500`} />,
+    ariaLabel: "Photography",
+  },
+  {
+    node: <Megaphone className={`${iconClass} text-red-500`} />,
+    ariaLabel: "Advertising & Marketing",
+  },
+  {
+    node: <ScanLine className={`${iconClass} text-teal-500`} />,
+    ariaLabel: "Large Format Printing",
+  },
+  {
+    node: <Layers className={`${iconClass} text-orange-500`} />,
+    ariaLabel: "Brand Identity",
+  },
+];
 const MainHome = () => {
   const navigate = useNavigate();
 
@@ -23,7 +81,7 @@ const MainHome = () => {
         const res = await api.get("/api/product/getproducts", {
           params: {
             page: 1,
-            limit: 6, // 👈 only show 3 on home page
+            limit: 3, // 👈 only show 3 on home page
           },
         });
         // console.log(res.data?.data);
@@ -39,7 +97,7 @@ const MainHome = () => {
   }, []);
 
   return (
-    <div>
+    <div className="bg-gray-300">
       <HeroSection />
       <div
         style={{
@@ -65,7 +123,7 @@ const MainHome = () => {
               color: "white",
             }}
           >
-            Welcome
+            Our Work
           </h2>
 
           <ImageSlider />
@@ -108,28 +166,103 @@ const MainHome = () => {
         "
         />
       </div>
-      <section className="section-box relative z-10 w-[100vw] ">
-        <h2 className="heading pink">Mission</h2>
-        <p>To make other brands great, giving them life through marketing.</p>
+      <section
+        style={{
+          position: "relative",
+          zIndex: 10,
+          width: "100vw",
+          padding: "60px 20px",
+          textAlign: "center",
+        }}
+      >
+        <h2
+          style={{
+            fontSize: "36px",
+            fontWeight: "700",
+            color: "#ec4899", // pink
+            marginBottom: "16px",
+          }}
+        >
+          Mission
+        </h2>
+        <p
+          style={{
+            fontSize: "18px",
+            color: "#374151",
+            maxWidth: "700px",
+            margin: "0 auto",
+            lineHeight: "1.6",
+          }}
+        >
+          To make other brands great, giving them life through marketing.
+        </p>
       </section>
       {/* Vision Section */}
-      <section className="section-box dark-bg relative z-10  ">
-        <h2 className="heading pink">Vision</h2>
-        <p>
+      <section
+        style={{
+          position: "relative",
+          zIndex: 10,
+          padding: "60px 20px",
+          textAlign: "center",
+          backgroundColor: "#0f172a", // dark bg
+        }}
+      >
+        <h2
+          style={{
+            fontSize: "36px",
+            fontWeight: "700",
+            color: "#ec4899",
+            marginBottom: "16px",
+          }}
+        >
+          Vision
+        </h2>
+        <p
+          style={{
+            fontSize: "18px",
+            color: "#e5e7eb",
+            maxWidth: "700px",
+            margin: "0 auto",
+            lineHeight: "1.6",
+          }}
+        >
           To be the preferred print and fulfillment partner to marketing
           managers, through consistency & reliability.
         </p>
       </section>
       {/* Purpose Section */}
-      <section className="section-box relative z-10">
-        <h2 className="heading pink">Our Purpose</h2>
-        <p>
+      <section
+        style={{
+          position: "relative",
+          zIndex: 10,
+          padding: "60px 20px",
+          textAlign: "center",
+        }}
+      >
+        <h2
+          style={{
+            fontSize: "36px",
+            fontWeight: "700",
+            color: "#ec4899",
+            marginBottom: "16px",
+          }}
+        >
+          Our Purpose
+        </h2>
+        <p
+          style={{
+            fontSize: "18px",
+            color: "#374151",
+            maxWidth: "700px",
+            margin: "0 auto",
+            lineHeight: "1.6",
+          }}
+        >
           We exist to simplify and speed up the printing process to give you a
           hassle free experience.
         </p>
       </section>
-
-      <section className="py-20 px-6 max-w-7xl mx-auto">
+      <section className="py-20 px-6  mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -191,6 +324,21 @@ const MainHome = () => {
           </motion.button>
         </motion.div>
       </section>
+
+      <div className="bg-white dark:bg-black flex flex-col justify-center">
+        <LogoLoop
+          logos={logos}
+          speed={30}
+          logoHeight={100}
+          gap={100}
+          pauseOnHover
+          scaleOnHover
+          fadeOut
+          className="text-gray-700 dark:text-gray-200"
+        />
+      </div>
+      {/* <MapSection /> */}
+      {/* <Footer /> */}
     </div>
   );
 };

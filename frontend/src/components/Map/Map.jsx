@@ -10,7 +10,7 @@ const MapSection = () => {
         justifyContent: "center",
         alignItems: "center",
         width: "100%",
-        height: "350px",
+        height: "100%",
         margin: "40px 0",
       }}
       className="relative z-10"

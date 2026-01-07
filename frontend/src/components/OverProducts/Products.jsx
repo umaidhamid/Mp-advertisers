@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./Products.css";
-import ProductCart from "./ProductCart";
+import ProductCard from "../homepageproducts/ProductCard";
 import Loader from "../../loader/Loader.jsx";
 import api from "../../api/axios.js";
 
@@ -23,8 +23,8 @@ const Products = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setDebouncedSearch(search);
-      setPage(1); // reset page after search stops
-    }, 1500); // ⏳ delay
+      setPage(1);
+    }, 1500);
 
     return () => clearTimeout(timer);
   }, [search]);
@@ -41,11 +41,11 @@ const Products = () => {
           params: {
             page,
             limit,
-            search: debouncedSearch, // ✅ use debounced value
+            search: debouncedSearch,
           },
           headers: { "Cache-Control": "no-cache" },
         });
-
+        // console.log(response.data.data);
         setProducts(response.data.data || []);
         setTotalPages(response.data.pagination.totalPages);
       } catch (error) {
@@ -56,29 +56,41 @@ const Products = () => {
     };
 
     fetchProducts();
-  }, [page, debouncedSearch]); // 👈 only fires after debounce
+  }, [page, debouncedSearch]);
 
   if (loading) return <Loader />;
 
   return (
-    <div className="ProductsScreen">
-      {/* 🔥 MAIN CONTENT (GROWS) */}
-      <div style={{ flex: 1, width: "100%" }}>
+    <div className="ProductsScreen bg-pink-300">
+      {/* MAIN CONTENT */}
+      <div className="ProductsContent">
         {/* SEARCH */}
-        <div className="top-row">
-          <input
-            type="text"
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            placeholder="Search by product name..."
-            style={{
-              padding: "10px 14px",
-              borderRadius: "10px",
-              border: "1px solid #e5e7eb",
-              fontSize: "16px",
-              width: "min(360px, 90vw)",
-            }}
-          />
+        <div className="top-row flex justify-center ">
+          <div className="relative w-full max-w-md">
+            <input
+              type="text"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              placeholder="Search products..."
+              className="
+        w-full
+        rounded-xl
+        border border-gray-200
+        bg-white
+        px-4 py-3
+        pr-10
+        text-sm
+        text-gray-900
+        shadow-sm
+        transition
+        placeholder:text-gray-400
+        focus:border-violet-500
+        focus:ring-2
+        focus:ring-violet-200
+        focus:outline-none
+      "
+            />
+          </div>
         </div>
 
         {/* HEADING */}
@@ -89,115 +101,38 @@ const Products = () => {
 
         {/* EMPTY STATE */}
         {products.length === 0 && (
-          <p style={{ opacity: 0.7, marginTop: 8, textAlign: "center" }}>
-            No products found for “{search}”.
-          </p>
+          <p className="empty-text">No products found for “{search}”.</p>
         )}
 
-        {/* PRODUCTS */}
+        {/* PRODUCTS GRID */}
         <div className="Card-main">
-          {products.map((product) => (
-            <ProductCart key={product._id} product={product} />
+          {products.map((product, index) => (
+            <ProductCard key={product._id} product={product} index={index} />
           ))}
         </div>
       </div>
 
-      {/* 🔥 PAGINATION (ALWAYS AT BOTTOM) */}
-      <div
-        style={{
-          width: "100%",
-          marginTop: "auto", // ⭐ THIS IS THE KEY
-          padding: "24px 0",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          gap: "16px",
-          flexWrap: "wrap",
-          background: "rgba(0,0,0,0.15)",
-        }}
-      >
+      {/* PAGINATION */}
+      <div className="pagination">
         <button
           disabled={page === 1}
           onClick={() => setPage(page - 1)}
-          style={{
-            padding: "10px 20px",
-            borderRadius: "14px",
-            fontWeight: 600,
-            backgroundColor: page === 1 ? "#d1d5db" : "#7c3aed",
-            color: page === 1 ? "#6b7280" : "#fff",
-            border: "none",
-            cursor: page === 1 ? "not-allowed" : "pointer",
-          }}
+          className="page-btn"
         >
           ← Prev
         </button>
-        <div
-          style={{
-            padding: "10px 20px",
-            borderRadius: "14px",
-            background: "#f3f4f6",
-            fontWeight: 600,
-          }}
-        >
-          Page <span style={{ color: "#7c3aed" }}>{page}</span> / {totalPages}
+
+        <div className="page-info">
+          Page <span>{page}</span> / {totalPages}
         </div>
+
         <button
           disabled={page === totalPages}
           onClick={() => setPage(page + 1)}
-          style={{
-            padding: "10px 20px",
-            borderRadius: "14px",
-            fontWeight: 600,
-            backgroundColor: page === totalPages ? "#d1d5db" : "#7c3aed",
-            color: page === totalPages ? "#6b7280" : "#fff",
-            border: "none",
-            cursor: page === totalPages ? "not-allowed" : "pointer",
-          }}
+          className="page-btn"
         >
           Next →
-        </button>{" "}
-        <footer className="flex">
-          <h2
-            className="CopywriteHeading"
-            style={{
-              // marginTop: "30px",
-              padding: "14px 20px",
-              width: "100vw",
-              textAlign: "center",
-              fontSize: "0.9rem",
-              fontWeight: 500,
-              color: "#e5e7eb",
-              background: "rgba(0, 0, 0, 0.25)",
-              backdropFilter: "blur(6px)",
-              borderTop: "1px solid rgba(255, 255, 255, 0.15)",
-              letterSpacing: "0.3px",
-              lineHeight: "1.6",
-            }}
-          >
-            © 2025 Created and Developed by{" "}
-            <span
-              style={{
-                color: "#ff66c4",
-                fontWeight: 600,
-              }}
-            >
-              Umaid Hamid
-            </span>
-            . All Rights Reserved.
-            <br />
-            <span
-              style={{
-                display: "block",
-                marginTop: "6px",
-                fontSize: "0.8rem",
-                color: "#d1d5db",
-              }}
-            >
-              📍 Aaribagh Stop, B.K Pora, Nowgam, Srinagar, Jammu and Kashmir,
-              India - 190015
-            </span>
-          </h2>
-        </footer>
+        </button>
       </div>
     </div>
   );

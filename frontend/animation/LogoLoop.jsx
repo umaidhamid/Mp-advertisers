@@ -1,4 +1,5 @@
-import { useCallback, useEffect, useMemo, useRef, useState, memo } from "react";
+
+import React, { useCallback, useEffect, useMemo, useRef, useState, memo } from "react";
 
 const ANIMATION_CONFIG = {
   SMOOTH_TAU: 0.25,
