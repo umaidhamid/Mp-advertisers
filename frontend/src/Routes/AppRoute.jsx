@@ -13,7 +13,7 @@ import NotFound from "../components/NotFound.jsx";
 import MainLayout from "../layouts/MainLayout.jsx";
 import Test from "../Test.jsx";
 import MainHome from "../home/MainHome.jsx";
-import Gallery from "../Gallery/Gallery.jsx"
+import Gallery from "../Gallery/Gallery.jsx";
 import ReviewProduct from "../components/ReviewProduct.jsx";
 // import ScrollToTop from "./components/ScrollToTop";
 import ScrollToTop from "../components/ScrollToTop.jsx";
@@ -42,11 +42,9 @@ const AppRoute = () => {
           <Route path="/products" element={<Products />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/contact-us" element={<ContactUs />} />
+          <Route path="/review/:reference" element={<ReviewProduct />} />
         </Route>
-        <Route
-          path="/review/:reference"
-          element={<ReviewProduct />}
-        />
+
         {/* 🔐 ADMIN ROUTES */}
         <Route path="/admin/login" element={<LoginPage />} />
         <Route path="/dashboard" element={<Dashboard />} />
