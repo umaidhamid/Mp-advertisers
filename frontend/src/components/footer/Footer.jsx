@@ -13,7 +13,7 @@ import {
 import MapSection from "../../components/Map/Map.jsx";
 
 export default function Footer() {
-  const year = 2025
+  const year = 2025;
 
   const styles = {
     footer: {
@@ -78,7 +78,8 @@ export default function Footer() {
     },
 
     list: {
-      listStyle: "none",
+      // listStyle: "none",  paddingLeft: "20px",
+      listStyleType: "disc",
       padding: 0,
       margin: 0,
       fontSize: "14px",
@@ -156,14 +157,14 @@ export default function Footer() {
 
           <div style={{ marginTop: "20px" }}>
             <div style={styles.infoRow}>
-              <MapPin size={16} /> 📍 Aaribagh Stop, B.K Pora, Nowgam, Srinagar,
-              Jammu and Kashmir, India - 190015
+              <MapPin size={36} color="red" />
+             1st Floor Bhat Complex, Aribagh Stop, Nowgam, Srinagar J&K - 19001
             </div>
             <div style={styles.infoRow}>
-              <Phone size={16} /> +91 9149455296 || +91 9796951150
+              <Phone size={26} /> +91 9149455296 || +91 9796951150
             </div>
             <div style={styles.infoRow}>
-              <Mail size={16} /> mpadtvs@gmail.com
+              <Mail size={26} /> mpadtvs@gmail.com
             </div>
           </div>
         </div>

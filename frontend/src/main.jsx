@@ -3,6 +3,7 @@ import { createRoot } from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import "./index.css";
 import ClickSpark from "../animation/ClickSpark";
+import { Toaster } from "sonner";
 import AppRoute from "./Routes/AppRoute.jsx";
 createRoot(document.getElementById("root")).render(
   <ClickSpark
@@ -12,6 +13,7 @@ createRoot(document.getElementById("root")).render(
     sparkCount={8}
     duration={400}
   >
+    <Toaster position="top-right" richColors />
     <AppRoute />
   </ClickSpark>
 );
