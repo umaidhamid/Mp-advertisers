@@ -92,7 +92,6 @@ router.get("/getproducts", async (req, res) => {
   }
 });
 
-
 router.post("/uploadmsg", async (req, res) => {
   try {
     const { uploadmessage } = req.body;
@@ -206,6 +205,26 @@ router.delete("/deleteproduct/:id", async (req, res) => {
     res.status(500).json({
       message: "❌ Server error while deleting product",
       error: error.message,
+    });
+  }
+});
+
+router.get("/review/:reference", async (req, res) => {
+  try {
+    const product = await Product.findById(req.params.reference);
+
+    if (!product) {
+      return res.status(404).json({
+        success: false,
+        message: "Product not found",
+      });
+    }
+
+    res.status(200).json(product);
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: "Server error",
     });
   }
 });
