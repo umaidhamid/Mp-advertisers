@@ -25,7 +25,7 @@ const [showPassword, setShowPassword] = useState(false);
       // console.log("✅ Login Response:", result.data);
       toast.success("✅ Login successful!", { position: "bottom-right" });
       setTimeout(() => {
-        navigate("/dashboard");
+        navigate("/admin");
       }, 1000);
     } catch (err) {
       console.error("❌ Login Error:", err);
