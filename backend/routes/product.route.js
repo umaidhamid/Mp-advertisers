@@ -4,7 +4,7 @@ import Product from "../models/product.model.js";
 const router = express.Router();
 import message from "../models/message.js";
 import { authMiddleware } from "../middleware/auth.middleware.js";
-router.post("/createProduct", async (req, res) => {
+router.post("/createProduct",authMiddleware, async (req, res) => {
   try {
     const { name, price, discount, unit, imageUrl, description } = req.body;
 
@@ -48,7 +48,7 @@ router.post("/createProduct", async (req, res) => {
     });
   }
 });
-router.get("/getproducts", async (req, res) => {
+router.get("/getproducts",authMiddleware, async (req, res) => {
   try {
     const page = Math.max(parseInt(req.query.page) || 1, 1);
     const limit = Math.max(parseInt(req.query.limit) || 10, 1);
@@ -92,7 +92,7 @@ router.get("/getproducts", async (req, res) => {
   }
 });
 
-router.post("/uploadmsg", async (req, res) => {
+router.post("/uploadmsg",authMiddleware, async (req, res) => {
   try {
     const { uploadmessage } = req.body;
 
@@ -122,7 +122,7 @@ router.post("/uploadmsg", async (req, res) => {
     });
   }
 });
-router.get("/getmessage", async (req, res) => {
+router.get("/getmessage",authMiddleware, async (req, res) => {
   try {
     const latestMessage = await message.findOne().sort({ createdAt: -1 });
 
@@ -142,7 +142,7 @@ router.get("/getmessage", async (req, res) => {
     res.status(500).json({ success: false, message: "Server error" });
   }
 });
-router.put("/updateProduct", async (req, res) => {
+router.put("/updateProduct", authMiddleware,async (req, res) => {
   try {
     const {
       productid,
@@ -186,7 +186,7 @@ router.put("/updateProduct", async (req, res) => {
   }
 });
 
-router.delete("/deleteproduct/:id", async (req, res) => {
+router.delete("/deleteproduct/:id",authMiddleware async (req, res) => {
   try {
     const { id } = req.params;
 
@@ -209,7 +209,7 @@ router.delete("/deleteproduct/:id", async (req, res) => {
   }
 });
 
-router.get("/review/:reference", async (req, res) => {
+router.get("/review/:reference",async (req, res) => {
   try {
     const product = await Product.findById(req.params.reference);
 

@@ -9,6 +9,8 @@ import api from "../api/axios.js";
 import LogoLoop from "../../animation/LogoLoop";
 import MapSection from "../components/Map/Map";
 import Footer from "../components/footer/Footer";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBullhorn, faClock } from "@fortawesome/free-solid-svg-icons";
 import {
   Printer,
   Image,
@@ -95,9 +97,59 @@ const MainHome = () => {
 
     fetchProducts();
   }, []);
+  const [message, setMessage] = useState("");
 
+  useEffect(() => {
+    const fetchMessage = async () => {
+      try {
+        const response = await api.get("/api/product/getmessage");
+        if (response.data.success) {
+          setMessage(response.data.latestMessage.message);
+        }
+      } catch (error) {
+        console.error("❌ Error fetching message:", error);
+      }
+    };
+
+    fetchMessage();
+  }, []); // ✅ Run only once on mount
   return (
     <div className="bg-gray-300">
+      <div
+        style={{
+          overflow: "hidden",
+          whiteSpace: "nowrap",
+          // background: "linear-gradient(90deg, #ff0000a7, #ff4d4d)",
+          color: "white",
+          padding: "8px 0",
+          position: "relative",
+          fontWeight: "600",
+          fontSize: "18px",
+
+          backgroundColor: "grey",
+        }}
+      >
+        <div
+          style={{
+            display: "inline-block",
+            animation: "scrollText 10s linear infinite",
+          }}
+        >
+          <FontAwesomeIcon icon={faBullhorn} />
+          {message}
+          <FontAwesomeIcon icon={faClock} />
+        </div>
+
+        <style>
+          {`
+            @keyframes scrollText {
+              0% { transform: translateX(100%); }
+              100% { transform: translateX(-100%); }
+            }
+              
+          `}
+        </style>
+      </div>
       <HeroSection />
       <div
         style={{

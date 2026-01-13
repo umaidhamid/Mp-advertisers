@@ -16,7 +16,10 @@ import MainHome from "../home/MainHome.jsx";
 import Gallery from "../Gallery/Gallery.jsx";
 import ReviewProduct from "../components/ReviewProduct.jsx";
 // import ScrollToTop from "./components/ScrollToTop";
+import AdminLayout from "../layouts/AdminLayout.jsx";
 import ScrollToTop from "../components/ScrollToTop.jsx";
+import UploadProduct from "../Dashboard/Uploadproduct/Uploadproduct.jsx";
+import ViewAllProduct from "../Dashboard/viewproducts/ViewAllProduct.jsx";
 const AppRoute = () => {
   const [loading, setLoading] = useState(true);
 
@@ -46,8 +49,16 @@ const AppRoute = () => {
         </Route>
 
         {/* 🔐 ADMIN ROUTES */}
-        <Route path="/admin/login" element={<LoginPage />} />
-        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/login" element={<LoginPage />} />
+
+        <Route path="/admin" element={<AdminLayout />}>
+          <Route path="upload" element={<UploadProduct />} />
+          <Route path="products" element={<ViewAllProduct />} />
+          {/* <Route path="users" element={<Users />} />
+          <Route path="doctors" element={<Doctors />} />
+          <Route path="appointments" element={<Appointments />} />
+          <Route path="settings" element={<Settings />} /> */}
+        </Route>
 
         {/* ❌ 404 (ALWAYS LAST, OUTSIDE LAYOUT) */}
         <Route path="*" element={<NotFound />} />
