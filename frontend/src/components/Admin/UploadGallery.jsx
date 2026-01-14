@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import axios from "axios";
-import api from "../../api/axios";
+import api from "../../api/axios.js";
 import { toast, Toaster } from "sonner";
 
 const UploadGallery = () => {

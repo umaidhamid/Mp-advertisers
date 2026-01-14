@@ -1,5 +1,5 @@
 import express from "express";
-import Gallery from "../models/gallery.model.js";
+import Gallery from "../models/Gallery.model.js";
 
 import { authMiddleware } from "../middleware/auth.middleware.js";
 
