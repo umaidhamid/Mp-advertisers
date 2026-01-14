@@ -186,7 +186,7 @@ router.put("/updateProduct", authMiddleware,async (req, res) => {
   }
 });
 
-router.delete("/deleteproduct/:id",authMiddleware async (req, res) => {
+router.delete("/deleteproduct/:id",authMiddleware, async (req, res) => {
   try {
     const { id } = req.params;
 

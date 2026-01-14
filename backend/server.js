@@ -44,6 +44,8 @@ import ownerRoutes from "./routes/owner.routes.js";
 app.use("/api/owners", ownerRoutes);
 import productRoute from "./routes/product.route.js";
 app.use("/api/product", productRoute);
+import galleryRoute from "./routes/Gallery.route.js";
+app.use("/api/gallery", galleryRoute);
 // Example route
 app.get("/", (req, res) => {
   res.send("🚀 MP Advertisers backend is running!");
@@ -59,3 +61,4 @@ app.get("/api/owners/checkAuth", authMiddleware, (req, res) => {
 // Start server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`✅ Server running on port ${PORT}`));
+

@@ -20,6 +20,8 @@ import AdminLayout from "../layouts/AdminLayout.jsx";
 import ScrollToTop from "../components/ScrollToTop.jsx";
 import UploadProduct from "../Dashboard/Uploadproduct/Uploadproduct.jsx";
 import ViewAllProduct from "../Dashboard/viewproducts/ViewAllProduct.jsx";
+import Message from "../components/Admin/Message.jsx";
+import UploadGallery from "../components/Admin/UploadGallery.jsx";
 const AppRoute = () => {
   const [loading, setLoading] = useState(true);
 
@@ -54,6 +56,8 @@ const AppRoute = () => {
         <Route path="/admin" element={<AdminLayout />}>
           <Route path="upload" element={<UploadProduct />} />
           <Route path="products" element={<ViewAllProduct />} />
+          <Route path="message" element={<Message />} />
+          <Route path="gallery" element={<UploadGallery />} />
           {/* <Route path="users" element={<Users />} />
           <Route path="doctors" element={<Doctors />} />
           <Route path="appointments" element={<Appointments />} />

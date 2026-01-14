@@ -1,60 +1,89 @@
-import React from "react";
-import InfiniteMenu from "../../animation/InfiniteMenu"; // ✅ keep only one import
-
-import img1 from "../assets/Images/SLIDES/SLIDE 1.webp";
-
-import img2 from "../assets/Images/SLIDES/SLIDE 2.webp";
-import img3 from "../assets/Images/SLIDES/SLIDE 3.webp";
-import img4 from "../assets/Images/SLIDES/SLIDE 4.webp";
-import img5 from "../assets/Logo.png";
-import img6 from "../assets/Slider.jpeg";
-
-const items = [
-  {
-    image: img1,
-    link: "https://google.com/",
-    title: "High-Quality Print Solutions",
-    description: "Precision printing with rich colors and flawless finishes that elevate your brand presence.",
-  },
-  {
-    image: img2,
-    link: "https://google.com/",
-    title: "Creative Branding Designs",
-    description: "Thoughtfully crafted designs that tell your brand story and leave a lasting impression.",
-  },
-  {
-    image: img3,
-    link: "https://google.com/",
-    title: "Large Format Displays",
-    description: "Bold, eye-catching visuals designed to stand out in any environment or campaign.",
-  },
-  {
-    image: img4,
-    link: "https://google.com/",
-    title: "Marketing & Advertising Prints",
-    description: "Impactful print materials that help your message reach the right audience effectively.",
-  },
-  {
-    image: img5,
-    link: "https://google.com/",
-    title: "Custom Stickers & Labels",
-    description: "Durable, vibrant stickers and labels tailored to match your brand identity perfectly.",
-  },
-  {
-    image: img6,
-    link: "https://google.com/",
-    title: "Professional Photo Printing",
-    description: "Sharp, color-accurate photo prints that bring your moments and visuals to life.",
-  },
-];
-
+import React, { useEffect, useState } from "react";
+import InfiniteMenu from "../../animation/InfiniteMenu";
+import api from "../api/axios";
 
 const Gallery = () => {
+  const [items, setItems] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchGallery = async () => {
+      try {
+        const res = await api.get("/api/gallery/get");
+
+        const formattedItems = res.data.data.map((item) => ({
+          image: item.image,
+        }));
+
+        // 🧠 Preload images before rendering InfiniteMenu
+        await preloadImages(formattedItems);
+
+        setItems(formattedItems);
+      } catch (error) {
+        console.error("Gallery fetch failed:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchGallery();
+  }, []);
+
+  // 🔁 Image preloader
+  const preloadImages = (items) => {
+    return Promise.all(
+      items.map(
+        (item) =>
+          new Promise((resolve) => {
+            const img = new Image();
+            img.onload = resolve;
+            img.onerror = resolve; // fail-safe
+            img.src = item.image;
+          }),
+      ),
+    );
+  };
+
   return (
     <div style={{ height: "100vh", position: "relative" }}>
-      <InfiniteMenu items={items} />
+      {loading && (
+        <div style={styles.loaderWrapper}>
+          <div style={styles.loader} />
+          <p style={styles.loaderText}>Loading gallery…</p>
+        </div>
+      )}
+
+      {!loading && items.length > 0 && (
+        <InfiniteMenu items={items} scale={1.1} />
+      )}
     </div>
   );
 };
 
 export default Gallery;
+const styles = {
+  loaderWrapper: {
+    position: "absolute",
+    inset: 0,
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+    background: "linear-gradient(180deg, #0f172a, #020617)",
+    zIndex: 10,
+  },
+  loader: {
+    width: "46px",
+    height: "46px",
+    border: "4px solid rgba(255,255,255,0.2)",
+    borderTopColor: "#ffffff",
+    borderRadius: "50%",
+    animation: "spin 1s linear infinite",
+  },
+  loaderText: {
+    marginTop: "14px",
+    color: "#e5e7eb",
+    fontSize: "0.95rem",
+    letterSpacing: "0.3px",
+  },
+};

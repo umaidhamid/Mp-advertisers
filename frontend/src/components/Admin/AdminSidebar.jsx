@@ -72,6 +72,28 @@ const AdminSidebar = ({ isMobile, open, closeSidebar }) => {
         >
           ⬆️ Upload Products
         </NavLink>
+        
+        <NavLink
+          to="/admin/message"
+          onClick={closeSidebar}
+          style={({ isActive }) => ({
+            ...styles.link,
+            ...(isActive ? styles.active : {}),
+          })}
+        >
+          📝 Message
+        </NavLink>
+        
+        <NavLink
+          to="/admin/gallery"
+          onClick={closeSidebar}
+          style={({ isActive }) => ({
+            ...styles.link,
+            ...(isActive ? styles.active : {}),
+          })}
+        >
+          📝 Gallery
+        </NavLink>
       </aside>
     </>
   );

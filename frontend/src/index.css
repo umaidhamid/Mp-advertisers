@@ -114,3 +114,8 @@ body{
 /* ::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(180deg, #4f46e5, #7c3aed);
 } */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

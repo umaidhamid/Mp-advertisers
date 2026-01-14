@@ -120,7 +120,7 @@ const UploadProduct = () => {
   const [productunit, setproductunit] = useState("");
   const [productdiscount, setproductdiscount] = useState("");
   const [image, setImage] = useState(null);
-  const [discountmsg, setdiscountmsg] = useState("");
+ 
   const [description, setdescription] = useState("");
 
   // 🟢 Handle image selection
@@ -184,31 +184,7 @@ const UploadProduct = () => {
     }
   };
 
-  // 🟢 MESSAGE UPLOAD HANDLER
-  const msgHandler = async (e) => {
-    e.preventDefault();
-
-    try {
-      if (!discountmsg.trim()) {
-        toast.warn("⚠️ Please enter a message before uploading!");
-        return;
-      }
-
-      const response = await api.post("/api/product/uploadmsg", {
-        uploadmessage: discountmsg,
-      });
-
-      if (response.data.success) {
-        toast.success("✅ Message uploaded successfully!");
-        setdiscountmsg("");
-      } else {
-        toast.error("❌ Failed to upload message!");
-      }
-    } catch (error) {
-      console.error("❌ Error uploading message:", error);
-      toast.error("Server error while uploading message!");
-    }
-  };
+  
   function finalPrice(discount, rate) {
     const price = rate - (rate * discount) / 100;
     return price.toFixed(2); // e.g. round to 2 decimals
@@ -295,20 +271,7 @@ const UploadProduct = () => {
         </form>
       </section>
 
-      {/* Message Section */}
-      <section style={styles.messageSection}>
-        <h2 style={styles.sectionTitle}>Message / Offer Update</h2>
-        <textarea
-          style={styles.messageBox}
-          placeholder="Write a message or offer update..."
-          maxLength={100}
-          value={discountmsg}
-          onChange={(e) => setdiscountmsg(e.target.value)}
-        />
-        <button style={styles.updateBtn} onClick={msgHandler}>
-          Update Offer
-        </button>
-      </section>
+
 
       {/* Toast container */}
       <ToastContainer position="top-center" autoClose={2000} />
