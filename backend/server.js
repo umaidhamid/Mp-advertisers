@@ -44,7 +44,7 @@ import ownerRoutes from "./routes/owner.routes.js";
 app.use("/api/owners", ownerRoutes);
 import productRoute from "./routes/product.route.js";
 app.use("/api/product", productRoute);
-import galleryRoute from "./routes/Gallery.route.js";
+import galleryRoute from "./routes/gallery.route.js";
 app.use("/api/gallery", galleryRoute);
 // Example route
 app.get("/", (req, res) => {
