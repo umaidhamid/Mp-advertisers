@@ -12,6 +12,7 @@ const UploadGallery = () => {
   // 📥 Load gallery images
   const fetchGallery = async () => {
     try {
+      
       const res = await api.get("/api/gallery/get");
       setGallery(res.data.data || []);
     } catch {
@@ -38,7 +39,7 @@ const UploadGallery = () => {
 
     try {
       setLoading(true);
-      toast.info("Uploading images...");
+      toast.loading("Uploading images...");
 
       const { data } = await api.get("/api/cloudinary/get-signature");
 
@@ -70,6 +71,7 @@ const UploadGallery = () => {
       console.error(error);
       toast.error("Upload failed");
     } finally {
+      toast.dismiss();
       setLoading(false);
     }
   };

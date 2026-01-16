@@ -48,7 +48,7 @@ router.post("/createProduct",authMiddleware, async (req, res) => {
     });
   }
 });
-router.get("/getproducts",authMiddleware, async (req, res) => {
+router.get("/getproducts", async (req, res) => {
   try {
     const page = Math.max(parseInt(req.query.page) || 1, 1);
     const limit = Math.max(parseInt(req.query.limit) || 10, 1);
