@@ -9,17 +9,15 @@ const EditProduct = ({ product, setEdit }) => {
   const [productrate, setproductrate] = useState(product?.price || "");
   const [productunit, setproductunit] = useState(product?.unit || "");
   const [description, setdescription] = useState(product?.description || "");
-  const [productdiscount, setproductdiscount] = useState(
-    product?.discount || ""
-  );
+  const [productdiscount, setproductdiscount] = useState(product?.discount || "");
   const [image, setImage] = useState(null);
   const [imageUrl, setImageUrl] = useState(product?.imageUrl || "");
   const [finalprice, setFinalprice] = useState(product?.finalprice || "");
 
-  // 🧮 Auto-calculate final price whenever price or discount changes
   const calculateFinalPrice = (price, discount) => {
     const rateNum = Number(price);
     const discountNum = Number(discount);
+
     if (!isNaN(rateNum) && !isNaN(discountNum)) {
       const discounted = rateNum - (rateNum * discountNum) / 100;
       setFinalprice(discounted.toFixed(2));
@@ -38,16 +36,14 @@ const EditProduct = ({ product, setEdit }) => {
     calculateFinalPrice(productrate, value);
   };
 
-  // 🖼 Handle image change
   const handleImageChange = (e) => {
     const file = e.target.files[0];
     if (file) {
       setImage(file);
-      setImageUrl(URL.createObjectURL(file)); // temporary preview
+      setImageUrl(URL.createObjectURL(file));
     }
   };
 
-  // 🔄 PRODUCT UPDATE HANDLER
   const handleUpdate = async (e) => {
     e.preventDefault();
     try {
@@ -55,10 +51,10 @@ const EditProduct = ({ product, setEdit }) => {
 
       let newImageUrl = imageUrl;
 
-      // Upload new image if selected
       if (image) {
         const { data } = await api.get("/api/cloudinary/get-signature");
         const formData = new FormData();
+
         formData.append("file", image);
         formData.append("api_key", data.api_key);
         formData.append("timestamp", data.timestamp);
@@ -69,10 +65,10 @@ const EditProduct = ({ product, setEdit }) => {
           `https://api.cloudinary.com/v1_1/${data.cloud_name}/image/upload`,
           formData
         );
+
         newImageUrl = uploadRes.data.secure_url;
       }
 
-      // Send update request to backend
       const response = await api.put("/api/product/updateProduct", {
         productid: product._id,
         name: productname.trim(),
@@ -81,94 +77,147 @@ const EditProduct = ({ product, setEdit }) => {
         discount: Number(productdiscount),
         finalprice: Number(finalprice),
         imageUrl: newImageUrl,
-        description: description,
+        description,
       });
 
-      if (
-        response.status === 200 &&
-        response.data.message?.includes("updated")
-      ) {
-        toast.success(
-          response.data.message || "✅ Product updated successfully!"
-        );
+      if (response.status === 200) {
+        toast.success("✅ Product updated successfully!");
         setEdit(false);
       } else {
         toast.error("❌ Failed to update product!");
       }
     } catch (error) {
-      console.error("❌ Error updating product:", error);
+      console.error(error);
       toast.error("Server error while updating product!");
     }
   };
 
+  /* 🎨 Inline styles */
+  const styles = {
+    container: {
+
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      background: "#f5f7fb",
+    },
+    card: {
+      background: "#fff",
+      // padding: "25px",
+      borderRadius: "12px",
+      width: "350px",
+      boxShadow: "0 10px 25px rgba(0,0,0,0.08)",
+    },
+    heading: {
+      textAlign: "center",
+      marginBottom: "15px",
+      fontSize: "22px",
+      fontWeight: "600",
+    },
+    input: {
+      padding: "10px",
+      borderRadius: "8px",
+      border: "1px solid #ddd",
+      fontSize: "14px",
+      outline: "none",
+    },
+    readOnly: {
+      background: "#f0f0f0",
+      cursor: "not-allowed",
+    },
+    button: {
+      marginTop: "10px",
+      padding: "10px",
+      background: "#2563eb",
+      color: "#fff",
+      border: "none",
+      borderRadius: "8px",
+      cursor: "pointer",
+      fontWeight: "600",
+    },
+    image: {
+      width: "100px",
+      height: "100px",
+      objectFit: "cover",
+      borderRadius: "10px",
+      marginTop: "10px",
+      border: "1px solid #ddd",
+    },
+    form: {
+      display: "flex",
+      flexDirection: "column",
+      gap: "10px",
+    },
+  };
+
   return (
-    <main style={{ padding: "20px" }}>
-      <h1>Update Product</h1>
-      <form
-        onSubmit={handleUpdate}
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          gap: "10px",
-          width: "300px",
-        }}
-      >
-        <input
-          type="text"
-          placeholder="Product Name"
-          value={productname}
-          onChange={(e) => setproductname(e.target.value)}
-        />
+    <main style={styles.container}>
+      <div style={styles.card}>
+        <h1 style={styles.heading}>Update Product</h1>
 
-        <input
-          type="number"
-          placeholder="Rate"
-          value={productrate}
-          onChange={(e) => handleRateChange(e.target.value)}
-        />
-
-        <input
-          type="text"
-          placeholder="Unit"
-          value={productunit}
-          onChange={(e) => setproductunit(e.target.value)}
-        />
-        <input
-          type="text"
-          placeholder="Description "
-          value={description}
-          onChange={(e) => setdescription(e.target.value)}
-        />
-
-        <input
-          type="number"
-          placeholder="Discount %"
-          value={productdiscount}
-          onChange={(e) => handleDiscountChange(e.target.value)}
-        />
-
-        <input
-          type="text"
-          placeholder="Final Price"
-          value={finalprice}
-          readOnly
-          style={{ background: "#f3f3f3" }}
-        />
-
-        <input type="file" accept="image/*" onChange={handleImageChange} />
-
-        {imageUrl && (
-          <img
-            src={imageUrl}
-            alt="Preview"
-            style={{ width: "100px", borderRadius: "10px", marginTop: "5px" }}
+        <form onSubmit={handleUpdate} style={styles.form}>
+          <input
+            style={styles.input}
+            type="text"
+            placeholder="Product Name"
+            value={productname}
+            onChange={(e) => setproductname(e.target.value)}
           />
-        )}
 
-        <button type="submit" style={{ padding: "8px", cursor: "pointer" }}>
-          Submit
-        </button>
-      </form>
+          <input
+            style={styles.input}
+            type="number"
+            placeholder="Rate"
+            value={productrate}
+            onChange={(e) => handleRateChange(e.target.value)}
+          />
+
+          <input
+            style={styles.input}
+            type="text"
+            placeholder="Unit"
+            value={productunit}
+            onChange={(e) => setproductunit(e.target.value)}
+          />
+
+          <input
+            style={styles.input}
+            type="text"
+            placeholder="Description"
+            value={description}
+            onChange={(e) => setdescription(e.target.value)}
+          />
+
+          <input
+            style={styles.input}
+            type="number"
+            placeholder="Discount %"
+            value={productdiscount}
+            onChange={(e) => handleDiscountChange(e.target.value)}
+          />
+
+          <input
+            style={{ ...styles.input, ...styles.readOnly }}
+            type="text"
+            placeholder="Final Price"
+            value={finalprice}
+            readOnly
+          />
+
+          <input
+            style={styles.input}
+            type="file"
+            accept="image/*"
+            onChange={handleImageChange}
+          />
+
+          {imageUrl && <img src={imageUrl} alt="Preview" style={styles.image} />}
+
+          <button type="submit" style={styles.button}>
+            Update Product
+          </button>
+        </form>
+      </div>
 
       <ToastContainer position="top-right" autoClose={2000} />
     </main>

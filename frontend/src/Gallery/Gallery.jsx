@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import InfiniteMenu from "../../animation/InfiniteMenu";
 import api from "../api/axios";
-
+import DomeGallery from "../../animation/DomeGallery";
 const Gallery = () => {
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -10,9 +10,9 @@ const Gallery = () => {
     const fetchGallery = async () => {
       try {
         const res = await api.get("/api/gallery/get");
-
         const formattedItems = res.data.data.map((item) => ({
-          image: item.image,
+          src: item.image,
+          alt: item.title || "Gallery image",
         }));
 
         // 🧠 Preload images before rendering InfiniteMenu
@@ -54,7 +54,17 @@ const Gallery = () => {
       )}
 
       {!loading && items.length > 0 && (
-        <InfiniteMenu items={items} scale={1.1} />
+        <div style={{ width: '100vw', height: '100vh' }}>
+          <DomeGallery
+            fit={1}
+            images={items}
+            minRadius={600}
+            maxVerticalRotationDeg={0}
+            segments={34}
+            dragDampening={2}
+            grayscale
+          />
+        </div>
       )}
     </div>
   );

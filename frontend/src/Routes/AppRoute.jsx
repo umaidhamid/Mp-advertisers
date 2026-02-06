@@ -67,7 +67,7 @@ const AppRoute = () => {
         {/* ❌ 404 (ALWAYS LAST, OUTSIDE LAYOUT) */}
         <Route path="*" element={<NotFound />} />
       </Routes>
-    </BrowserRouter>
+    </BrowserRouter> 
   );
 };
 
