@@ -19,7 +19,7 @@ const allowedOrigins = [
   "https://mp-advertisers.vercel.app", // your Vercel frontend
 ];
 
-// ✅ Enable CORS safely
+
 app.use(
   cors({
     origin: function (origin, callback) {

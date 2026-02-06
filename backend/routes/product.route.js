@@ -122,7 +122,7 @@ router.post("/uploadmsg",authMiddleware, async (req, res) => {
     });
   }
 });
-router.get("/getmessage",authMiddleware, async (req, res) => {
+router.get("/getmessage", async (req, res) => {
   try {
     const latestMessage = await message.findOne().sort({ createdAt: -1 });
 
